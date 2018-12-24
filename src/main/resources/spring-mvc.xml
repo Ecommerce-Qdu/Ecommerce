@@ -9,34 +9,39 @@
 
 
     <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash; 先匹配所有路径，然后排除不需要检查的路径 &ndash;&gt;-->
-            <!--<mvc:mapping path="/**"/>-->
+    <!--<mvc:interceptor>-->
+    <!--&lt;!&ndash; 先匹配所有路径，然后排除不需要检查的路径 &ndash;&gt;-->
+    <!--<mvc:mapping path="/**"/>-->
 
-            <!--<mvc:exclude-mapping path="/index.jsp"/>-->
-            <!--<mvc:exclude-mapping path="/Index.mvc"/>-->
-            <!--<mvc:exclude-mapping path="/projectlist.jsp"/>-->
-            <!--<mvc:exclude-mapping path="/Projectlist.mvc"/>-->
-            <!--<mvc:exclude-mapping path="/Projectlistpage.mvc"/>-->
-            <!--<mvc:exclude-mapping path="/RegisterType2.mvc"/>-->
-            <!--<mvc:exclude-mapping path="/images/**"/>-->
-            <!--<mvc:exclude-mapping path="/css/**"/>-->
-            <!--<mvc:exclude-mapping path="/js/**"/>-->
-            <!--<mvc:exclude-mapping path="/Login.mvc"/>-->
-            <!--<mvc:exclude-mapping path="/LoginBySms.mvc"/>-->
-            <!--<mvc:exclude-mapping path="/Register.mvc"/>-->
-            <!--<mvc:exclude-mapping path="/RegisterType2.mvc"/>-->
-            <!--<mvc:exclude-mapping path="/SendSms.mvc"/>-->
+    <!--<mvc:exclude-mapping path="/index.jsp"/>-->
+    <!--<mvc:exclude-mapping path="/Index.mvc"/>-->
+    <!--<mvc:exclude-mapping path="/projectlist.jsp"/>-->
+    <!--<mvc:exclude-mapping path="/Projectlist.mvc"/>-->
+    <!--<mvc:exclude-mapping path="/Projectlistpage.mvc"/>-->
+    <!--<mvc:exclude-mapping path="/RegisterType2.mvc"/>-->
+    <!--<mvc:exclude-mapping path="/images/**"/>-->
+    <!--<mvc:exclude-mapping path="/css/**"/>-->
+    <!--<mvc:exclude-mapping path="/js/**"/>-->
+    <!--<mvc:exclude-mapping path="/Login.mvc"/>-->
+    <!--<mvc:exclude-mapping path="/LoginBySms.mvc"/>-->
+    <!--<mvc:exclude-mapping path="/Register.mvc"/>-->
+    <!--<mvc:exclude-mapping path="/RegisterType2.mvc"/>-->
+    <!--<mvc:exclude-mapping path="/SendSms.mvc"/>-->
 
-            <!--&lt;!&ndash; 用户是否已经登录的检查 &ndash;&gt;-->
-            <!--&lt;!&ndash;<bean id="loginInterceptor" class="com.niit.interceptor.LoginInterceptor"></bean>&ndash;&gt;-->
-        <!--</mvc:interceptor>-->
+    <!--&lt;!&ndash; 用户是否已经登录的检查 &ndash;&gt;-->
+    <!--&lt;!&ndash;<bean id="loginInterceptor" class="com.niit.interceptor.LoginInterceptor"></bean>&ndash;&gt;-->
+    <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
 
     <!-- 1:启动SpringMVC基于注解的默认配置,因为默认是基于xml的 -->
     <mvc:annotation-driven/>
     <!-- 2.扫描创建类 -->
     <context:component-scan base-package="com.niit.controller"/>
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value=""></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
     <!-- 上传文件 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"/>
@@ -45,4 +50,9 @@
         <!-- 最大文件大小，-1为不限制大小 -->
         <property name="maxUploadSize" value="-1"/>
     </bean>
+    <!-- 使用/请求不加载 js/css/img 静态资源 设置放行 -->
+    <mvc:resources location="/js/" mapping="/js/**"/>
+
+    <!-- 设置主页 -->
+    <mvc:view-controller path="/" view-name="index"/>
 </beans>

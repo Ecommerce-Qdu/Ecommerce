@@ -1,5 +1,7 @@
-# Ecommerce
+# TeamProject github
+大三下学期学期项目
 
-# 大四学期项目
-  购物商城
-  ssm
+
+ecommerce，融资和众筹的组合
+
+Spring5+SpringMVC+Hibernate5+SqlServer

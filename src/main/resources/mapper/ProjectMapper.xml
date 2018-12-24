@@ -7,17 +7,22 @@
     <result column="PName" property="pname" jdbcType="VARCHAR" />
     <result column="PDesc" property="pdesc" jdbcType="VARCHAR" />
     <result column="PSD" property="psd" jdbcType="TIMESTAMP" />
-    <result column="PNM" property="pnm" jdbcType="INTEGER" />
+    <result column="PED" property="ped" jdbcType="TIMESTAMP" />
+    <result column="PTarget" property="ptarget" jdbcType="DECIMAL" />
+    <result column="PNM" property="pnm" jdbcType="DECIMAL" />
+    <result column="PNP" property="pnp" jdbcType="INTEGER" />
+    <result column="PMilestone" property="pmilestone" jdbcType="VARCHAR" />
     <result column="PCategoryId" property="pcategoryid" jdbcType="INTEGER" />
     <result column="PRemark" property="premark" jdbcType="VARCHAR" />
+    <result column="PMF" property="pmf" jdbcType="INTEGER" />
+    <result column="PLimit" property="plimit" jdbcType="INTEGER" />
+    <result column="PTeam" property="pteam" jdbcType="VARCHAR" />
     <result column="PState" property="pstate" jdbcType="INTEGER" />
-    <result column="PWeight" property="pweight" jdbcType="DECIMAL" />
-    <result column="PPrice" property="pprice" jdbcType="DECIMAL" />
-    <result column="PBrand" property="pbrand" jdbcType="VARCHAR" />
+    <result column="PPlan" property="pplan" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    PId, UPhone, PName, PDesc, PSD, PNM, PCategoryId, PRemark, PState, PWeight, PPrice, 
-    PBrand
+    PId, UPhone, PName, PDesc, PSD, PED, PTarget, PNM, PNP, PMilestone, PCategoryId, 
+    PRemark, PMF, PLimit, PTeam, PState, PPlan
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -31,15 +36,17 @@
   </delete>
   <insert id="insert" parameterType="com.niit.entity.Project" >
     insert into project (PId, UPhone, PName, 
-      PDesc, PSD, PNM, 
-      PCategoryId, PRemark, PState, 
-      PWeight, PPrice, PBrand
-      )
+      PDesc, PSD, PED, 
+      PTarget, PNM, PNP, 
+      PMilestone, PCategoryId, PRemark, 
+      PMF, PLimit, PTeam, 
+      PState, PPlan)
     values (#{pid,jdbcType=INTEGER}, #{uphone,jdbcType=VARCHAR}, #{pname,jdbcType=VARCHAR}, 
-      #{pdesc,jdbcType=VARCHAR}, #{psd,jdbcType=TIMESTAMP}, #{pnm,jdbcType=INTEGER}, 
-      #{pcategoryid,jdbcType=INTEGER}, #{premark,jdbcType=VARCHAR}, #{pstate,jdbcType=INTEGER}, 
-      #{pweight,jdbcType=DECIMAL}, #{pprice,jdbcType=DECIMAL}, #{pbrand,jdbcType=VARCHAR}
-      )
+      #{pdesc,jdbcType=VARCHAR}, #{psd,jdbcType=TIMESTAMP}, #{ped,jdbcType=TIMESTAMP}, 
+      #{ptarget,jdbcType=DECIMAL}, #{pnm,jdbcType=DECIMAL}, #{pnp,jdbcType=INTEGER}, 
+      #{pmilestone,jdbcType=VARCHAR}, #{pcategoryid,jdbcType=INTEGER}, #{premark,jdbcType=VARCHAR}, 
+      #{pmf,jdbcType=INTEGER}, #{plimit,jdbcType=INTEGER}, #{pteam,jdbcType=VARCHAR}, 
+      #{pstate,jdbcType=INTEGER}, #{pplan,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.niit.entity.Project" >
     insert into project
@@ -59,8 +66,20 @@
       <if test="psd != null" >
         PSD,
       </if>
+      <if test="ped != null" >
+        PED,
+      </if>
+      <if test="ptarget != null" >
+        PTarget,
+      </if>
       <if test="pnm != null" >
         PNM,
+      </if>
+      <if test="pnp != null" >
+        PNP,
+      </if>
+      <if test="pmilestone != null" >
+        PMilestone,
       </if>
       <if test="pcategoryid != null" >
         PCategoryId,
@@ -68,17 +87,20 @@
       <if test="premark != null" >
         PRemark,
       </if>
+      <if test="pmf != null" >
+        PMF,
+      </if>
+      <if test="plimit != null" >
+        PLimit,
+      </if>
+      <if test="pteam != null" >
+        PTeam,
+      </if>
       <if test="pstate != null" >
         PState,
       </if>
-      <if test="pweight != null" >
-        PWeight,
-      </if>
-      <if test="pprice != null" >
-        PPrice,
-      </if>
-      <if test="pbrand != null" >
-        PBrand,
+      <if test="pplan != null" >
+        PPlan,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -97,8 +119,20 @@
       <if test="psd != null" >
         #{psd,jdbcType=TIMESTAMP},
       </if>
+      <if test="ped != null" >
+        #{ped,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ptarget != null" >
+        #{ptarget,jdbcType=DECIMAL},
+      </if>
       <if test="pnm != null" >
-        #{pnm,jdbcType=INTEGER},
+        #{pnm,jdbcType=DECIMAL},
+      </if>
+      <if test="pnp != null" >
+        #{pnp,jdbcType=INTEGER},
+      </if>
+      <if test="pmilestone != null" >
+        #{pmilestone,jdbcType=VARCHAR},
       </if>
       <if test="pcategoryid != null" >
         #{pcategoryid,jdbcType=INTEGER},
@@ -106,17 +140,20 @@
       <if test="premark != null" >
         #{premark,jdbcType=VARCHAR},
       </if>
+      <if test="pmf != null" >
+        #{pmf,jdbcType=INTEGER},
+      </if>
+      <if test="plimit != null" >
+        #{plimit,jdbcType=INTEGER},
+      </if>
+      <if test="pteam != null" >
+        #{pteam,jdbcType=VARCHAR},
+      </if>
       <if test="pstate != null" >
         #{pstate,jdbcType=INTEGER},
       </if>
-      <if test="pweight != null" >
-        #{pweight,jdbcType=DECIMAL},
-      </if>
-      <if test="pprice != null" >
-        #{pprice,jdbcType=DECIMAL},
-      </if>
-      <if test="pbrand != null" >
-        #{pbrand,jdbcType=VARCHAR},
+      <if test="pplan != null" >
+        #{pplan,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -135,8 +172,20 @@
       <if test="psd != null" >
         PSD = #{psd,jdbcType=TIMESTAMP},
       </if>
+      <if test="ped != null" >
+        PED = #{ped,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ptarget != null" >
+        PTarget = #{ptarget,jdbcType=DECIMAL},
+      </if>
       <if test="pnm != null" >
-        PNM = #{pnm,jdbcType=INTEGER},
+        PNM = #{pnm,jdbcType=DECIMAL},
+      </if>
+      <if test="pnp != null" >
+        PNP = #{pnp,jdbcType=INTEGER},
+      </if>
+      <if test="pmilestone != null" >
+        PMilestone = #{pmilestone,jdbcType=VARCHAR},
       </if>
       <if test="pcategoryid != null" >
         PCategoryId = #{pcategoryid,jdbcType=INTEGER},
@@ -144,17 +193,20 @@
       <if test="premark != null" >
         PRemark = #{premark,jdbcType=VARCHAR},
       </if>
+      <if test="pmf != null" >
+        PMF = #{pmf,jdbcType=INTEGER},
+      </if>
+      <if test="plimit != null" >
+        PLimit = #{plimit,jdbcType=INTEGER},
+      </if>
+      <if test="pteam != null" >
+        PTeam = #{pteam,jdbcType=VARCHAR},
+      </if>
       <if test="pstate != null" >
         PState = #{pstate,jdbcType=INTEGER},
       </if>
-      <if test="pweight != null" >
-        PWeight = #{pweight,jdbcType=DECIMAL},
-      </if>
-      <if test="pprice != null" >
-        PPrice = #{pprice,jdbcType=DECIMAL},
-      </if>
-      <if test="pbrand != null" >
-        PBrand = #{pbrand,jdbcType=VARCHAR},
+      <if test="pplan != null" >
+        PPlan = #{pplan,jdbcType=VARCHAR},
       </if>
     </set>
     where PId = #{pid,jdbcType=INTEGER}
@@ -165,13 +217,18 @@
       PName = #{pname,jdbcType=VARCHAR},
       PDesc = #{pdesc,jdbcType=VARCHAR},
       PSD = #{psd,jdbcType=TIMESTAMP},
-      PNM = #{pnm,jdbcType=INTEGER},
+      PED = #{ped,jdbcType=TIMESTAMP},
+      PTarget = #{ptarget,jdbcType=DECIMAL},
+      PNM = #{pnm,jdbcType=DECIMAL},
+      PNP = #{pnp,jdbcType=INTEGER},
+      PMilestone = #{pmilestone,jdbcType=VARCHAR},
       PCategoryId = #{pcategoryid,jdbcType=INTEGER},
       PRemark = #{premark,jdbcType=VARCHAR},
+      PMF = #{pmf,jdbcType=INTEGER},
+      PLimit = #{plimit,jdbcType=INTEGER},
+      PTeam = #{pteam,jdbcType=VARCHAR},
       PState = #{pstate,jdbcType=INTEGER},
-      PWeight = #{pweight,jdbcType=DECIMAL},
-      PPrice = #{pprice,jdbcType=DECIMAL},
-      PBrand = #{pbrand,jdbcType=VARCHAR}
+      PPlan = #{pplan,jdbcType=VARCHAR}
     where PId = #{pid,jdbcType=INTEGER}
   </update>
 </mapper>

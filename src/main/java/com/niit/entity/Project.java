@@ -14,19 +14,29 @@ public class Project {
 
     private Date psd;
 
-    private Integer pnm;
+    private Date ped;
+
+    private BigDecimal ptarget;
+
+    private BigDecimal pnm;
+
+    private Integer pnp;
+
+    private String pmilestone;
 
     private Integer pcategoryid;
 
     private String premark;
 
+    private Integer pmf;
+
+    private Integer plimit;
+
+    private String pteam;
+
     private Integer pstate;
 
-    private BigDecimal pweight;
-
-    private BigDecimal pprice;
-
-    private String pbrand;
+    private String pplan;
 
     public Integer getPid() {
         return pid;
@@ -68,12 +78,44 @@ public class Project {
         this.psd = psd;
     }
 
-    public Integer getPnm() {
+    public Date getPed() {
+        return ped;
+    }
+
+    public void setPed(Date ped) {
+        this.ped = ped;
+    }
+
+    public BigDecimal getPtarget() {
+        return ptarget;
+    }
+
+    public void setPtarget(BigDecimal ptarget) {
+        this.ptarget = ptarget;
+    }
+
+    public BigDecimal getPnm() {
         return pnm;
     }
 
-    public void setPnm(Integer pnm) {
+    public void setPnm(BigDecimal pnm) {
         this.pnm = pnm;
+    }
+
+    public Integer getPnp() {
+        return pnp;
+    }
+
+    public void setPnp(Integer pnp) {
+        this.pnp = pnp;
+    }
+
+    public String getPmilestone() {
+        return pmilestone;
+    }
+
+    public void setPmilestone(String pmilestone) {
+        this.pmilestone = pmilestone == null ? null : pmilestone.trim();
     }
 
     public Integer getPcategoryid() {
@@ -92,6 +134,30 @@ public class Project {
         this.premark = premark == null ? null : premark.trim();
     }
 
+    public Integer getPmf() {
+        return pmf;
+    }
+
+    public void setPmf(Integer pmf) {
+        this.pmf = pmf;
+    }
+
+    public Integer getPlimit() {
+        return plimit;
+    }
+
+    public void setPlimit(Integer plimit) {
+        this.plimit = plimit;
+    }
+
+    public String getPteam() {
+        return pteam;
+    }
+
+    public void setPteam(String pteam) {
+        this.pteam = pteam == null ? null : pteam.trim();
+    }
+
     public Integer getPstate() {
         return pstate;
     }
@@ -100,27 +166,11 @@ public class Project {
         this.pstate = pstate;
     }
 
-    public BigDecimal getPweight() {
-        return pweight;
+    public String getPplan() {
+        return pplan;
     }
 
-    public void setPweight(BigDecimal pweight) {
-        this.pweight = pweight;
-    }
-
-    public BigDecimal getPprice() {
-        return pprice;
-    }
-
-    public void setPprice(BigDecimal pprice) {
-        this.pprice = pprice;
-    }
-
-    public String getPbrand() {
-        return pbrand;
-    }
-
-    public void setPbrand(String pbrand) {
-        this.pbrand = pbrand == null ? null : pbrand.trim();
+    public void setPplan(String pplan) {
+        this.pplan = pplan == null ? null : pplan.trim();
     }
 }
