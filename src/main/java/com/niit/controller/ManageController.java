@@ -31,15 +31,15 @@ public class ManageController {
         System.out.println("Manage.mvc");
         Users user = (Users) session.getAttribute("user");
 
-        String uphone = user.getuPhone();
+        String uphone = user.getUphone();
         System.out.println("uphone = " + uphone);
 
 
-        List<Orders> myorders = userBiz.findAllOrder(user.getuPhone());
+        List<Orders> myorders = userBiz.findAllOrder(user.getUphone());
         System.out.println("myorders = " + myorders.size());
-        List<Project> mynewprojects = userBiz.findAllUserProject(user.getuPhone());
+        List<Project> mynewprojects = userBiz.findAllUserProject(user.getUphone());
         System.out.println("myorders = " + myorders.size());
-        List<ProjectComment> mycomments = userBiz.findAllUserProjectComment(user.getuPhone());
+        List<ProjectComment> mycomments = userBiz.findAllUserProjectComment(user.getUphone());
         System.out.println("myorders = " + myorders.size());
 
 
@@ -61,7 +61,7 @@ public class ManageController {
         Users user = (Users) session.getAttribute("user");
         String pwd = user.getuPwd();
         if (newpwd.equals(newpwd2) && pwd.equals(DigestUtils.md5Hex(nowpwd))) {
-            boolean isok = userBiz.changepwd(user.getuPhone(), DigestUtils.md5Hex(newpwd));
+            boolean isok = userBiz.changepwd(user.getUphone(), DigestUtils.md5Hex(newpwd));
             if (isok) {
                 map.addAttribute("msg", "修改密码成功");
                 map.addAttribute("url", "Checkout.mvc");
@@ -120,7 +120,7 @@ public class ManageController {
     public ModelAndView SaveToWord(ModelMap map, HttpSession session) throws IOException {
 
         Users user = (Users) session.getAttribute("user");
-        List<Orders> myorders = userBiz.findAllOrder(user.getuPhone());
+        List<Orders> myorders = userBiz.findAllOrder(user.getUphone());
 
         String uuid = saveToWord.createWord(myorders);
 

@@ -28,14 +28,14 @@ public class UserBizImp implements IUserBiz {
     public String RegisterUser(Users u) {
 //
 //        //根据手机号查询用户
-//        Users user = usersDao.findByPhone(u.getuPhone());
+//        Users user = usersDao.findByPhone(u.getUphone());
 //
 //        //判断用户是否存在
 //        boolean PhoneExistFlag = true;
 //        try {
 //            if (null == user)
 //                PhoneExistFlag = false;
-//            if (user.getuPhone().equals(u.getuPhone())) {
+//            if (user.getUphone().equals(u.getUphone())) {
 //                PhoneExistFlag = true;
 //            } else {
 //                PhoneExistFlag = false;

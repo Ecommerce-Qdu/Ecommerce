@@ -48,7 +48,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         if (beFilter == true) {
 
             Users loginUser = (Users) request.getSession().getAttribute("user");
-            if (loginUser == null || loginUser.getuPhone() == null || loginUser.getuPhone() == "") {
+            if (loginUser == null || loginUser.getUphone() == null || loginUser.getUphone() == "") {
 
                 String loginCookieUserName = "";
                 String loginCookiePassword = "";

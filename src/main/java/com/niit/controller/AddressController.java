@@ -21,7 +21,7 @@ public class AddressController {
     public String GetAddress(HttpServletRequest req, ModelMap map) {
         System.out.println("获取全部地址");
         Users user = (Users) req.getSession().getAttribute("user");
-        List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());
+        List<UsersAddress> list = userBiz.findAllAddress(user.getUphone());
         System.out.println("list = " + list.size());
         map.addAttribute("addr", list);
         map.addAttribute("getaddrok", 1);
@@ -45,7 +45,7 @@ public class AddressController {
         }
         map.addAttribute("url", "manage_address.jsp");
 
-        List<UsersAddress> list = userBiz.findAllAddress(user.getuPhone());
+        List<UsersAddress> list = userBiz.findAllAddress(user.getUphone());
         System.out.println("list = " + list.size());
         session.setAttribute("addr", list);
         return "msg.jsp";

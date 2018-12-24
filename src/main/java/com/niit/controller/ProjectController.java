@@ -49,7 +49,7 @@ public class ProjectController {
             ProjectType projectType = new ProjectType();
             projectType.setProjectTypeId(ppid);
             Users u = (Users) session.getAttribute("user");
-            String phone = u.getuPhone();
+            String phone = u.getUphone();
             System.out.println("checkForm");
 
             project = new Project(PName, PDesc, tss, tse, pt,
@@ -214,7 +214,7 @@ public class ProjectController {
             ProjectType projectType = new ProjectType();
             projectType.setProjectTypeId(ppid);
             Users u = (Users) session.getAttribute("user");
-            String phone = u.getuPhone();
+            String phone = u.getUphone();
             System.out.println("phone = " + phone);
             project = (Project) session.getAttribute("updateproject");
             System.out.println("project = " + project);
@@ -274,7 +274,7 @@ public class ProjectController {
         //检查用户是否有地址
         try {
             Users user = (Users) session.getAttribute("user");
-            List<UsersAddress> addrlist = userBiz.findAllAddress(user.getuPhone());
+            List<UsersAddress> addrlist = userBiz.findAllAddress(user.getUphone());
             if (addrlist == null || addrlist.size() == 0 || addrlist.get(0).getAddress() == null || addrlist.get(0).getAddress() == "") {
                 return "redirect:manage.jsp?mangetype=manageaddr";
             } else {
