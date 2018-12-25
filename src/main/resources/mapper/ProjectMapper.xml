@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.niit.dao.ProjectMapper" >
-  <resultMap id="BaseResultMap" type="com.niit.entity.Project" >
-    <id column="PId" property="pid" jdbcType="INTEGER" />
-    <result column="UPhone" property="uphone" jdbcType="VARCHAR" />
-    <result column="PName" property="pname" jdbcType="VARCHAR" />
-    <result column="PDesc" property="pdesc" jdbcType="VARCHAR" />
-    <result column="PSD" property="psd" jdbcType="TIMESTAMP" />
-    <result column="PED" property="ped" jdbcType="TIMESTAMP" />
-    <result column="PTarget" property="ptarget" jdbcType="DECIMAL" />
-    <result column="PNM" property="pnm" jdbcType="DECIMAL" />
-    <result column="PNP" property="pnp" jdbcType="INTEGER" />
-    <result column="PMilestone" property="pmilestone" jdbcType="VARCHAR" />
-    <result column="PCategoryId" property="pcategoryid" jdbcType="INTEGER" />
-    <result column="PRemark" property="premark" jdbcType="VARCHAR" />
-    <result column="PMF" property="pmf" jdbcType="INTEGER" />
-    <result column="PLimit" property="plimit" jdbcType="INTEGER" />
-    <result column="PTeam" property="pteam" jdbcType="VARCHAR" />
-    <result column="PState" property="pstate" jdbcType="INTEGER" />
-    <result column="PPlan" property="pplan" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.niit.dao.ProjectMapper">
+    <resultMap id="BaseResultMap" type="com.niit.entity.Project">
+        <id column="PId" property="pid" jdbcType="INTEGER"/>
+        <result column="UPhone" property="uphone" jdbcType="VARCHAR"/>
+        <result column="PName" property="pname" jdbcType="VARCHAR"/>
+        <result column="PDesc" property="pdesc" jdbcType="VARCHAR"/>
+        <result column="PSD" property="psd" jdbcType="TIMESTAMP"/>
+        <result column="PED" property="ped" jdbcType="TIMESTAMP"/>
+        <result column="PTarget" property="ptarget" jdbcType="DECIMAL"/>
+        <result column="PNM" property="pnm" jdbcType="DECIMAL"/>
+        <result column="PNP" property="pnp" jdbcType="INTEGER"/>
+        <result column="PMilestone" property="pmilestone" jdbcType="VARCHAR"/>
+        <result column="PCategoryId" property="pcategoryid" jdbcType="INTEGER"/>
+        <result column="PRemark" property="premark" jdbcType="VARCHAR"/>
+        <result column="PMF" property="pmf" jdbcType="INTEGER"/>
+        <result column="PLimit" property="plimit" jdbcType="INTEGER"/>
+        <result column="PTeam" property="pteam" jdbcType="VARCHAR"/>
+        <result column="PState" property="pstate" jdbcType="INTEGER"/>
+        <result column="PPlan" property="pplan" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     PId, UPhone, PName, PDesc, PSD, PED, PTarget, PNM, PNP, PMilestone, PCategoryId, 
     PRemark, PMF, PLimit, PTeam, PState, PPlan
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from project
-    where PId = #{pid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from project
+        where PId = #{pid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from project
     where PId = #{pid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.niit.entity.Project" >
+    <insert id="insert" parameterType="com.niit.entity.Project">
     insert into project (PId, UPhone, PName, 
       PDesc, PSD, PED, 
       PTarget, PNM, PNP, 
@@ -48,170 +48,170 @@
       #{pmf,jdbcType=INTEGER}, #{plimit,jdbcType=INTEGER}, #{pteam,jdbcType=VARCHAR}, 
       #{pstate,jdbcType=INTEGER}, #{pplan,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.niit.entity.Project" >
-    insert into project
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="pid != null" >
-        PId,
-      </if>
-      <if test="uphone != null" >
-        UPhone,
-      </if>
-      <if test="pname != null" >
-        PName,
-      </if>
-      <if test="pdesc != null" >
-        PDesc,
-      </if>
-      <if test="psd != null" >
-        PSD,
-      </if>
-      <if test="ped != null" >
-        PED,
-      </if>
-      <if test="ptarget != null" >
-        PTarget,
-      </if>
-      <if test="pnm != null" >
-        PNM,
-      </if>
-      <if test="pnp != null" >
-        PNP,
-      </if>
-      <if test="pmilestone != null" >
-        PMilestone,
-      </if>
-      <if test="pcategoryid != null" >
-        PCategoryId,
-      </if>
-      <if test="premark != null" >
-        PRemark,
-      </if>
-      <if test="pmf != null" >
-        PMF,
-      </if>
-      <if test="plimit != null" >
-        PLimit,
-      </if>
-      <if test="pteam != null" >
-        PTeam,
-      </if>
-      <if test="pstate != null" >
-        PState,
-      </if>
-      <if test="pplan != null" >
-        PPlan,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="pid != null" >
-        #{pid,jdbcType=INTEGER},
-      </if>
-      <if test="uphone != null" >
-        #{uphone,jdbcType=VARCHAR},
-      </if>
-      <if test="pname != null" >
-        #{pname,jdbcType=VARCHAR},
-      </if>
-      <if test="pdesc != null" >
-        #{pdesc,jdbcType=VARCHAR},
-      </if>
-      <if test="psd != null" >
-        #{psd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ped != null" >
-        #{ped,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ptarget != null" >
-        #{ptarget,jdbcType=DECIMAL},
-      </if>
-      <if test="pnm != null" >
-        #{pnm,jdbcType=DECIMAL},
-      </if>
-      <if test="pnp != null" >
-        #{pnp,jdbcType=INTEGER},
-      </if>
-      <if test="pmilestone != null" >
-        #{pmilestone,jdbcType=VARCHAR},
-      </if>
-      <if test="pcategoryid != null" >
-        #{pcategoryid,jdbcType=INTEGER},
-      </if>
-      <if test="premark != null" >
-        #{premark,jdbcType=VARCHAR},
-      </if>
-      <if test="pmf != null" >
-        #{pmf,jdbcType=INTEGER},
-      </if>
-      <if test="plimit != null" >
-        #{plimit,jdbcType=INTEGER},
-      </if>
-      <if test="pteam != null" >
-        #{pteam,jdbcType=VARCHAR},
-      </if>
-      <if test="pstate != null" >
-        #{pstate,jdbcType=INTEGER},
-      </if>
-      <if test="pplan != null" >
-        #{pplan,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.Project" >
-    update project
-    <set >
-      <if test="uphone != null" >
-        UPhone = #{uphone,jdbcType=VARCHAR},
-      </if>
-      <if test="pname != null" >
-        PName = #{pname,jdbcType=VARCHAR},
-      </if>
-      <if test="pdesc != null" >
-        PDesc = #{pdesc,jdbcType=VARCHAR},
-      </if>
-      <if test="psd != null" >
-        PSD = #{psd,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ped != null" >
-        PED = #{ped,jdbcType=TIMESTAMP},
-      </if>
-      <if test="ptarget != null" >
-        PTarget = #{ptarget,jdbcType=DECIMAL},
-      </if>
-      <if test="pnm != null" >
-        PNM = #{pnm,jdbcType=DECIMAL},
-      </if>
-      <if test="pnp != null" >
-        PNP = #{pnp,jdbcType=INTEGER},
-      </if>
-      <if test="pmilestone != null" >
-        PMilestone = #{pmilestone,jdbcType=VARCHAR},
-      </if>
-      <if test="pcategoryid != null" >
-        PCategoryId = #{pcategoryid,jdbcType=INTEGER},
-      </if>
-      <if test="premark != null" >
-        PRemark = #{premark,jdbcType=VARCHAR},
-      </if>
-      <if test="pmf != null" >
-        PMF = #{pmf,jdbcType=INTEGER},
-      </if>
-      <if test="plimit != null" >
-        PLimit = #{plimit,jdbcType=INTEGER},
-      </if>
-      <if test="pteam != null" >
-        PTeam = #{pteam,jdbcType=VARCHAR},
-      </if>
-      <if test="pstate != null" >
-        PState = #{pstate,jdbcType=INTEGER},
-      </if>
-      <if test="pplan != null" >
-        PPlan = #{pplan,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where PId = #{pid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.niit.entity.Project" >
+    <insert id="insertSelective" parameterType="com.niit.entity.Project">
+        insert into project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pid != null">
+                PId,
+            </if>
+            <if test="uphone != null">
+                UPhone,
+            </if>
+            <if test="pname != null">
+                PName,
+            </if>
+            <if test="pdesc != null">
+                PDesc,
+            </if>
+            <if test="psd != null">
+                PSD,
+            </if>
+            <if test="ped != null">
+                PED,
+            </if>
+            <if test="ptarget != null">
+                PTarget,
+            </if>
+            <if test="pnm != null">
+                PNM,
+            </if>
+            <if test="pnp != null">
+                PNP,
+            </if>
+            <if test="pmilestone != null">
+                PMilestone,
+            </if>
+            <if test="pcategoryid != null">
+                PCategoryId,
+            </if>
+            <if test="premark != null">
+                PRemark,
+            </if>
+            <if test="pmf != null">
+                PMF,
+            </if>
+            <if test="plimit != null">
+                PLimit,
+            </if>
+            <if test="pteam != null">
+                PTeam,
+            </if>
+            <if test="pstate != null">
+                PState,
+            </if>
+            <if test="pplan != null">
+                PPlan,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pid != null">
+                #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="uphone != null">
+                #{uphone,jdbcType=VARCHAR},
+            </if>
+            <if test="pname != null">
+                #{pname,jdbcType=VARCHAR},
+            </if>
+            <if test="pdesc != null">
+                #{pdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="psd != null">
+                #{psd,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ped != null">
+                #{ped,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ptarget != null">
+                #{ptarget,jdbcType=DECIMAL},
+            </if>
+            <if test="pnm != null">
+                #{pnm,jdbcType=DECIMAL},
+            </if>
+            <if test="pnp != null">
+                #{pnp,jdbcType=INTEGER},
+            </if>
+            <if test="pmilestone != null">
+                #{pmilestone,jdbcType=VARCHAR},
+            </if>
+            <if test="pcategoryid != null">
+                #{pcategoryid,jdbcType=INTEGER},
+            </if>
+            <if test="premark != null">
+                #{premark,jdbcType=VARCHAR},
+            </if>
+            <if test="pmf != null">
+                #{pmf,jdbcType=INTEGER},
+            </if>
+            <if test="plimit != null">
+                #{plimit,jdbcType=INTEGER},
+            </if>
+            <if test="pteam != null">
+                #{pteam,jdbcType=VARCHAR},
+            </if>
+            <if test="pstate != null">
+                #{pstate,jdbcType=INTEGER},
+            </if>
+            <if test="pplan != null">
+                #{pplan,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.Project">
+        update project
+        <set>
+            <if test="uphone != null">
+                UPhone = #{uphone,jdbcType=VARCHAR},
+            </if>
+            <if test="pname != null">
+                PName = #{pname,jdbcType=VARCHAR},
+            </if>
+            <if test="pdesc != null">
+                PDesc = #{pdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="psd != null">
+                PSD = #{psd,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ped != null">
+                PED = #{ped,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ptarget != null">
+                PTarget = #{ptarget,jdbcType=DECIMAL},
+            </if>
+            <if test="pnm != null">
+                PNM = #{pnm,jdbcType=DECIMAL},
+            </if>
+            <if test="pnp != null">
+                PNP = #{pnp,jdbcType=INTEGER},
+            </if>
+            <if test="pmilestone != null">
+                PMilestone = #{pmilestone,jdbcType=VARCHAR},
+            </if>
+            <if test="pcategoryid != null">
+                PCategoryId = #{pcategoryid,jdbcType=INTEGER},
+            </if>
+            <if test="premark != null">
+                PRemark = #{premark,jdbcType=VARCHAR},
+            </if>
+            <if test="pmf != null">
+                PMF = #{pmf,jdbcType=INTEGER},
+            </if>
+            <if test="plimit != null">
+                PLimit = #{plimit,jdbcType=INTEGER},
+            </if>
+            <if test="pteam != null">
+                PTeam = #{pteam,jdbcType=VARCHAR},
+            </if>
+            <if test="pstate != null">
+                PState = #{pstate,jdbcType=INTEGER},
+            </if>
+            <if test="pplan != null">
+                PPlan = #{pplan,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where PId = #{pid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.niit.entity.Project">
     update project
     set UPhone = #{uphone,jdbcType=VARCHAR},
       PName = #{pname,jdbcType=VARCHAR},
@@ -231,4 +231,9 @@
       PPlan = #{pplan,jdbcType=VARCHAR}
     where PId = #{pid,jdbcType=INTEGER}
   </update>
+
+    <select id="findHotProject" resultType="com.niit.entity.Project">
+    select * from project order by pnm desc
+  </select>
+
 </mapper>

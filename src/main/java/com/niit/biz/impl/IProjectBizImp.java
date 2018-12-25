@@ -26,16 +26,16 @@ public class IProjectBizImp implements IProjectBiz {
 
     @Override
     public List<Project> findHotProject() {
-        Project p1 = new Project();
-        p1.setPid(1);
-        p1.setPname("1");
-        p1.setPcategoryid(1);
-
-        List<Project> pl1= new ArrayList<>();
-        pl1.add(p1);
-
-        return  pl1;
-//        return projectDao.findHotProject();
+//        Project p1 = new Project();
+//        p1.setPid(1);
+//        p1.setPname("1");
+//        p1.setPcategoryid(1);
+//
+//        List<Project> pl1= new ArrayList<>();
+//        pl1.add(p1);
+//
+//        return  pl1;
+        return projectDao.findHotProject();
     }
 
     @Override

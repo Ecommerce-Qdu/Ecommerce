@@ -20,6 +20,9 @@
 <div id="myCarousel" class="carousel slide">
     <!-- 轮播（Carousel）指标 -->
     <ol class="carousel-indicators">
+        <c:if test="${hot==null}">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        </c:if>
         <c:forEach items="${hot}" var="ad" varStatus="vs" begin="0" end="0">
             <li data-target="#myCarousel" data-slide-to="${vs.count}" class="active"></li>
         </c:forEach>
@@ -29,7 +32,13 @@
     </ol>
     <!-- 轮播（Carousel）项目 -->
     <div class="carousel-inner">
+        <%--<c:if test="${hotimglist==null}">--%>
 
+            <div class="item active">
+                <img class="cimg" src="images/logo.png" alt="0" onclick="">
+            </div>
+
+        <%--</c:if>--%>
 
         <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="0" end="0">
             <div class="item active">

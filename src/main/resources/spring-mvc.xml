@@ -53,6 +53,4 @@
     <!-- 使用/请求不加载 js/css/img 静态资源 设置放行 -->
     <mvc:resources location="/js/" mapping="/js/**"/>
 
-    <!-- 设置主页 -->
-    <mvc:view-controller path="/" view-name="index"/>
 </beans>

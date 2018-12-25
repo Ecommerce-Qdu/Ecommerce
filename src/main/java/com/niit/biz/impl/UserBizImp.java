@@ -26,46 +26,46 @@ public class UserBizImp implements IUserBiz {
     //注册业务
     @Override
     public String RegisterUser(Users u) {
-//
-//        //根据手机号查询用户
-//        Users user = usersDao.findByPhone(u.getUphone());
-//
-//        //判断用户是否存在
-//        boolean PhoneExistFlag = true;
-//        try {
-//            if (null == user)
-//                PhoneExistFlag = false;
-//            if (user.getUphone().equals(u.getUphone())) {
-//                PhoneExistFlag = true;
-//            } else {
-//                PhoneExistFlag = false;
-//            }
-//        } catch (Exception e) {
-//            PhoneExistFlag = false;
-//        }
-//
-//        if (PhoneExistFlag) {
-//            System.out.println("biz:手机号已存在!");
-//            return "UserExisted";
-//        } else {
-//            System.out.println("biz:手机号不存在");
-//
-//            if (u.getuType() == 1) {
-//                if (usersDao.save(u)) {
-//                    System.out.println("biz:注册成功");
-//                    return "ok";
-//                } else {
-//                    System.out.println("biz:注册失败");
-//                    return "error";
-//                }
-//            } else {
-//                System.out.println("biz:用户类型为2");
-//                return "Type2";
-//            }
-//        }
+
+        //根据手机号查询用户
+        Users user = usersDao.findByPhone(u.getUphone());
+
+        //判断用户是否存在
+        boolean PhoneExistFlag = true;
+        try {
+            if (null == user)
+                PhoneExistFlag = false;
+            if (user.getUphone().equals(u.getUphone())) {
+                PhoneExistFlag = true;
+            } else {
+                PhoneExistFlag = false;
+            }
+        } catch (Exception e) {
+            PhoneExistFlag = false;
+        }
+
+        if (PhoneExistFlag) {
+            System.out.println("biz:手机号已存在!");
+            return "UserExisted";
+        } else {
+            System.out.println("biz:手机号不存在");
+
+            if (u.getUtype() == 1) {
+                if (usersDao.insert(u)==1) {
+                    System.out.println("biz:注册成功");
+                    return "ok";
+                } else {
+                    System.out.println("biz:注册失败");
+                    return "error";
+                }
+            } else {
+                System.out.println("biz:用户类型为2");
+                return "Type2";
+            }
+        }
 
         //测试数据
-        return "ok";
+//        return "ok";
     }
 
     @Override

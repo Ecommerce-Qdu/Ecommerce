@@ -90,4 +90,11 @@
       UFlag = #{uflag,jdbcType=INTEGER}
     where UPhone = #{uphone,jdbcType=VARCHAR}
   </update>
+
+  <select id="findByPhone" resultType="com.niit.entity.Users" parameterType="java.lang.String" >
+    select
+    from users
+    where UPhone = #{uphone,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

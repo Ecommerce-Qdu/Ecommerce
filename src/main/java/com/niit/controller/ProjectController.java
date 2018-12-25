@@ -1,32 +1,32 @@
-//package com.niit.controller;
-//
-//import com.niit.biz.IProjectBiz;
-//import com.niit.biz.IUserBiz;
-//import com.niit.utils.Exchange;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.ModelMap;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.multipart.MultipartFile;
-//
-//import javax.servlet.http.HttpSession;
-//import java.io.File;
-//import java.math.BigDecimal;
-//import java.sql.Timestamp;
-//import java.text.ParseException;
-//import java.util.*;
-//
-//@Controller
-//public class ProjectController {
-//    @Autowired
-//    private IProjectBiz projectBiz;
-//    @Autowired
-//    private IUserBiz userBiz;
-//    @Autowired
-//    private Exchange exchange;
-//
+package com.niit.controller;
+
+import com.niit.biz.IProjectBiz;
+import com.niit.biz.IUserBiz;
+import com.niit.utils.Exchange;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.util.*;
+
+@Controller
+public class ProjectController {
+    @Autowired
+    private IProjectBiz projectBiz;
+    @Autowired
+    private IUserBiz userBiz;
+    @Autowired
+    private Exchange exchange;
+
 //    @RequestMapping(value = "AddProject.mvc", method = RequestMethod.POST)
 //    public String AddProject(ModelMap map, HttpSession session, String PName, String PDesc, String PSD, String PED, String PTarget, String
 //            PMilestone, String PCategoryId, String PRemark, String PMF, String PLimit, String PTeam, String PPlan) throws ParseException {
@@ -535,4 +535,4 @@
 //        return "projectlist.jsp";
 //    }
 //
-//}
+}
