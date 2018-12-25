@@ -84,17 +84,21 @@ public class IProjectBizImp implements IProjectBiz {
 
     @Override
     public int countproject() {
-        return projectDao.countproject();
+        return 1;
+//        return projectDao.countproject();
     }
 
     @Override
     public int supportnum() {
-        return projectDao.supportnum();
+        return 1;
+//        return projectDao.supportnum();
     }
 
     @Override
     public int countokpro() {
-        return projectDao.countokpro();
+
+        return 1;
+//        return projectDao.countokpro();
     }
 
     @Override
@@ -104,22 +108,53 @@ public class IProjectBizImp implements IProjectBiz {
 
     @Override
     public List<ProjectImg> findhotimg() {
-        return projectDao.findhotimg();
+        return  new ArrayList<>();
+//        return projectDao.findhotimg();
     }
 
     @Override
     public List<Project> findProject1() {
-        return projectDao.findProject1();
+
+        Project p1 = new Project();
+        p1.setPid(1);
+        p1.setPname("1");
+        p1.setPcategoryid(1);
+
+        List<Project> pl1= new ArrayList<>();
+        pl1.add(p1);
+
+        return  pl1;
+//        return projectDao.findProject1();
     }
 
     @Override
     public List<Project> findProject2() {
-        return projectDao.findProject2();
+        Project p1 = new Project();
+        p1.setPid(1);
+        p1.setPname("1");
+        p1.setPcategoryid(1);
+
+        List<Project> pl1= new ArrayList<>();
+        pl1.add(p1);
+
+        return  pl1;
+
+//        return projectDao.findProject2();
     }
 
     @Override
     public List<Project> findProject3() {
-        return projectDao.findProject3();
+        Project p1 = new Project();
+        p1.setPid(1);
+        p1.setPname("1");
+        p1.setPcategoryid(1);
+
+        List<Project> pl1= new ArrayList<>();
+        pl1.add(p1);
+
+        return  pl1;
+
+//        return projectDao.findProject3();
     }
 
     @Override

@@ -40,7 +40,7 @@
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value=""/>
-        <property name="suffix" value=".jsp"/>
+        <property name="suffix" value=""/>
     </bean>
     <!-- 上传文件 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
