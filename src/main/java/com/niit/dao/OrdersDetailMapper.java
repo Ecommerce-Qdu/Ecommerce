@@ -2,7 +2,9 @@ package com.niit.dao;
 
 import com.niit.entity.OrdersDetail;
 import com.niit.entity.OrdersDetailKey;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface OrdersDetailMapper {
     int deleteByPrimaryKey(OrdersDetailKey key);
 

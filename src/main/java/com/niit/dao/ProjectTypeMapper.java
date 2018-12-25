@@ -1,7 +1,9 @@
 package com.niit.dao;
 
 import com.niit.entity.ProjectType;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ProjectTypeMapper {
     int deleteByPrimaryKey(Integer projecttypeid);
 

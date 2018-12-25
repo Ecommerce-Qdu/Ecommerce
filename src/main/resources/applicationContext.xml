@@ -7,7 +7,9 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <import resource="applicationContext-mybatis.xml" />
     <!--开启包扫描 -->
+
     <context:component-scan base-package="com.niit">
         <!-- 扫描时跳过 @Controller 注解的JAVA类（控制器） -->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -30,7 +32,7 @@
     <!--&lt;!&ndash; 扫描sql配置文件:mapper需要的xml文件 &ndash;&gt;-->
     <!--<property name="mapperLocations" value="classpath:mapper/*.xml"/>-->
     <!--</bean>-->
-    <import resource="applicationContext-mybatis.xml" />
+
 
 </beans>
 

@@ -1,7 +1,9 @@
 package com.niit.dao;
 
 import com.niit.entity.ProjectComment;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ProjectCommentMapper {
     int deleteByPrimaryKey(Integer pcid);
 

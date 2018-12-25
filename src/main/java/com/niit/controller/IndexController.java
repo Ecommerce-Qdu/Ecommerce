@@ -23,6 +23,7 @@ import java.util.List;
  */
 @Controller
 public class IndexController {
+
     @Autowired
     private IProjectBiz projectBiz;
     @Autowired
@@ -46,7 +47,7 @@ public class IndexController {
             }
             if (!"".equals(loginCookieUserName) && !"".equals(loginCookiePassword)) {
                 Users user = userBiz.findUserByPhone(loginCookieUserName);
-                if (loginCookiePassword.equals(user.getuPwd())) {
+                if (loginCookiePassword.equals(user.getUpwd())) {
                     request.getSession().setAttribute("user", user);
                 }
             }
@@ -90,7 +91,7 @@ public class IndexController {
         session.setAttribute("hotimglist", hotimglist);
         for (int i = 0; i < hotimglist.size(); i++) {
             ProjectImg projectImg = hotimglist.get(i);
-            System.out.println("projectImg = " + projectImg.getImgPath());
+//            System.out.println("projectImg = " + projectImg.getImgPath());
         }
 
         session.setAttribute("hot", hot);

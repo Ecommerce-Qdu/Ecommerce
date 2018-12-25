@@ -64,7 +64,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                     }
                     if (!"".equals(loginCookieUserName) && !"".equals(loginCookiePassword)) {
                         Users user = userBiz.findUserByPhone(loginCookieUserName);
-                        if (loginCookiePassword.equals(user.getuPwd())) {
+                        if (loginCookiePassword.equals(user.getUpwd())) {
                             request.getSession().setAttribute("user", user);
                         }
                     }
