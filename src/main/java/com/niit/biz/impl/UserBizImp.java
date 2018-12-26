@@ -51,6 +51,7 @@ public class UserBizImp implements IUserBiz {
             System.out.println("biz:手机号不存在");
 
             if (u.getUtype() == 1) {
+                System.out.println("insert user:"+u.toString());
                 if (usersDao.insert(u)==1) {
                     System.out.println("biz:注册成功");
                     return "ok";

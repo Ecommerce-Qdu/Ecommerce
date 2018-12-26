@@ -65,17 +65,18 @@ public class SmsController {
         try {
             //指定模板单发短信；
             SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
-            SmsSingleSenderResult result = ssender.send(0, "86", Phonenum,
-                    msg, "", "");
-            System.out.print(result);
+//            SmsSingleSenderResult result = ssender.send(0, "86", Phonenum,
+//                    msg, "", "");
+//            System.out.print(result);
             return "success";
         } catch (HTTPException e) {
             System.out.println("HTTP响应码错误");
         } catch (JSONException e) {
             System.out.println("json解析错误");
-        } catch (IOException e) {
-            System.out.println("网络IO错误");
         }
+//          catch (IOException e) {
+//            System.out.println("网络IO错误");
+//        }
         return "false";
 
 //        //测试完后删掉

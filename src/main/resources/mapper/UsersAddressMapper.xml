@@ -68,4 +68,11 @@
       aUPhone = #{auphone,jdbcType=VARCHAR}
     where AId = #{aid,jdbcType=INTEGER}
   </update>
+
+  <select id="findAllAddress" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from usersaddress  where aUPhone = #{phone}
+  </select>
+
+
+
 </mapper>

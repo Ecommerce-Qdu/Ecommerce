@@ -40,6 +40,7 @@ public class RegisterController {
         user.setUname(UName);
         user.setUtype(Integer.parseInt(UType));
         user.setUpwd(DigestUtils.md5Hex(newpassword));
+        user.setUflag(1);
 
         //临时保存用户信息
         req.getSession().setAttribute("registeruser", user);

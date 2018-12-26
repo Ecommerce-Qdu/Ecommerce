@@ -25,8 +25,7 @@
     where UPhone = #{uphone,jdbcType=VARCHAR}
   </delete>
     <insert id="insert" parameterType="com.niit.entity.Users">
-    insert into users (UPhone, UName, UPwd, 
-      UType, UFlag)
+    insert into users (UPhone, UName, UPwd,UType, UFlag)
     values (#{uphone,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{upwd,jdbcType=VARCHAR}, 
       #{utype,jdbcType=INTEGER}, #{uflag,jdbcType=INTEGER})
   </insert>
