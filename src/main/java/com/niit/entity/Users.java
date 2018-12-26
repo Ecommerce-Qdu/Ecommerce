@@ -94,4 +94,14 @@ public class Users {
 
     public Users() {
     }
+
+    private UsersInfo usersInfoByUPhone;
+
+    public UsersInfo getUsersInfoByUPhone() {
+        return usersInfoByUPhone;
+    }
+
+    public void setUsersInfoByUPhone(UsersInfo usersInfoByUPhone) {
+        this.usersInfoByUPhone = usersInfoByUPhone;
+    }
 }
