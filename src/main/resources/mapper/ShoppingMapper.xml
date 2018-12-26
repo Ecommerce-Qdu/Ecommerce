@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.niit.dao.ShoppingMapper" >
-  <resultMap id="BaseResultMap" type="com.niit.entity.Shopping" >
-    <id column="OrderId" property="orderid" jdbcType="INTEGER" />
-    <id column="Cpid" property="cpid" jdbcType="INTEGER" />
-    <result column="Express" property="express" jdbcType="VARCHAR" />
-    <result column="Ostate" property="ostate" jdbcType="INTEGER" />
-    <result column="Onum" property="onum" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.niit.dao.ShoppingMapper">
+    <resultMap id="BaseResultMap" type="com.niit.entity.Shopping">
+        <id column="OrderId" property="orderid" jdbcType="INTEGER"/>
+        <id column="Cpid" property="cpid" jdbcType="INTEGER"/>
+        <result column="Express" property="express" jdbcType="VARCHAR"/>
+        <result column="Ostate" property="ostate" jdbcType="INTEGER"/>
+        <result column="Onum" property="onum" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     OrderId, Cpid, Express, Ostate, Onum
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.niit.entity.ShoppingKey" >
-    select 
-    <include refid="Base_Column_List" />
-    from shopping
-    where OrderId = #{orderid,jdbcType=INTEGER}
-      and Cpid = #{cpid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.niit.entity.ShoppingKey" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.niit.entity.ShoppingKey">
+        select
+        <include refid="Base_Column_List"/>
+        from shopping
+        where OrderId = #{orderid,jdbcType=INTEGER}
+        and Cpid = #{cpid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="com.niit.entity.ShoppingKey">
     delete from shopping
     where OrderId = #{orderid,jdbcType=INTEGER}
       and Cpid = #{cpid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.niit.entity.Shopping" >
+    <insert id="insert" parameterType="com.niit.entity.Shopping">
     insert into shopping (OrderId, Cpid, Express, 
       Ostate, Onum)
     values (#{orderid,jdbcType=INTEGER}, #{cpid,jdbcType=INTEGER}, #{express,jdbcType=VARCHAR}, 
       #{ostate,jdbcType=INTEGER}, #{onum,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.niit.entity.Shopping" >
-    insert into shopping
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="orderid != null" >
-        OrderId,
-      </if>
-      <if test="cpid != null" >
-        Cpid,
-      </if>
-      <if test="express != null" >
-        Express,
-      </if>
-      <if test="ostate != null" >
-        Ostate,
-      </if>
-      <if test="onum != null" >
-        Onum,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="orderid != null" >
-        #{orderid,jdbcType=INTEGER},
-      </if>
-      <if test="cpid != null" >
-        #{cpid,jdbcType=INTEGER},
-      </if>
-      <if test="express != null" >
-        #{express,jdbcType=VARCHAR},
-      </if>
-      <if test="ostate != null" >
-        #{ostate,jdbcType=INTEGER},
-      </if>
-      <if test="onum != null" >
-        #{onum,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.Shopping" >
-    update shopping
-    <set >
-      <if test="express != null" >
-        Express = #{express,jdbcType=VARCHAR},
-      </if>
-      <if test="ostate != null" >
-        Ostate = #{ostate,jdbcType=INTEGER},
-      </if>
-      <if test="onum != null" >
-        Onum = #{onum,jdbcType=INTEGER},
-      </if>
-    </set>
-    where OrderId = #{orderid,jdbcType=INTEGER}
-      and Cpid = #{cpid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.niit.entity.Shopping" >
+    <insert id="insertSelective" parameterType="com.niit.entity.Shopping">
+        insert into shopping
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderid != null">
+                OrderId,
+            </if>
+            <if test="cpid != null">
+                Cpid,
+            </if>
+            <if test="express != null">
+                Express,
+            </if>
+            <if test="ostate != null">
+                Ostate,
+            </if>
+            <if test="onum != null">
+                Onum,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderid != null">
+                #{orderid,jdbcType=INTEGER},
+            </if>
+            <if test="cpid != null">
+                #{cpid,jdbcType=INTEGER},
+            </if>
+            <if test="express != null">
+                #{express,jdbcType=VARCHAR},
+            </if>
+            <if test="ostate != null">
+                #{ostate,jdbcType=INTEGER},
+            </if>
+            <if test="onum != null">
+                #{onum,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.Shopping">
+        update shopping
+        <set>
+            <if test="express != null">
+                Express = #{express,jdbcType=VARCHAR},
+            </if>
+            <if test="ostate != null">
+                Ostate = #{ostate,jdbcType=INTEGER},
+            </if>
+            <if test="onum != null">
+                Onum = #{onum,jdbcType=INTEGER},
+            </if>
+        </set>
+        where OrderId = #{orderid,jdbcType=INTEGER}
+        and Cpid = #{cpid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.niit.entity.Shopping">
     update shopping
     set Express = #{express,jdbcType=VARCHAR},
       Ostate = #{ostate,jdbcType=INTEGER},

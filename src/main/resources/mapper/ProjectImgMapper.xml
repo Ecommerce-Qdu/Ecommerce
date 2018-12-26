@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.niit.dao.ProjectImgMapper" >
-  <resultMap id="BaseResultMap" type="com.niit.entity.ProjectImg" >
-    <id column="ImgId" property="imgid" jdbcType="INTEGER" />
-    <result column="Pid" property="pid" jdbcType="INTEGER" />
-    <result column="ImgPath" property="imgpath" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.niit.dao.ProjectImgMapper">
+    <resultMap id="BaseResultMap" type="com.niit.entity.ProjectImg">
+        <id column="ImgId" property="imgid" jdbcType="INTEGER"/>
+        <result column="Pid" property="pid" jdbcType="INTEGER"/>
+        <result column="ImgPath" property="imgpath" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     ImgId, Pid, ImgPath
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from projectimg
-    where ImgId = #{imgid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from projectimg
+        where ImgId = #{imgid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from projectimg
     where ImgId = #{imgid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.niit.entity.ProjectImg" >
+    <insert id="insert" parameterType="com.niit.entity.ProjectImg">
     insert into projectimg (ImgId, Pid, ImgPath
       )
     values (#{imgid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{imgpath,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.niit.entity.ProjectImg" >
-    insert into projectimg
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="imgid != null" >
-        ImgId,
-      </if>
-      <if test="pid != null" >
-        Pid,
-      </if>
-      <if test="imgpath != null" >
-        ImgPath,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="imgid != null" >
-        #{imgid,jdbcType=INTEGER},
-      </if>
-      <if test="pid != null" >
-        #{pid,jdbcType=INTEGER},
-      </if>
-      <if test="imgpath != null" >
-        #{imgpath,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.ProjectImg" >
-    update projectimg
-    <set >
-      <if test="pid != null" >
-        Pid = #{pid,jdbcType=INTEGER},
-      </if>
-      <if test="imgpath != null" >
-        ImgPath = #{imgpath,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ImgId = #{imgid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.niit.entity.ProjectImg" >
+    <insert id="insertSelective" parameterType="com.niit.entity.ProjectImg">
+        insert into projectimg
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="imgid != null">
+                ImgId,
+            </if>
+            <if test="pid != null">
+                Pid,
+            </if>
+            <if test="imgpath != null">
+                ImgPath,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="imgid != null">
+                #{imgid,jdbcType=INTEGER},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="imgpath != null">
+                #{imgpath,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.ProjectImg">
+        update projectimg
+        <set>
+            <if test="pid != null">
+                Pid = #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="imgpath != null">
+                ImgPath = #{imgpath,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ImgId = #{imgid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.niit.entity.ProjectImg">
     update projectimg
     set Pid = #{pid,jdbcType=INTEGER},
       ImgPath = #{imgpath,jdbcType=VARCHAR}
@@ -77,10 +77,13 @@
     from ProjectImg a where a.imgPath = (select min(imgPath) from ProjectImg where projectByPid.pId = a.projectByPid.pId) order by a.projectByPid.pId
     </select>
 
-  <insert id="saveimg">
-    insert into projectimg (Pid, ImgPath
-      )
-    values (#{0}, #{1}
+    <insert id="saveimg">
+    insert into projectimg (Pid, ImgPath)
+    values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (Pid,#{item,jdbcType=VARCHAR})
+        </foreach>
+    (#{0}, #{1}
       )
   </insert>
 

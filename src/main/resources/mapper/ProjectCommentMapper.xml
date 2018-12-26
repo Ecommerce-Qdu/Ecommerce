@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.niit.dao.ProjectCommentMapper" >
-  <resultMap id="BaseResultMap" type="com.niit.entity.ProjectComment" >
-    <id column="PCId" property="pcid" jdbcType="INTEGER" />
-    <result column="CPid" property="cpid" jdbcType="INTEGER" />
-    <result column="PCTime" property="pctime" jdbcType="TIMESTAMP" />
-    <result column="PComment" property="pcomment" jdbcType="VARCHAR" />
-    <result column="UPhone" property="uphone" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.niit.dao.ProjectCommentMapper">
+    <resultMap id="BaseResultMap" type="com.niit.entity.ProjectComment">
+        <id column="PCId" property="pcid" jdbcType="INTEGER"/>
+        <result column="CPid" property="cpid" jdbcType="INTEGER"/>
+        <result column="PCTime" property="pctime" jdbcType="TIMESTAMP"/>
+        <result column="PComment" property="pcomment" jdbcType="VARCHAR"/>
+        <result column="UPhone" property="uphone" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     PCId, CPid, PCTime, PComment, UPhone
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from projectcomment
-    where PCId = #{pcid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from projectcomment
+        where PCId = #{pcid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from projectcomment
     where PCId = #{pcid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.niit.entity.ProjectComment" >
+    <insert id="insert" parameterType="com.niit.entity.ProjectComment">
     insert into projectcomment (PCId, CPid, PCTime, 
       PComment, UPhone)
     values (#{pcid,jdbcType=INTEGER}, #{cpid,jdbcType=INTEGER}, #{pctime,jdbcType=TIMESTAMP}, 
       #{pcomment,jdbcType=VARCHAR}, #{uphone,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.niit.entity.ProjectComment" >
-    insert into projectcomment
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="pcid != null" >
-        PCId,
-      </if>
-      <if test="cpid != null" >
-        CPid,
-      </if>
-      <if test="pctime != null" >
-        PCTime,
-      </if>
-      <if test="pcomment != null" >
-        PComment,
-      </if>
-      <if test="uphone != null" >
-        UPhone,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="pcid != null" >
-        #{pcid,jdbcType=INTEGER},
-      </if>
-      <if test="cpid != null" >
-        #{cpid,jdbcType=INTEGER},
-      </if>
-      <if test="pctime != null" >
-        #{pctime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="pcomment != null" >
-        #{pcomment,jdbcType=VARCHAR},
-      </if>
-      <if test="uphone != null" >
-        #{uphone,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.ProjectComment" >
-    update projectcomment
-    <set >
-      <if test="cpid != null" >
-        CPid = #{cpid,jdbcType=INTEGER},
-      </if>
-      <if test="pctime != null" >
-        PCTime = #{pctime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="pcomment != null" >
-        PComment = #{pcomment,jdbcType=VARCHAR},
-      </if>
-      <if test="uphone != null" >
-        UPhone = #{uphone,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where PCId = #{pcid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.niit.entity.ProjectComment" >
+    <insert id="insertSelective" parameterType="com.niit.entity.ProjectComment">
+        insert into projectcomment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pcid != null">
+                PCId,
+            </if>
+            <if test="cpid != null">
+                CPid,
+            </if>
+            <if test="pctime != null">
+                PCTime,
+            </if>
+            <if test="pcomment != null">
+                PComment,
+            </if>
+            <if test="uphone != null">
+                UPhone,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pcid != null">
+                #{pcid,jdbcType=INTEGER},
+            </if>
+            <if test="cpid != null">
+                #{cpid,jdbcType=INTEGER},
+            </if>
+            <if test="pctime != null">
+                #{pctime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="pcomment != null">
+                #{pcomment,jdbcType=VARCHAR},
+            </if>
+            <if test="uphone != null">
+                #{uphone,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.ProjectComment">
+        update projectcomment
+        <set>
+            <if test="cpid != null">
+                CPid = #{cpid,jdbcType=INTEGER},
+            </if>
+            <if test="pctime != null">
+                PCTime = #{pctime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="pcomment != null">
+                PComment = #{pcomment,jdbcType=VARCHAR},
+            </if>
+            <if test="uphone != null">
+                UPhone = #{uphone,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where PCId = #{pcid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.niit.entity.ProjectComment">
     update projectcomment
     set CPid = #{cpid,jdbcType=INTEGER},
       PCTime = #{pctime,jdbcType=TIMESTAMP},
@@ -95,7 +95,7 @@
     select * from ProjectComment where uPhone=#{s}
     </select>
 
-  <insert id="savecom">
+    <insert id="savecom">
     insert into projectcomment (CPid, UPhone,PComment,PCTime
       )
     values (#{0}, #{1},#{2},select GETDATE()

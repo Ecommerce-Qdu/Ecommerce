@@ -1,78 +1,77 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.niit.dao.UsersAddressMapper" >
-  <resultMap id="BaseResultMap" type="com.niit.entity.UsersAddress" >
-    <id column="AId" property="aid" jdbcType="INTEGER" />
-    <result column="Address" property="address" jdbcType="VARCHAR" />
-    <result column="aUPhone" property="auphone" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.niit.dao.UsersAddressMapper">
+    <resultMap id="BaseResultMap" type="com.niit.entity.UsersAddress">
+        <id column="AId" property="aid" jdbcType="INTEGER"/>
+        <result column="Address" property="address" jdbcType="VARCHAR"/>
+        <result column="aUPhone" property="auphone" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     AId, Address, aUPhone
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from usersaddress
-    where AId = #{aid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from usersaddress
+        where AId = #{aid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from usersaddress
     where AId = #{aid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.niit.entity.UsersAddress" >
+    <insert id="insert" parameterType="com.niit.entity.UsersAddress">
     insert into usersaddress (AId, Address, aUPhone
       )
     values (#{aid,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{auphone,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.niit.entity.UsersAddress" >
-    insert into usersaddress
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="aid != null" >
-        AId,
-      </if>
-      <if test="address != null" >
-        Address,
-      </if>
-      <if test="auphone != null" >
-        aUPhone,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="aid != null" >
-        #{aid,jdbcType=INTEGER},
-      </if>
-      <if test="address != null" >
-        #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="auphone != null" >
-        #{auphone,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.UsersAddress" >
-    update usersaddress
-    <set >
-      <if test="address != null" >
-        Address = #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="auphone != null" >
-        aUPhone = #{auphone,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where AId = #{aid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.niit.entity.UsersAddress" >
+    <insert id="insertSelective" parameterType="com.niit.entity.UsersAddress">
+        insert into usersaddress
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="aid != null">
+                AId,
+            </if>
+            <if test="address != null">
+                Address,
+            </if>
+            <if test="auphone != null">
+                aUPhone,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="aid != null">
+                #{aid,jdbcType=INTEGER},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="auphone != null">
+                #{auphone,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.UsersAddress">
+        update usersaddress
+        <set>
+            <if test="address != null">
+                Address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="auphone != null">
+                aUPhone = #{auphone,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where AId = #{aid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.niit.entity.UsersAddress">
     update usersaddress
     set Address = #{address,jdbcType=VARCHAR},
       aUPhone = #{auphone,jdbcType=VARCHAR}
     where AId = #{aid,jdbcType=INTEGER}
   </update>
 
-  <select id="findAllAddress" resultMap="BaseResultMap" parameterType="java.lang.String">
+    <select id="findAllAddress" resultMap="BaseResultMap" parameterType="java.lang.String">
     select * from usersaddress  where aUPhone = #{phone}
   </select>
-
 
 
 </mapper>

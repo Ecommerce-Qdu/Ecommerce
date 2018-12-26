@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.niit.dao.UsersInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.niit.entity.UsersInfo" >
-    <id column="UPhone" property="uphone" jdbcType="VARCHAR" />
-    <result column="UName" property="uname" jdbcType="VARCHAR" />
-    <result column="UZipCode" property="uzipcode" jdbcType="CHAR" />
-    <result column="UEmail" property="uemail" jdbcType="VARCHAR" />
-    <result column="UCardNumber" property="ucardnumber" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.niit.dao.UsersInfoMapper">
+    <resultMap id="BaseResultMap" type="com.niit.entity.UsersInfo">
+        <id column="UPhone" property="uphone" jdbcType="VARCHAR"/>
+        <result column="UName" property="uname" jdbcType="VARCHAR"/>
+        <result column="UZipCode" property="uzipcode" jdbcType="CHAR"/>
+        <result column="UEmail" property="uemail" jdbcType="VARCHAR"/>
+        <result column="UCardNumber" property="ucardnumber" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     UPhone, UName, UZipCode, UEmail, UCardNumber
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from usersinfo
-    where UPhone = #{uphone,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from usersinfo
+        where UPhone = #{uphone,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from usersinfo
     where UPhone = #{uphone,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.niit.entity.UsersInfo" >
+    <insert id="insert" parameterType="com.niit.entity.UsersInfo">
     insert into usersinfo (UPhone, UName, UZipCode, 
       UEmail, UCardNumber)
     values (#{uphone,jdbcType=VARCHAR}, #{uname,jdbcType=VARCHAR}, #{uzipcode,jdbcType=CHAR}, 
       #{uemail,jdbcType=VARCHAR}, #{ucardnumber,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.niit.entity.UsersInfo" >
-    insert into usersinfo
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="uphone != null" >
-        UPhone,
-      </if>
-      <if test="uname != null" >
-        UName,
-      </if>
-      <if test="uzipcode != null" >
-        UZipCode,
-      </if>
-      <if test="uemail != null" >
-        UEmail,
-      </if>
-      <if test="ucardnumber != null" >
-        UCardNumber,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="uphone != null" >
-        #{uphone,jdbcType=VARCHAR},
-      </if>
-      <if test="uname != null" >
-        #{uname,jdbcType=VARCHAR},
-      </if>
-      <if test="uzipcode != null" >
-        #{uzipcode,jdbcType=CHAR},
-      </if>
-      <if test="uemail != null" >
-        #{uemail,jdbcType=VARCHAR},
-      </if>
-      <if test="ucardnumber != null" >
-        #{ucardnumber,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.UsersInfo" >
-    update usersinfo
-    <set >
-      <if test="uname != null" >
-        UName = #{uname,jdbcType=VARCHAR},
-      </if>
-      <if test="uzipcode != null" >
-        UZipCode = #{uzipcode,jdbcType=CHAR},
-      </if>
-      <if test="uemail != null" >
-        UEmail = #{uemail,jdbcType=VARCHAR},
-      </if>
-      <if test="ucardnumber != null" >
-        UCardNumber = #{ucardnumber,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where UPhone = #{uphone,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.niit.entity.UsersInfo" >
+    <insert id="insertSelective" parameterType="com.niit.entity.UsersInfo">
+        insert into usersinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uphone != null">
+                UPhone,
+            </if>
+            <if test="uname != null">
+                UName,
+            </if>
+            <if test="uzipcode != null">
+                UZipCode,
+            </if>
+            <if test="uemail != null">
+                UEmail,
+            </if>
+            <if test="ucardnumber != null">
+                UCardNumber,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uphone != null">
+                #{uphone,jdbcType=VARCHAR},
+            </if>
+            <if test="uname != null">
+                #{uname,jdbcType=VARCHAR},
+            </if>
+            <if test="uzipcode != null">
+                #{uzipcode,jdbcType=CHAR},
+            </if>
+            <if test="uemail != null">
+                #{uemail,jdbcType=VARCHAR},
+            </if>
+            <if test="ucardnumber != null">
+                #{ucardnumber,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.UsersInfo">
+        update usersinfo
+        <set>
+            <if test="uname != null">
+                UName = #{uname,jdbcType=VARCHAR},
+            </if>
+            <if test="uzipcode != null">
+                UZipCode = #{uzipcode,jdbcType=CHAR},
+            </if>
+            <if test="uemail != null">
+                UEmail = #{uemail,jdbcType=VARCHAR},
+            </if>
+            <if test="ucardnumber != null">
+                UCardNumber = #{ucardnumber,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where UPhone = #{uphone,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.niit.entity.UsersInfo">
     update usersinfo
     set UName = #{uname,jdbcType=VARCHAR},
       UZipCode = #{uzipcode,jdbcType=CHAR},

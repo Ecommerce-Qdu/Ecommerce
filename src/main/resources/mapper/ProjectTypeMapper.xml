@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.niit.dao.ProjectTypeMapper" >
-  <resultMap id="BaseResultMap" type="com.niit.entity.ProjectType" >
-    <id column="ProjectTypeId" property="projecttypeid" jdbcType="INTEGER" />
-    <result column="ProjectTypeName" property="projecttypename" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.niit.dao.ProjectTypeMapper">
+    <resultMap id="BaseResultMap" type="com.niit.entity.ProjectType">
+        <id column="ProjectTypeId" property="projecttypeid" jdbcType="INTEGER"/>
+        <result column="ProjectTypeName" property="projecttypename" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     ProjectTypeId, ProjectTypeName
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from projecttype
-    where ProjectTypeId = #{projecttypeid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from projecttype
+        where ProjectTypeId = #{projecttypeid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from projecttype
     where ProjectTypeId = #{projecttypeid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.niit.entity.ProjectType" >
+    <insert id="insert" parameterType="com.niit.entity.ProjectType">
     insert into projecttype (ProjectTypeId, ProjectTypeName)
     values (#{projecttypeid,jdbcType=INTEGER}, #{projecttypename,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.niit.entity.ProjectType" >
-    insert into projecttype
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="projecttypeid != null" >
-        ProjectTypeId,
-      </if>
-      <if test="projecttypename != null" >
-        ProjectTypeName,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="projecttypeid != null" >
-        #{projecttypeid,jdbcType=INTEGER},
-      </if>
-      <if test="projecttypename != null" >
-        #{projecttypename,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.ProjectType" >
-    update projecttype
-    <set >
-      <if test="projecttypename != null" >
-        ProjectTypeName = #{projecttypename,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ProjectTypeId = #{projecttypeid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.niit.entity.ProjectType" >
+    <insert id="insertSelective" parameterType="com.niit.entity.ProjectType">
+        insert into projecttype
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="projecttypeid != null">
+                ProjectTypeId,
+            </if>
+            <if test="projecttypename != null">
+                ProjectTypeName,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="projecttypeid != null">
+                #{projecttypeid,jdbcType=INTEGER},
+            </if>
+            <if test="projecttypename != null">
+                #{projecttypename,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.niit.entity.ProjectType">
+        update projecttype
+        <set>
+            <if test="projecttypename != null">
+                ProjectTypeName = #{projecttypename,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ProjectTypeId = #{projecttypeid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.niit.entity.ProjectType">
     update projecttype
     set ProjectTypeName = #{projecttypename,jdbcType=VARCHAR}
     where ProjectTypeId = #{projecttypeid,jdbcType=INTEGER}
