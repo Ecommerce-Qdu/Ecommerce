@@ -2,6 +2,7 @@
 //
 //import com.niit.biz.IProjectBiz;
 //import com.niit.biz.IUserBiz;
+//import com.niit.entity.*;
 //import com.niit.utils.SaveToWord;
 //import org.apache.commons.codec.digest.DigestUtils;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,7 @@
 //            return "msg.jsp";
 //        }
 //        Users user = (Users) session.getAttribute("user");
-//        String pwd = user.getuPwd();
+//        String pwd = user.getUpwd();
 //        if (newpwd.equals(newpwd2) && pwd.equals(DigestUtils.md5Hex(nowpwd))) {
 //            boolean isok = userBiz.changepwd(user.getUphone(), DigestUtils.md5Hex(newpwd));
 //            if (isok) {
@@ -81,14 +82,14 @@
 //                             String uZipCode, String uEmail, String uPhone) {
 //
 //        Users user = (Users) session.getAttribute("user");
-//        int type = user.getuType();
-//        user.setuName(uName);
-//        user.setuPhone(uPhone);
+//        int type = user.getUtype();
+//        user.setUname(uName);
+//        user.setUphone(uPhone);
 //        boolean isok = userBiz.update(user);
 //        if (isok && (type == 2)) {
 //            UsersInfo usersInfo = user.getUsersInfoByUPhone();
-//            usersInfo.setuEmail(uEmail);
-//            usersInfo.setuZipCode(uZipCode);
+//            usersInfo.setUemail(uEmail);
+//            usersInfo.setUzipcode(uZipCode);
 //            isok = userBiz.updateinfo(usersInfo);
 //        }
 //

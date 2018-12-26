@@ -1,70 +1,70 @@
-//package com.niit.utils;
-//
-//import com.niit.entity.Orders;
-//import freemarker.template.Configuration;
-//import freemarker.template.Template;
-//import freemarker.template.TemplateException;
-//import org.springframework.stereotype.Component;
-//
-//import java.io.*;
-//import java.text.DateFormat;
-//import java.text.SimpleDateFormat;
-//import java.util.*;
-//
-//@Component
-//public class SaveToWord {
-//
-//    private Configuration configuration = null;
-//
-//    public SaveToWord() {
-//        configuration = new Configuration();
-//        configuration.setDefaultEncoding("UTF-8");
-//    }
-//
-//    public String createWord(List<Orders> list) throws IOException {
-//        Map<String, Object> dataMap = new HashMap<String, Object>();
-//        getData(dataMap, list);
-//        String temppath = this.getClass().getResource("").getPath();
-//        System.out.println("temppath = " + temppath);
-//        String basepath = temppath + "\\..\\..\\..\\..\\..\\file\\";
-//        System.out.println("basepath = " + basepath);
-//        File baseFile = new File(basepath);
-//        System.out.println("baseFile = " + baseFile.getAbsolutePath());
-//        System.out.println("baseFile = " + baseFile);
-//        configuration.setDirectoryForTemplateLoading(baseFile);//模板文件所在路径
-//        Template t = null;
-//        try {
-//            t = configuration.getTemplate("test.ftl"); //获取模板文件
-//            System.out.println("========== getT");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        String uuid = UUID.randomUUID().toString().replace("-", "") + ".doc";
-//        System.out.println("uuid = " + uuid);
-//        String filename = basepath + "\\" + uuid;
-//
-//        File outFile = new File(filename); //导出文件
-//        System.out.println("outFile = " + outFile.getCanonicalPath());
-//
-//        Writer out = null;
-//        try {
-//            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
-//        } catch (FileNotFoundException e1) {
-//            e1.printStackTrace();
-//        }
-//
-//        try {
-//            t.process(dataMap, out); //将填充数据填入模板文件并输出到目标文件
-//        } catch (TemplateException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return uuid;
-//    }
-//
-//    private void getData(Map<String, Object> dataMap, List<Orders> l) {
+package com.niit.utils;
+
+import com.niit.entity.Orders;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import org.springframework.stereotype.Component;
+
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+@Component
+public class SaveToWord {
+
+    private Configuration configuration = null;
+
+    public SaveToWord() {
+        configuration = new Configuration();
+        configuration.setDefaultEncoding("UTF-8");
+    }
+
+    public String createWord(List<Orders> list) throws IOException {
+        Map<String, Object> dataMap = new HashMap<String, Object>();
+        getData(dataMap, list);
+        String temppath = this.getClass().getResource("").getPath();
+        System.out.println("temppath = " + temppath);
+        String basepath = temppath + "\\..\\..\\..\\..\\..\\file\\";
+        System.out.println("basepath = " + basepath);
+        File baseFile = new File(basepath);
+        System.out.println("baseFile = " + baseFile.getAbsolutePath());
+        System.out.println("baseFile = " + baseFile);
+        configuration.setDirectoryForTemplateLoading(baseFile);//模板文件所在路径
+        Template t = null;
+        try {
+            t = configuration.getTemplate("test.ftl"); //获取模板文件
+            System.out.println("========== getT");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String uuid = UUID.randomUUID().toString().replace("-", "") + ".doc";
+        System.out.println("uuid = " + uuid);
+        String filename = basepath + "\\" + uuid;
+
+        File outFile = new File(filename); //导出文件
+        System.out.println("outFile = " + outFile.getCanonicalPath());
+
+        Writer out = null;
+        try {
+            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        }
+
+        try {
+            t.process(dataMap, out); //将填充数据填入模板文件并输出到目标文件
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return uuid;
+    }
+
+    private void getData(Map<String, Object> dataMap, List<Orders> l) {
 //
 //        Date date = new Date();
 //        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -132,5 +132,5 @@
 //            newList.add(map);
 //        }
 //        dataMap.put("newList", newList);
-//    }
-//}
+    }
+}

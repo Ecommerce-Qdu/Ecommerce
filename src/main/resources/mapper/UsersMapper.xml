@@ -7,6 +7,7 @@
         <result column="UPwd" property="upwd" jdbcType="VARCHAR"/>
         <result column="UType" property="utype" jdbcType="INTEGER"/>
         <result column="UFlag" property="uflag" jdbcType="INTEGER"/>
+        <association property="usersInfoByUPhone" select="getUserInfo" column="UPhone"/>
         <collection property="addressesByUphone" ofType="UsersAddress"
                     select="getAddress"
                     column="UPhone"/>
@@ -99,6 +100,10 @@
     <select id="getAddress" resultType="com.niit.entity.UsersAddress" parameterType="java.lang.String">
     select * from usersaddress
     where aUphone = #{UPhone}
+  </select>
+    <select id="getUserInfo" resultType="com.niit.entity.UsersInfo" parameterType="java.lang.String">
+    select * from usersinfo
+    where UPhone = #{UPhone}
   </select>
 
 </mapper>
