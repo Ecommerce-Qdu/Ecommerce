@@ -95,4 +95,11 @@
     select * from ProjectComment where uPhone=#{s}
     </select>
 
+  <insert id="savecom">
+    insert into projectcomment (CPid, UPhone,PComment,PCTime
+      )
+    values (#{0}, #{1},#{2},select GETDATE()
+      )
+  </insert>
+
 </mapper>

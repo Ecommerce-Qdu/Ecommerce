@@ -68,4 +68,21 @@
       ImgPath = #{imgpath,jdbcType=VARCHAR}
     where ImgId = #{imgid,jdbcType=INTEGER}
   </update>
+
+    <select id="findimg" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select * from ProjectImg where pId=#{pid} order by imgId
+    </select>
+
+    <select id="findhotimg" resultMap="BaseResultMap">
+    from ProjectImg a where a.imgPath = (select min(imgPath) from ProjectImg where projectByPid.pId = a.projectByPid.pId) order by a.projectByPid.pId
+    </select>
+
+  <insert id="saveimg">
+    insert into projectimg (Pid, ImgPath
+      )
+    values (#{0}, #{1}
+      )
+  </insert>
+
+
 </mapper>

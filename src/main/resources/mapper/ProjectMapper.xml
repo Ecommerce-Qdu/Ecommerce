@@ -235,15 +235,15 @@
     where PId = #{pid,jdbcType=INTEGER}
   </update>
 
-    <select id="selectimg" resultType="ProjectImg" parameterType="java.lang.String">
+    <select id="selectimg" resultType="ProjectImg" parameterType="java.lang.Integer">
     select * from ProjectImg where Pid = #{Pid}
     </select>
 
-    <select id="selectComment" resultType="ProjectComment" parameterType="java.lang.String">
+    <select id="selectComment" resultType="ProjectComment" parameterType="java.lang.Integer">
     select * from projectcomment where CPid = #{Pid}
     </select>
 
-    <select id="selectOrders" resultType="ProjectOrders" parameterType="java.lang.String">
+    <select id="selectOrders" resultType="ProjectOrders" parameterType="java.lang.Integer">
     select * from orders where Pid = #{Pid}
     </select>
 
@@ -268,6 +268,81 @@
     <select id="findAllUserProject" resultMap="BaseResultMap" parameterType="java.lang.String">
     select * from Project where uPhone =#{s}
     </select>
+
+    <update id="update" parameterType="com.niit.entity.Project">
+    update project
+    set UPhone = #{uphone,jdbcType=VARCHAR},
+      PName = #{pname,jdbcType=VARCHAR},
+      PDesc = #{pdesc,jdbcType=VARCHAR},
+      PSD = #{psd,jdbcType=TIMESTAMP},
+      PED = #{ped,jdbcType=TIMESTAMP},
+      PTarget = #{ptarget,jdbcType=DECIMAL},
+      PNM = #{pnm,jdbcType=DECIMAL},
+      PNP = #{pnp,jdbcType=INTEGER},
+      PMilestone = #{pmilestone,jdbcType=VARCHAR},
+      PCategoryId = #{pcategoryid,jdbcType=INTEGER},
+      PRemark = #{premark,jdbcType=VARCHAR},
+      PMF = #{pmf,jdbcType=INTEGER},
+      PLimit = #{plimit,jdbcType=INTEGER},
+      PTeam = #{pteam,jdbcType=VARCHAR},
+      PState = #{pstate,jdbcType=INTEGER},
+      PPlan = #{pplan,jdbcType=VARCHAR}
+    where PId = #{pid,jdbcType=INTEGER}
+  </update>
+
+    <select id="countproject" resultType="int">
+    select count(*) from Project
+    </select>
+
+
+    <select id="countproject" resultType="int">
+    select count(DISTINCT usersByUPhone.uPhone) from Orders
+    </select>
+
+    <select id="countproject" resultType="int">
+    select count(*) from Project where pState=3
+    </select>
+
+    <select id="findProject1" resultMap="BaseResultMap">
+    select * from Project where PCategoryId = 1
+    </select>
+
+    <select id="findProject2" resultMap="BaseResultMap">
+    select * from Project where PCategoryId = 2
+    </select>
+
+    <select id="findProject3" resultMap="BaseResultMap">
+    select * from Project where PCategoryId = 3
+    </select>
+
+    <insert id="save" parameterType="com.niit.entity.Project">
+    insert into project (PId, UPhone, PName,
+      PDesc, PSD, PED,
+      PTarget, PNM, PNP,
+      PMilestone, PCategoryId, PRemark,
+      PMF, PLimit, PTeam,
+      PState, PPlan)
+    values (#{pid,jdbcType=INTEGER}, #{uphone,jdbcType=VARCHAR}, #{pname,jdbcType=VARCHAR},
+      #{pdesc,jdbcType=VARCHAR}, #{psd,jdbcType=TIMESTAMP}, #{ped,jdbcType=TIMESTAMP},
+      #{ptarget,jdbcType=DECIMAL}, #{pnm,jdbcType=DECIMAL}, #{pnp,jdbcType=INTEGER},
+      #{pmilestone,jdbcType=VARCHAR}, #{pcategoryid,jdbcType=INTEGER}, #{premark,jdbcType=VARCHAR},
+      #{pmf,jdbcType=INTEGER}, #{plimit,jdbcType=INTEGER}, #{pteam,jdbcType=VARCHAR},
+      #{pstate,jdbcType=INTEGER}, #{pplan,jdbcType=VARCHAR})
+  </insert>
+
+    <select id="findProjectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select * from Project where pId = #{pid}
+    </select>
+
+
+
+
+
+
+
+
+
+
 
 
 
