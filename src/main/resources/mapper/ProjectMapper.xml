@@ -19,6 +19,9 @@
         <result column="PTeam" property="pteam" jdbcType="VARCHAR"/>
         <result column="PState" property="pstate" jdbcType="INTEGER"/>
         <result column="PPlan" property="pplan" jdbcType="VARCHAR"/>
+        <collection property="projectImgList" ofType="ProjectImg" select="selectimg" column="Pid"/>
+        <collection property="projectCommentsByPId" ofType="ProjectComment" select="selectComment" column="Pid"/>
+        <collection property="ordersByPId" ofType="Orders" select="selectOrders" column="Pid"/>
     </resultMap>
     <sql id="Base_Column_List">
     PId, UPhone, PName, PDesc, PSD, PED, PTarget, PNM, PNP, PMilestone, PCategoryId, 
@@ -232,8 +235,44 @@
     where PId = #{pid,jdbcType=INTEGER}
   </update>
 
-    <!--<select id="findHotProject" resultMap="selectproject">-->
-    <!--select * from project order by pnm desc-->
-    <!--</select>-->
+    <select id="selectimg" resultType="ProjectImg" parameterType="java.lang.String">
+    select * from ProjectImg where Pid = #{Pid}
+    </select>
+
+    <select id="selectComment" resultType="ProjectComment" parameterType="java.lang.String">
+    select * from projectcomment where CPid = #{Pid}
+    </select>
+
+    <select id="selectOrders" resultType="ProjectOrders" parameterType="java.lang.String">
+    select * from orders where Pid = #{Pid}
+    </select>
+
+    <!---->
+
+    <select id="findHotProject" resultMap="BaseResultMap">
+    select * from project order by pnm desc
+    </select>
+
+    <select id="findNewProject" resultMap="BaseResultMap">
+    select * from project order by psd desc
+    </select>
+
+    <select id="findMostProject" resultMap="BaseResultMap">
+    select * from project order by pnp desc
+    </select>
+
+    <select id="findProjectBySearch" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select from Project where pName like "%"#{searchstr}"%"
+    </select>
+
+    <select id="findAllUserProject" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from Project where uPhone =#{s}
+    </select>
+
+
+
+
+
+
 
 </mapper>

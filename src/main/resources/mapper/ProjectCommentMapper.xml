@@ -90,4 +90,9 @@
       UPhone = #{uphone,jdbcType=VARCHAR}
     where PCId = #{pcid,jdbcType=INTEGER}
   </update>
+
+    <select id="findAllUserProjectComment" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from ProjectComment where uPhone=#{s}
+    </select>
+
 </mapper>
