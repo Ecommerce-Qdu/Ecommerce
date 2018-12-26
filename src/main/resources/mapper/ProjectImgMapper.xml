@@ -78,14 +78,14 @@
     </select>
 
     <insert id="saveimg">
-    insert into projectimg (Pid, ImgPath)
-    values
+        insert into projectimg (Pid, ImgPath)
+        values
         <foreach collection="list" item="item" index="index" separator=",">
             (Pid,#{item,jdbcType=VARCHAR})
         </foreach>
-    (#{0}, #{1}
-      )
-  </insert>
+        (#{0}, #{1}
+        )
+    </insert>
 
 
 </mapper>

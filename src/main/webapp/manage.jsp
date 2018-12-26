@@ -38,7 +38,7 @@
         <div class="left01">
             <div class="left01_right"></div>
             <div class="left01_left"></div>
-            <div class="left01_c">当前用户：${user.uName}</div>
+            <div class="left01_c">当前用户：${user.uname}</div>
         </div>
         <div class="left02">
             <div class="left02top">
@@ -95,7 +95,7 @@
                         我的评论
                     </a>
                 </div>
-                <c:if test="${user.uType==2}">
+                <c:if test="${user.utype==2}">
                     <div class="left02down01">
                         <a onclick="myproject(this)" id="lf7">
                             <div class="left02down01_img"></div>

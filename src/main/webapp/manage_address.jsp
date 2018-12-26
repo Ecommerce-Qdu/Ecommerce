@@ -30,7 +30,7 @@
 </div>
 <div id="addaddr" style="padding-top: 50px">
     <form id="addrform" action="AddAddress.mvc" method="post">
-        你好,${sessionScope.user.uPhone}
+        你好,${sessionScope.user.uphone}
         <br/>
         <div style="right: 10%">
             <input id="address" name="address" required>
@@ -54,10 +54,10 @@
         </tr>
         <c:forEach items="${addr}" var="addr">
             <tr>
-                <td>${addr.aId}</td>
+                <td>${addr.aid}</td>
                 <td>${addr.address}</td>
                 <td>
-                    <a href="DeleteAddress.mvc?aid=${addr.aId}">删除</a>
+                    <a href="DeleteAddress.mvc?aid=${addr.aid}">删除</a>
                 </td>
             </tr>
         </c:forEach>

@@ -22,33 +22,33 @@
     <tr>
         <td style="min-width: 300px">用户名</td>
         <td style="min-width: 300px">
-            ${user.uName}
+            ${user.uname}
         </td>
     </tr>
     <tr>
         <td>电话号码</td>
         <td>
-            ${user.uPhone}
+            ${user.uphone}
         </td>
     </tr>
     <tr>
         <td>用户类型:</td>
         <td>
-            <c:if test="${user.uType==1}">
+            <c:if test="${user.utype==1}">
                 投资者
             </c:if>
-            <c:if test="${user.uType==2}">
+            <c:if test="${user.utype==2}">
                 融资者
             </c:if>
         </td>
     </tr>
-    <c:if test="${user.uType==2}">
+    <c:if test="${user.utype==2}">
         <tr>
             <td>
                 真实姓名:
             </td>
             <td>
-                    ${user.usersInfoByUPhone.uName}
+                    ${user.usersInfoByUPhone.uname}
             </td>
         </tr>
         <tr>

@@ -18,13 +18,13 @@
     <table id="table">
         <tr>
             <td style="width: 300px">用户名</td>
-            <td><input type="text" name="uName" value="${user.uName}" required/></td>
+            <td><input type="text" name="uname" value="${user.uname}" required/></td>
         </tr>
         <tr>
             <td style="width: 300px">手机号</td>
-            <td><input type="text" name="uPhone" value="${user.uPhone}" required/></td>
+            <td><input type="text" name="uPhone" value="${user.uphone}" required/></td>
         </tr>
-        <c:if test="${user.uType==2}">
+        <c:if test="${user.utype==2}">
             <tr>
                 <td>邮编</td>
                 <td><input type="text" name="uZipCode" value="${user.usersInfoByUPhone.uZipCode}" required/></td>

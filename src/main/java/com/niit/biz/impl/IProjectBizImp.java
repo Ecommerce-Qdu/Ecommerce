@@ -45,10 +45,10 @@ public class IProjectBizImp implements IProjectBiz {
         p1.setPname("1");
         p1.setPcategoryid(1);
 
-        List<Project> pl1= new ArrayList<>();
+        List<Project> pl1 = new ArrayList<>();
         pl1.add(p1);
 
-        return  pl1;
+        return pl1;
 //        return projectDao.findNewProject();
     }
 
@@ -59,10 +59,10 @@ public class IProjectBizImp implements IProjectBiz {
         p1.setPname("1");
         p1.setPcategoryid(1);
 
-        List<Project> pl1= new ArrayList<>();
+        List<Project> pl1 = new ArrayList<>();
         pl1.add(p1);
 
-        return  pl1;
+        return pl1;
 
 //        return projectDao.findMostProject();
     }
@@ -108,7 +108,7 @@ public class IProjectBizImp implements IProjectBiz {
 
     @Override
     public List<ProjectImg> findhotimg() {
-        return  new ArrayList<>();
+        return new ArrayList<>();
 //        return projectDao.findhotimg();
     }
 
@@ -120,10 +120,10 @@ public class IProjectBizImp implements IProjectBiz {
         p1.setPname("1");
         p1.setPcategoryid(1);
 
-        List<Project> pl1= new ArrayList<>();
+        List<Project> pl1 = new ArrayList<>();
         pl1.add(p1);
 
-        return  pl1;
+        return pl1;
 //        return projectDao.findProject1();
     }
 
@@ -134,10 +134,10 @@ public class IProjectBizImp implements IProjectBiz {
         p1.setPname("1");
         p1.setPcategoryid(1);
 
-        List<Project> pl1= new ArrayList<>();
+        List<Project> pl1 = new ArrayList<>();
         pl1.add(p1);
 
-        return  pl1;
+        return pl1;
 
 //        return projectDao.findProject2();
     }
@@ -149,10 +149,10 @@ public class IProjectBizImp implements IProjectBiz {
         p1.setPname("1");
         p1.setPcategoryid(1);
 
-        List<Project> pl1= new ArrayList<>();
+        List<Project> pl1 = new ArrayList<>();
         pl1.add(p1);
 
-        return  pl1;
+        return pl1;
 
 //        return projectDao.findProject3();
     }

@@ -2,7 +2,6 @@ package com.niit.controller;
 
 
 import com.github.qcloudsms.SmsSingleSender;
-import com.github.qcloudsms.SmsSingleSenderResult;
 import com.niit.biz.IUserBiz;
 import com.niit.entity.Users;
 import org.json.JSONException;
@@ -34,7 +33,7 @@ public class SmsController {
             return "false";
         }
 
-        System.out.println("phone = "+Phonenum);
+        System.out.println("phone = " + Phonenum);
 //        System.out.println("userBiz = "+userBiz.findUserByPhone(Phonenum));
         try {
             Users user = userBiz.findUserByPhone(Phonenum);

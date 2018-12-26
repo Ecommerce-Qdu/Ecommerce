@@ -4,6 +4,7 @@ import com.niit.entity.UsersAddress;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public interface UsersAddressMapper {
     int deleteByPrimaryKey(Integer aid);

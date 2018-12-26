@@ -21,7 +21,8 @@ public class UserBizImp implements IUserBiz {
     private OrdersMapper OrderDao;
     @Autowired
     private ProjectMapper projectDao;
-
+    @Autowired
+    private ProjectCommentMapper projectCommentDao;
 
     //注册业务
     @Override
@@ -51,8 +52,8 @@ public class UserBizImp implements IUserBiz {
             System.out.println("biz:手机号不存在");
 
             if (u.getUtype() == 1) {
-                System.out.println("insert user:"+u.toString());
-                if (usersDao.insert(u)==1) {
+                System.out.println("insert user:" + u.toString());
+                if (usersDao.insert(u) == 1) {
                     System.out.println("biz:注册成功");
                     return "ok";
                 } else {
@@ -84,7 +85,6 @@ public class UserBizImp implements IUserBiz {
     public List<UsersAddress> findAllAddress(String Phone) {
         return usersAddressDao.findAllAddress(Phone);
     }
-
 
 
     @Override
@@ -119,7 +119,7 @@ public class UserBizImp implements IUserBiz {
 
     @Override
     public List<ProjectComment> findAllUserProjectComment(String s) {
-        return projectDao.findAllUserProjectComment(s);
+        return projectCommentDao.findAllUserProjectComment(s);
     }
 
     @Override
@@ -135,7 +135,7 @@ public class UserBizImp implements IUserBiz {
     @Override
     public Users findUserByPhone(String phone) {
         Users user = usersDao.findByPhone(phone);
-        System.out.println("user = "+user.toString());
+        System.out.println("user = " + user.toString());
         return user;
     }
 

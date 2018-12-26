@@ -34,9 +34,9 @@
     <div class="carousel-inner">
         <%--<c:if test="${hotimglist==null}">--%>
 
-            <div class="item active">
-                <img class="cimg" src="images/logo.png" alt="0" onclick="">
-            </div>
+        <div class="item active">
+            <img class="cimg" src="images/logo.png" alt="0" onclick="">
+        </div>
 
         <%--</c:if>--%>
 

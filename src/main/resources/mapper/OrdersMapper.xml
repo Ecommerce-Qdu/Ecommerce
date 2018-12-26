@@ -138,4 +138,10 @@
       OrderDate = #{orderdate,jdbcType=TIMESTAMP}
     where OrderId = #{orderid,jdbcType=INTEGER}
   </update>
+
+    <select id="findAllOrder" resultType="Orders" parameterType="java.lang.String">
+    select * from orders where uPhone = #{s}
+    </select>
+
+
 </mapper>

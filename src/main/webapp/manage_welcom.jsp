@@ -19,7 +19,7 @@
 <body>
 <div id="center"
      style="text-align: center;margin: 0 auto;top: 30%;width: 100%;height: 100%;margin-top: 25%;">
-    ${user.uName},欢迎登陆个人中心
+    ${user.uname},欢迎登陆个人中心
 </div>
 
 </body>

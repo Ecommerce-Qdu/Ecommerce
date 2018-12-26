@@ -243,7 +243,7 @@
     select * from projectcomment where CPid = #{Pid}
     </select>
 
-    <select id="selectOrders" resultType="ProjectOrders" parameterType="java.lang.Integer">
+    <select id="selectOrders" resultType="Orders" parameterType="java.lang.Integer">
     select * from orders where Pid = #{Pid}
     </select>
 
@@ -295,11 +295,11 @@
     </select>
 
 
-    <select id="countproject" resultType="int">
-    select count(DISTINCT usersByUPhone.uPhone) from Orders
-    </select>
+    <!--<select id="countproject" resultType="int">-->
+    <!--select count(DISTINCT usersByUPhone.uPhone) from Orders-->
+    <!--</select>-->
 
-    <select id="countproject" resultType="int">
+    <select id="countokpro" resultType="int">
     select count(*) from Project where pState=3
     </select>
 

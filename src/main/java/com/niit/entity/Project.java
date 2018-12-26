@@ -1,7 +1,6 @@
 package com.niit.entity;
 
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -39,39 +38,38 @@ public class Project {
     private Integer pstate;
 
     private String pplan;
-    
+
     private List<ProjectComment> projectCommentsByPId;
-    
+
     private List<ProjectImg> projectImgList;
-    
+
     private List<Orders> ordersByPId;
-    
+
     public List<Orders> getOrdersByPId() {
         return ordersByPId;
     }
-    
+
     public void setOrdersByPId(List<Orders> ordersByPId) {
         this.ordersByPId = ordersByPId;
     }
-    
+
     public List<ProjectComment> getProjectCommentsByPId() {
         return projectCommentsByPId;
     }
-    
+
     public void setProjectCommentsByPId(List<ProjectComment> projectCommentsByPId) {
         this.projectCommentsByPId = projectCommentsByPId;
     }
-    
-    
-    
+
+
     public List<ProjectImg> getProjectImgList() {
         return projectImgList;
     }
-    
+
     public void setProjectImgList(List<ProjectImg> projectImgList) {
         this.projectImgList = projectImgList;
     }
-    
+
     public Integer getPid() {
         return pid;
     }
@@ -96,7 +94,7 @@ public class Project {
         this.pname = pname == null ? null : pname.trim();
     }
 
-    
+
     public String getPdesc() {
         return pdesc;
     }

@@ -129,7 +129,7 @@
 
         <c:forEach items="${ProjectDetailsOrders}" var="pro">
             <tr>
-                <td>${pro.usersByUPhone.uName}</td>
+                <td>${pro.usersByUPhone.uname}</td>
                 <td>${pro.usersByUPhone.uPhone} </td>
                 <td>${pro.money}</td>
                 <td>${pro.orderDate}</td>

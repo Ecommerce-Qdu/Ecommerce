@@ -4,6 +4,7 @@ import com.niit.entity.Orders;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public interface OrdersMapper {
     int deleteByPrimaryKey(Integer orderid);
