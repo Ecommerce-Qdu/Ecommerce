@@ -85,10 +85,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <%--<a class="ptypea"--%>
-                                   <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                        <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                <%--</a>--%>
+                                    <%--<a class="ptypea"--%>
+                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
+                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
+                                    <%--</a>--%>
                             </p>
                         </div>
 
@@ -156,10 +156,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <%--<a class="ptypea"--%>
-                                   <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                        <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                <%--</a>--%>
+                                    <%--<a class="ptypea"--%>
+                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
+                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
+                                    <%--</a>--%>
                             </p>
                         </div>
 
@@ -228,10 +228,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <%--<a class="ptypea"--%>
-                                   <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                        <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                <%--</a>--%>
+                                    <%--<a class="ptypea"--%>
+                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
+                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
+                                    <%--</a>--%>
                             </p>
                         </div>
 
@@ -298,10 +298,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <%--<a class="ptypea"--%>
-                                   <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                        <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                <%--</a>--%>
+                                    <%--<a class="ptypea"--%>
+                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
+                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
+                                    <%--</a>--%>
                             </p>
                         </div>
 
@@ -368,10 +368,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <%--<a class="ptypea"--%>
-                                   <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                        <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                <%--</a>--%>
+                                    <%--<a class="ptypea"--%>
+                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
+                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
+                                    <%--</a>--%>
                             </p>
                         </div>
 
