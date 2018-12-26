@@ -134,6 +134,7 @@ public class UserBizImp implements IUserBiz {
     @Override
     public Users findUserByPhone(String phone) {
         Users user = usersDao.findByPhone(phone);
+        System.out.println("user = "+user.toString());
         return user;
     }
 

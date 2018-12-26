@@ -38,52 +38,7 @@ public class Project {
     private Integer pstate;
 
     private String pplan;
-    
-    private Collection<Orders> ordersByPId;
-    private Users usersByUPhone;
-    private ProjectType projectTypeByPCategoryId;
-    private Collection<ProjectComment> projectCommentsByPId;
-    private Collection<ProjectImg> projectImgsByPId;
-    
-    public Collection<Orders> getOrdersByPId() {
-        return ordersByPId;
-    }
-    
-    public void setOrdersByPId(Collection<Orders> ordersByPId) {
-        this.ordersByPId = ordersByPId;
-    }
-    
-    public Users getUsersByUPhone() {
-        return usersByUPhone;
-    }
-    
-    public void setUsersByUPhone(Users usersByUPhone) {
-        this.usersByUPhone = usersByUPhone;
-    }
-    
-    public ProjectType getProjectTypeByPCategoryId() {
-        return projectTypeByPCategoryId;
-    }
-    
-    public void setProjectTypeByPCategoryId(ProjectType projectTypeByPCategoryId) {
-        this.projectTypeByPCategoryId = projectTypeByPCategoryId;
-    }
-    
-    public Collection<ProjectComment> getProjectCommentsByPId() {
-        return projectCommentsByPId;
-    }
-    
-    public void setProjectCommentsByPId(Collection<ProjectComment> projectCommentsByPId) {
-        this.projectCommentsByPId = projectCommentsByPId;
-    }
-    
-    public Collection<ProjectImg> getProjectImgsByPId() {
-        return projectImgsByPId;
-    }
-    
-    public void setProjectImgsByPId(Collection<ProjectImg> projectImgsByPId) {
-        this.projectImgsByPId = projectImgsByPId;
-    }
+
     
     public Integer getPid() {
         return pid;
@@ -108,31 +63,7 @@ public class Project {
     public void setPname(String pname) {
         this.pname = pname == null ? null : pname.trim();
     }
-    
-    public Project(Integer pid, String uphone, String pname, String pdesc, Date psd, Date ped, BigDecimal ptarget, BigDecimal pnm, Integer pnp, String pmilestone, Integer pcategoryid, String premark, Integer pmf, Integer plimit, String pteam, Integer pstate, String pplan, Collection<Orders> ordersByPId, Users usersByUPhone, ProjectType projectTypeByPCategoryId, Collection<ProjectComment> projectCommentsByPId, Collection<ProjectImg> projectImgsByPId) {
-        this.pid = pid;
-        this.uphone = uphone;
-        this.pname = pname;
-        this.pdesc = pdesc;
-        this.psd = psd;
-        this.ped = ped;
-        this.ptarget = ptarget;
-        this.pnm = pnm;
-        this.pnp = pnp;
-        this.pmilestone = pmilestone;
-        this.pcategoryid = pcategoryid;
-        this.premark = premark;
-        this.pmf = pmf;
-        this.plimit = plimit;
-        this.pteam = pteam;
-        this.pstate = pstate;
-        this.pplan = pplan;
-        this.ordersByPId = ordersByPId;
-        this.usersByUPhone = usersByUPhone;
-        this.projectTypeByPCategoryId = projectTypeByPCategoryId;
-        this.projectCommentsByPId = projectCommentsByPId;
-        this.projectImgsByPId = projectImgsByPId;
-    }
+
     
     public String getPdesc() {
         return pdesc;
@@ -244,5 +175,28 @@ public class Project {
 
     public void setPplan(String pplan) {
         this.pplan = pplan == null ? null : pplan.trim();
+    }
+
+    public Project(Integer pid, String uphone, String pname, String pdesc, Date psd, Date ped, BigDecimal ptarget, BigDecimal pnm, Integer pnp, String pmilestone, Integer pcategoryid, String premark, Integer pmf, Integer plimit, String pteam, Integer pstate, String pplan) {
+        this.pid = pid;
+        this.uphone = uphone;
+        this.pname = pname;
+        this.pdesc = pdesc;
+        this.psd = psd;
+        this.ped = ped;
+        this.ptarget = ptarget;
+        this.pnm = pnm;
+        this.pnp = pnp;
+        this.pmilestone = pmilestone;
+        this.pcategoryid = pcategoryid;
+        this.premark = premark;
+        this.pmf = pmf;
+        this.plimit = plimit;
+        this.pteam = pteam;
+        this.pstate = pstate;
+        this.pplan = pplan;
+    }
+
+    public Project() {
     }
 }

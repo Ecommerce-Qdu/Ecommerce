@@ -1,5 +1,7 @@
 package com.niit.entity;
 
+import java.util.List;
+
 public class Users {
     private String uphone;
 
@@ -49,5 +51,47 @@ public class Users {
 
     public void setUflag(Integer uflag) {
         this.uflag = uflag;
+    }
+
+    public Users(String uphone, String uname, String upwd, Integer utype, Integer uflag) {
+        this.uphone = uphone;
+        this.uname = uname;
+        this.upwd = upwd;
+        this.utype = utype;
+        this.uflag = uflag;
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "addressesByUphone=" + addressesByUphone +
+                ", uphone='" + uphone + '\'' +
+                ", uname='" + uname + '\'' +
+                ", upwd='" + upwd + '\'' +
+                ", utype=" + utype +
+                ", uflag=" + uflag +
+                '}';
+    }
+
+    public Users(List<UsersAddress> addressesByUphone, String uphone, String uname, String upwd, Integer utype, Integer uflag) {
+        this.addressesByUphone = addressesByUphone;
+        this.uphone = uphone;
+        this.uname = uname;
+        this.upwd = upwd;
+        this.utype = utype;
+        this.uflag = uflag;
+    }
+
+    public List<UsersAddress> getAddressesByUphone() {
+        return addressesByUphone;
+    }
+
+    public void setAddressesByUphone(List<UsersAddress> addressesByUphone) {
+        this.addressesByUphone = addressesByUphone;
+    }
+
+    private List<UsersAddress> addressesByUphone;
+
+    public Users() {
     }
 }

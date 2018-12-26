@@ -232,8 +232,8 @@
     where PId = #{pid,jdbcType=INTEGER}
   </update>
 
-    <select id="findHotProject" resultMap="selectproject">
-    select * from project order by pnm desc
-    </select>
+    <!--<select id="findHotProject" resultMap="selectproject">-->
+    <!--select * from project order by pnm desc-->
+    <!--</select>-->
 
 </mapper>

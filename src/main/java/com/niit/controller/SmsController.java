@@ -34,13 +34,17 @@ public class SmsController {
             return "false";
         }
 
+        System.out.println("phone = "+Phonenum);
+//        System.out.println("userBiz = "+userBiz.findUserByPhone(Phonenum));
         try {
             Users user = userBiz.findUserByPhone(Phonenum);
             if (user != null) {
+                System.out.println("has existed");
                 return "Existed";
             }
         } catch (Exception e) {
-            return "Existed";
+            System.out.println("Error !");
+//            return "Existed";
         }
 
 
