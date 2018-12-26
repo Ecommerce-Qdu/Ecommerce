@@ -73,8 +73,8 @@
     select * from ProjectImg where pId=#{pid} order by imgId
     </select>
 
-    <select id="findhotimg" resultMap="BaseResultMap">
-    from ProjectImg a where a.imgPath = (select min(imgPath) from ProjectImg where projectByPid.pId = a.projectByPid.pId) order by a.projectByPid.pId
+    <select id="findhotimg" resultType="ProjectImg">
+    from ProjectImg a where a.imgPath = (select min(imgPath) from ProjectImg b where b.pId = a.pId) order by a.pId
     </select>
 
     <insert id="saveimg">

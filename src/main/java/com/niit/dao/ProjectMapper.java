@@ -44,7 +44,7 @@ public interface ProjectMapper {
 
     List<ProjectImg> findimg(int pid);
 
-    List<ProjectImg> findhotimg();
+
 
     List<Project> findProject1();
 

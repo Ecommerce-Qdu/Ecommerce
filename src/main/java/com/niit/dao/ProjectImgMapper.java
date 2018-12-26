@@ -3,6 +3,8 @@ package com.niit.dao;
 import com.niit.entity.ProjectImg;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProjectImgMapper {
     int deleteByPrimaryKey(Integer imgid);
@@ -16,4 +18,6 @@ public interface ProjectImgMapper {
     int updateByPrimaryKeySelective(ProjectImg record);
 
     int updateByPrimaryKey(ProjectImg record);
+
+    List<ProjectImg> findhotimg();
 }

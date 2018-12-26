@@ -13,6 +13,9 @@ public class ProjectComment {
 
     private String uphone;
 
+    private Users usersByUPhone;
+
+
     public Integer getPcid() {
         return pcid;
     }
@@ -53,5 +56,23 @@ public class ProjectComment {
         this.uphone = uphone == null ? null : uphone.trim();
     }
 
+    public Users getUsersByUPhone() {
+        return usersByUPhone;
+    }
 
+    public void setUsersByUPhone(Users usersByUPhone) {
+        this.usersByUPhone = usersByUPhone;
+    }
+
+    public ProjectComment(Integer pcid, Integer cpid, Date pctime, String pcomment, String uphone, Users usersByUPhone) {
+        this.pcid = pcid;
+        this.cpid = cpid;
+        this.pctime = pctime;
+        this.pcomment = pcomment;
+        this.uphone = uphone;
+        this.usersByUPhone = usersByUPhone;
+    }
+
+    public ProjectComment() {
+    }
 }

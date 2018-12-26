@@ -295,9 +295,9 @@
     </select>
 
 
-    <!--<select id="countproject" resultType="int">-->
-    <!--select count(DISTINCT usersByUPhone.uPhone) from Orders-->
-    <!--</select>-->
+    <select id="supportnum" resultType="int">
+    select count(DISTINCT uPhone) from Orders
+    </select>
 
     <select id="countokpro" resultType="int">
     select count(*) from Project where pState=3
