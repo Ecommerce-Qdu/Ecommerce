@@ -73,5 +73,12 @@
     select * from usersaddress  where aUPhone = #{phone}
   </select>
 
+    <insert id="save" parameterType="com.niit.entity.UsersAddress">
+    insert into usersaddress (Address, aUPhone
+      )
+    values (#{address,jdbcType=VARCHAR}, #{auphone,jdbcType=VARCHAR}
+      )
+  </insert>
+
 
 </mapper>

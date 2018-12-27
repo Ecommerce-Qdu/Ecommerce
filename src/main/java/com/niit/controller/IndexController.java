@@ -14,6 +14,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -47,7 +49,7 @@ public class IndexController {
             }
             if (!"".equals(loginCookieUserName) && !"".equals(loginCookiePassword)) {
                 Users user = userBiz.findUserByPhone(loginCookieUserName);
-                if (loginCookiePassword.equals(user.getUpwd())) {
+                if (user.getUflag()!=-1&&loginCookiePassword.equals(user.getUpwd())) {
                     request.getSession().setAttribute("user", user);
                 }
             }
@@ -76,24 +78,13 @@ public class IndexController {
 
         List<ProjectImg> hotimglist = new ArrayList<>();
         hotimglist = projectBiz.findhotimg();
-//        List<ProjectImg> hotimglisttemp = null;
-//        for (int i = 0; i < hot.size(); i++) {
-//            Project project = hot.get(i);
-//            Collection<ProjectImg> projectImgsByPId = project.getProjectImgsByPId();
-//            for (Iterator<ProjectImg> iterator = projectImgsByPId.iterator(); iterator.hasNext(); ) {
-//                ProjectImg next = iterator.next();
-//                hotimglisttemp = new ArrayList<>();
-//                hotimglisttemp.add(next);
-//            }
-//            hotimglist.add(hotimglisttemp.get(0));
-//
-//        }
-        session.setAttribute("hotimglist", hotimglist);
-        for (int i = 0; i < hotimglist.size(); i++) {
-            ProjectImg projectImg = hotimglist.get(i);
-//            System.out.println("projectImg = " + projectImg.getImgPath());
-        }
+        List<ProjectImg> hotimglisttemp = null;
+        for (int i = 0; i < hot.size(); i++) {
+            Project project = hot.get(i);
+            hotimglist.add(project.getProjectImgList().get(0));
 
+        }
+        session.setAttribute("hotimglist", hotimglist);
         session.setAttribute("hot", hot);
 
         return "index.jsp";

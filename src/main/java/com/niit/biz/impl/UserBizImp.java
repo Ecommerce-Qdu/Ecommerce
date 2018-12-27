@@ -98,8 +98,10 @@ public class UserBizImp implements IUserBiz {
     }
 
     @Override
-    public boolean update(Users user) {
-        return usersDao.update(user);
+    public boolean update(Users user,String uphone) {
+
+        System.out.println("change info : "+uphone+"\n new is:"+user.toString());
+        return usersDao.update(user,uphone);
     }
 
     @Override
@@ -135,7 +137,15 @@ public class UserBizImp implements IUserBiz {
     @Override
     public Users findUserByPhone(String phone) {
         Users user = usersDao.findByPhone(phone);
-        System.out.println("user = " + user.toString());
+
+        //在修改手机号后未注销的情况下重启浏览器传入的phone为旧手机号
+        try{
+            System.out.println("user = " + user.toString());
+        }catch(Exception e){
+            Users u = new Users();
+            u.setUflag(new Integer(-1));
+            return u;
+        }
         return user;
     }
 

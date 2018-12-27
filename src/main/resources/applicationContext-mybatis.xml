@@ -12,7 +12,7 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
         <property name="jdbcUrl"
-                  value="jdbc:mysql://aloli.cn:3306/Ecommerce?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
+                  value="jdbc:mysql://aloli.cn:3306/Ecommerce?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
         <property name="user" value="root"/>
         <property name="password" value="webproject"/>
         <property name="initialPoolSize" value="10"/>
@@ -30,6 +30,8 @@
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
         <!-- 起别名 -->
         <property name="typeAliasesPackage" value="com.niit.entity"/>
+
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
 
     <!-- 扫描接口 -->
@@ -48,4 +50,6 @@
 
     <!-- 5.使用声明式事务 -->
     <tx:annotation-driven proxy-target-class="true" transaction-manager="tx"/>
+
+
 </beans>

@@ -78,14 +78,16 @@ public class ManageController {
     }
 
     @RequestMapping(value = "Changeinfo.mvc")
-    public String Changeinfo(ModelMap map, HttpSession session, String uName,
+    public String Changeinfo(ModelMap map, HttpSession session, String uname,
                              String uZipCode, String uEmail, String uPhone) {
-
+        System.out.println("new uname is :"+uname);
         Users user = (Users) session.getAttribute("user");
+        String oldphone = user.getUphone();
         int type = user.getUtype();
-        user.setUname(uName);
+        user.setUname(uname);
         user.setUphone(uPhone);
-        boolean isok = userBiz.update(user);
+        System.out.println("user new is : "+user.toString());
+        boolean isok = userBiz.update(user,oldphone);
         if (isok && (type == 2)) {
             UsersInfo usersInfo = user.getUsersInfoByUPhone();
             usersInfo.setUemail(uEmail);

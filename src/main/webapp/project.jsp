@@ -237,7 +237,7 @@
             </c:if>
 
             <div id="inputComment">
-                <form action="AddComment.mvc?pid=%{showproject.pId}" method="post">
+                <form action="AddComment.mvc?pid=%{showproject.pid}" method="post">
                     <br/>
                     <p>请说出您对该商品的看法：</p>
                     <br/>
@@ -256,13 +256,13 @@
             <a href="tencent://message/?uin=1043720879&Site=&Menu=yes" id="qbtn">咨询客服</a>
             <br>
             <br>
-            项目介绍:${showproject.pDesc}
+            项目介绍:${showproject.pdesc}
             <br/>
-            投资前景:${showproject.pMilestone}
+            投资前景:${showproject.pmilestone}
             <br/>
-            项目团队介绍:${showproject.pTeam}
+            项目团队介绍:${showproject.pteam}
             <br/>
-            项目开发计划:${showproject.pPlan}
+            项目开发计划:${showproject.pplan}
         </div>
 
         <div id="hot">
@@ -270,17 +270,17 @@
             <div name="projectdiv">
                 <ul name="menu">
                     <c:forEach items="${hot}" var="pro" begin="0" end="3">
-                        <c:if test="${pid != pro.pId}">
+                        <c:if test="${pid != pro.pid}">
                             <li>
                                 <div>
                                     <p class="picture">
-                                        <a href="ShowProject.mvc?pid=${pro.pId}">
-                                            <img class="pimg" src="images/${pro.pId}/0.jpg"/>
+                                        <a href="ShowProject.mvc?pid=${pro.pid}">
+                                            <img class="pimg" src="images/${pro.pid}/0.jpg"/>
                                         </a>
                                     </p>
 
                                     <p class="pname">
-                                        <a href="ShowProject.mvc?pid=${pro.pId}">
+                                        <a href="ShowProject.mvc?pid=${pro.pid}">
                                                 ${pro.pname}
                                         </a>
                                     </p>
@@ -384,7 +384,7 @@
         <br><br>
         Copyright ©2018 Made By
         <br>
-        @境界的彼方 -许志伟 孟文杰 王坤.
+        @境界的彼方 -许志伟 孟文杰 张鑫禹.
         <br>-All rights reserved.
         <br><br>
     </div>

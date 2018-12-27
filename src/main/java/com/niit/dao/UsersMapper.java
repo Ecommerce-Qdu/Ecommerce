@@ -18,9 +18,9 @@ public interface UsersMapper {
 
     int updateByPrimaryKey(Users record);
 
-    boolean changepwd(String s, String newpwd);
+    boolean changepwd(String uphone, String newpwd);
 
-    boolean update(Users user);
+    boolean update(Users user,String uphone);
 
     boolean updateinfo(UsersInfo usersInfo);
 

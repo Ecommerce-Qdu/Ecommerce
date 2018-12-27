@@ -25,7 +25,7 @@ public interface IUserBiz {
     boolean changepwd(String s, String newpwd);
 
     //更新用户
-    boolean update(Users user);
+    boolean update(Users user,String uphone);
 
     //修改融资者信息
     boolean updateinfo(UsersInfo usersInfo);

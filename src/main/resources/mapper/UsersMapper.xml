@@ -106,4 +106,20 @@
     where UPhone = #{UPhone}
   </select>
 
+    <update id="changepwd">
+    update users
+    set UPwd = #{arg1} where UPhone = #{arg0}
+  </update>
+
+    <update id="update">
+    update users
+    set UName = #{arg0.uname},
+      UPhone = #{arg0.uphone}
+    where UPhone = #{arg1};
+    update usersaddress
+    set aUPhone = #{arg0.uphone}
+    where aUPhone = #{arg1};
+  </update>
+
+
 </mapper>

@@ -44,7 +44,10 @@
 
     function msgtype() {
         var jumpurl = "${url}";
-        window.location.href = "" + jumpurl + "";
+        if (jumpurl == "Checkout.mvc")
+            top.location.href = "" + jumpurl + "";
+        else
+            window.location.href = "" + jumpurl + "";
     }
 
     setTimeout("msgtype()", 1000);
