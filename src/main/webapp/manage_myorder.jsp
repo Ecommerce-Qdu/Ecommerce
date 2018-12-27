@@ -69,16 +69,16 @@
     </tr>
     <c:forEach items="${myorders}" var="pro">
         <tr>
-            <td>${pro.projectByPId.pName}</td>
+            <td>${pro.projectByPId.pname}</td>
             <td>
-                <c:if test="${pro.projectByPId.pState == 0}">未开始</c:if>
-                <c:if test="${pro.projectByPId.pState == 1}">进行中</c:if>
-                <c:if test="${pro.projectByPId.pState == 2}">已完成</c:if>
-                <c:if test="${pro.projectByPId.pState == 3}">未成功</c:if>
+                <c:if test="${pro.projectByPId.pstate == 0}">未开始</c:if>
+                <c:if test="${pro.projectByPId.pstate == 1}">进行中</c:if>
+                <c:if test="${pro.projectByPId.pstate == 2}">已完成</c:if>
+                <c:if test="${pro.projectByPId.pstate == 3}">未成功</c:if>
             </td>
 
             <td>${pro.money}</td>
-            <td>${pro.orderDate}</td>
+            <td>${pro.orderdate}</td>
             <td>
                 <c:if test="${pro.expect==0}">
                     不需要回报
@@ -90,18 +90,18 @@
 
 
             <td>
-                <c:if test="${pro.expectType==-1}">
+                <c:if test="${pro.expecttype==-1}">
                 </c:if>
-                <c:if test="${pro.expectType==1}">
+                <c:if test="${pro.expecttype==1}">
                     投资产品享受折扣
                 </c:if>
-                <c:if test="${pro.expectType==2}">
+                <c:if test="${pro.expecttype==2}">
                     购买产品享有更高折扣或附加服务
                 </c:if>
-                <c:if test="${pro.expectType==3}">
+                <c:if test="${pro.expecttype==3}">
                     免费获得投资产品
                 </c:if>
-                <c:if test="${pro.expectType==4}">
+                <c:if test="${pro.expecttype==4}">
                     其他
                 </c:if>
             </td>
@@ -111,7 +111,7 @@
                 </c:if>
             </td>
             <td>
-                <c:if test="${pro.expectType==4}">
+                <c:if test="${pro.expecttype==4}">
                     ${pro.usersAddressByAId.exceptOther}
                 </c:if>
             </td>

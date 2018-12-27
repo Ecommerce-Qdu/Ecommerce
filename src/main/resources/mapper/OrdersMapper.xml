@@ -142,6 +142,17 @@
     <select id="findAllOrder" resultType="Orders" parameterType="java.lang.String">
     select * from orders where uPhone = #{s}
     </select>
+    <insert id="saveorder" parameterType="com.niit.entity.Orders">
+    insert into orders (OrderId, UPhone, PId,
+      AId, Money, Expect,
+      ExpectType, ExceptOther, OrderDate
+      )
+    values (#{orderid,jdbcType=INTEGER}, #{uphone,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER},
+      #{aid,jdbcType=INTEGER}, #{money,jdbcType=DECIMAL}, #{expect,jdbcType=INTEGER},
+      #{expecttype,jdbcType=INTEGER}, #{exceptother,jdbcType=VARCHAR}, #{orderdate,jdbcType=TIMESTAMP}
+      );
 
+    update project set pnm = pnm+#{money,jdbcType=DECIMAL} where pid = #{pid,jdbcType=INTEGER};
+  </insert>
 
 </mapper>
