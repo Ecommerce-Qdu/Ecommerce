@@ -290,7 +290,7 @@ public class ProjectController {
         String pname = project.getPname();
         BigDecimal pnm = project.getPnm();
         int pnp = project.getPnp();
-        Timestamp deadline = new Timestamp(project.getPed().getTime());
+        Timestamp deadline = project.getPed();
         BigDecimal ptarget = project.getPtarget();
         String percentage = (pnm.divide(ptarget).multiply(BigDecimal.valueOf(Long.parseLong(100 + "")))).toString();
 

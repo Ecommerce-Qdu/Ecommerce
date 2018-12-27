@@ -42,13 +42,13 @@
     <div id="m1">
         <div id="left">
             <c:forEach items="${imglist}" var="il" begin="0" end="0">
-                <img id="product" src="${il.imgPath}">
+                <img id="product" src="${il.imgpath}">
             </c:forEach>
-            <%--<img id="product" src="${imglist[0].imgPath}"/>--%>
+            <%--<img id="product" src="${imglist[0].imgpath}"/>--%>
         </div>
         <div id="right">
             <div id="rightTop">
-                <p id="title">${showproject.pName}</p>
+                <p id="title">${showproject.pname}</p>
                 <p>已筹到</p>
                 <p id="got">
                     ${showproject.pnm}
@@ -83,7 +83,7 @@
                     前得到
                     &nbsp;
                     <span class="time">
-                        ${showproject.pTarget}
+                        ${showproject.ptarget}
                             <c:if test="${typestr!='USD'}">
                                 ${typestr}
                                 (${cpt} $)
@@ -167,7 +167,7 @@
                         </td>
                         <td>
                             <c:forEach items="${addr}" var="uad">
-                                <input name="oaid" type="radio" value="${uad.aId}">
+                                <input name="oaid" type="radio" value="${uad.aid}">
                                 ${uad.address}
                             </c:forEach>
                         </td>
@@ -194,7 +194,7 @@
         <br/>
         <div id="introducation">
             <c:forEach items="${imglist}" var="il">
-                <img src="${il.imgPath}">
+                <img src="${il.imgpath}">
             </c:forEach>
             <%--显示产品介绍--%>
         </div>
@@ -281,7 +281,7 @@
 
                                     <p class="pname">
                                         <a href="ShowProject.mvc?pid=${pro.pId}">
-                                                ${pro.pName}
+                                                ${pro.pname}
                                         </a>
                                     </p>
                                     <p class="ptype" style="width: 40px">

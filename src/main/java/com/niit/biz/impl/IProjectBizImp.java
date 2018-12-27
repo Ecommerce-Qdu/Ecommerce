@@ -73,7 +73,7 @@ public class IProjectBizImp implements IProjectBiz {
 
     @Override
     public List<ProjectImg> findimg(int pid) {
-        return projectDao.findimg(pid);
+        return projectImgMapper.findimg(pid);
     }
 
     @Override

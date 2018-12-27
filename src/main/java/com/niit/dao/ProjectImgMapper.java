@@ -20,4 +20,6 @@ public interface ProjectImgMapper {
     int updateByPrimaryKey(ProjectImg record);
 
     List<ProjectImg> findhotimg();
+
+    List<ProjectImg> findimg(int pid);
 }

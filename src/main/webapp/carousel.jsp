@@ -42,12 +42,12 @@
 
         <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="0" end="0">
             <div class="item active">
-                <img class="cimg" src="${ad.imgPath}" alt="${vs.count}" onclick="topro(${ad.projectByPid.pId})">
+                <img class="cimg" src="${ad.imgpath}" alt="${vs.count}" onclick="topro(${ad.pid})">
             </div>
         </c:forEach>
         <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="1">
             <div class="item">
-                <img class="cimg" src="${ad.imgPath}" alt="${vs.count}" onclick="topro(${ad.projectByPid.pId}">
+                <img class="cimg" src="${ad.imgpath}" alt="${vs.count}" onclick="topro(${ad.pid}">
             </div>
         </c:forEach>
     </div>

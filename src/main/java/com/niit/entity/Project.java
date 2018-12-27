@@ -1,6 +1,7 @@
 package com.niit.entity;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -111,8 +112,12 @@ public class Project {
         this.psd = psd;
     }
 
-    public Date getPed() {
-        return ped;
+//    public Date getPed() {
+//        return ped;
+//    }
+
+    public Timestamp getPed() {
+        return new Timestamp(ped.getTime());
     }
 
     public void setPed(Date ped) {

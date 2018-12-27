@@ -74,7 +74,7 @@
     </select>
 
     <select id="findhotimg" resultType="ProjectImg">
-    from ProjectImg a where a.imgPath = (select min(imgPath) from ProjectImg b where b.pId = a.pId) order by a.pId
+select * from ProjectImg a where a.imgPath = (select min(imgPath) from ProjectImg b where b.pId = a.pId) order by a.pId
     </select>
 
     <insert id="saveimg">
