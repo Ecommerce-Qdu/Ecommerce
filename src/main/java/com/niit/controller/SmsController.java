@@ -37,8 +37,8 @@ public class SmsController {
 //        System.out.println("userBiz = "+userBiz.findUserByPhone(Phonenum));
         try {
             Users user = userBiz.findUserByPhone(Phonenum);
-            if (user != null) {
-                System.out.println("has existed");
+            if (user != null&&user.getUflag()!=-1) {
+                System.out.println("has existed:"+user.toString());
                 return "Existed";
             }
         } catch (Exception e) {

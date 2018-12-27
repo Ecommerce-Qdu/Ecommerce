@@ -105,8 +105,8 @@ public class UserBizImp implements IUserBiz {
     }
 
     @Override
-    public boolean updateinfo(UsersInfo usersInfo) {
-        return usersDao.updateinfo(usersInfo);
+    public boolean updateinfo(String uphone,UsersInfo usersInfo) {
+        return usersInfoDao.updateinfo(uphone,usersInfo);
     }
 
     @Override

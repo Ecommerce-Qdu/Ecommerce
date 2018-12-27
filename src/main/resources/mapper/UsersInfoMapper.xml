@@ -90,4 +90,26 @@
       UCardNumber = #{ucardnumber,jdbcType=VARCHAR}
     where UPhone = #{uphone,jdbcType=VARCHAR}
   </update>
+
+    <insert id="save">
+    insert into usersinfo (UPhone, UName, UZipCode,
+      UEmail, UCardNumber)
+    values (#{arg1.uphone,jdbcType=VARCHAR}, #{arg1.uname,jdbcType=VARCHAR}, #{arg1.uzipcode,jdbcType=CHAR},
+      #{arg1.uemail,jdbcType=VARCHAR}, #{arg1.ucardnumber,jdbcType=VARCHAR});
+    insert into users (UPhone, UName, UPwd,UType, UFlag)
+    values (#{arg0.uphone,jdbcType=VARCHAR}, #{arg0.uname,jdbcType=VARCHAR}, #{arg0.upwd,jdbcType=VARCHAR},
+      #{arg0.utype,jdbcType=INTEGER}, #{arg0.uflag,jdbcType=INTEGER});
+  </insert>
+
+    <update id="updateinfo">
+    update usersinfo
+    set UName = #{arg1.uname,jdbcType=VARCHAR},
+      UZipCode = #{arg1.uzipcode,jdbcType=CHAR},
+      UEmail = #{arg1.uemail,jdbcType=VARCHAR},
+      UCardNumber = #{arg1.ucardnumber,jdbcType=VARCHAR}
+    where UPhone = #{arg0,jdbcType=VARCHAR}
+  </update>
+
+
+
 </mapper>

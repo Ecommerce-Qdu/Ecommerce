@@ -60,19 +60,19 @@
                     <li>
                         <div>
                             <p class="picture">
-                                <a href="ShowProject.mvc?pid=${pro.pId}">
-                                    <img class="pimg" src="images/${pro.pId}/0.jpg"/>
+                                <a href="ShowProject.mvc?pid=${pro.pid}">
+                                    <img class="pimg" src="images/${pro.pid}/0.jpg"/>
                                 </a>
                             </p>
 
                             <p class="pname">
-                                <a href="ShowProject.mvc?pid=${pro.pId}"">
-                                    ${pro.pName}
+                                <a href="ShowProject.mvc?pid=${pro.pid}">
+                                    ${pro.pname}
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                <a class="ptypea" href="ShowProject.mvc?pid=${pro.pId}">
-                                        ${pro.projectTypeByPCategoryId.projectTypeName}
+                                <a class="ptypea" href="ShowProject.mvc?pid=${pro.pid}">
+                                        ${pro.projectTypeByPCategoryId.projecttypename}
                                 </a>
                             </p>
                         </div>

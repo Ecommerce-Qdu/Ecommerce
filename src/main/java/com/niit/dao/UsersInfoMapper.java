@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsersInfoMapper {
+
+
     int deleteByPrimaryKey(String uphone);
 
     int insert(UsersInfo record);
@@ -19,4 +21,6 @@ public interface UsersInfoMapper {
     int updateByPrimaryKey(UsersInfo record);
 
     boolean save(Users user, UsersInfo userinfo);
+    boolean updateinfo(String phone,UsersInfo usersInfo);
+
 }

@@ -56,7 +56,7 @@
                 邮编:
             </td>
             <td>
-                    ${user.usersInfoByUPhone.uZipCode}
+                    ${user.usersInfoByUPhone.uzipcode}
             </td>
         </tr>
         <tr>
@@ -64,7 +64,7 @@
                 邮箱:
             </td>
             <td>
-                    ${user.usersInfoByUPhone.uEmail}
+                    ${user.usersInfoByUPhone.uemail}
             </td>
         </tr>
         <tr>
@@ -72,7 +72,7 @@
                 证件号码:
             </td>
             <td>
-                    ${user.usersInfoByUPhone.uCardNumber}
+                    ${user.usersInfoByUPhone.ucardnumber}
             </td>
         </tr>
 

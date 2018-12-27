@@ -46,6 +46,16 @@ public class Project {
 
     private List<Orders> ordersByPId;
 
+    private ProjectType projectTypeByPCategoryId;
+
+    public ProjectType getProjectTypeByPCategoryId() {
+        return projectTypeByPCategoryId;
+    }
+
+    public void setProjectTypeByPCategoryId(ProjectType projectTypeByPCategoryId) {
+        this.projectTypeByPCategoryId = projectTypeByPCategoryId;
+    }
+
     public List<Orders> getOrdersByPId() {
         return ordersByPId;
     }
@@ -230,6 +240,30 @@ public class Project {
         this.pteam = pteam;
         this.pstate = pstate;
         this.pplan = pplan;
+    }
+
+    public Project(Integer pid, String uphone, String pname, String pdesc, Date psd, Date ped, BigDecimal ptarget, BigDecimal pnm, Integer pnp, String pmilestone, Integer pcategoryid, String premark, Integer pmf, Integer plimit, String pteam, Integer pstate, String pplan, List<ProjectComment> projectCommentsByPId, List<ProjectImg> projectImgList, List<Orders> ordersByPId, ProjectType projectTypeByPCategoryId) {
+        this.pid = pid;
+        this.uphone = uphone;
+        this.pname = pname;
+        this.pdesc = pdesc;
+        this.psd = psd;
+        this.ped = ped;
+        this.ptarget = ptarget;
+        this.pnm = pnm;
+        this.pnp = pnp;
+        this.pmilestone = pmilestone;
+        this.pcategoryid = pcategoryid;
+        this.premark = premark;
+        this.pmf = pmf;
+        this.plimit = plimit;
+        this.pteam = pteam;
+        this.pstate = pstate;
+        this.pplan = pplan;
+        this.projectCommentsByPId = projectCommentsByPId;
+        this.projectImgList = projectImgList;
+        this.ordersByPId = ordersByPId;
+        this.projectTypeByPCategoryId = projectTypeByPCategoryId;
     }
 
     public Project() {

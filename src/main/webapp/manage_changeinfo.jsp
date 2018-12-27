@@ -26,12 +26,12 @@
         </tr>
         <c:if test="${user.utype==2}">
             <tr>
-                <td>邮编</td>
-                <td><input type="text" name="uZipCode" value="${user.usersInfoByUPhone.uZipCode}" required/></td>
+                <td>邮编(6位)</td>
+                <td><input type="text" name="uZipCode" value="${user.usersInfoByUPhone.uzipcode}" required/></td>
             </tr>
             <tr>
                 <td>邮箱</td>
-                <td><input type="text" name="uEmail" value="${user.usersInfoByUPhone.uEmail}" required/></td>
+                <td><input type="text" name="uEmail" value="${user.usersInfoByUPhone.uemail}" required/></td>
             </tr>
         </c:if>
     </table>

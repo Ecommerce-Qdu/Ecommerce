@@ -19,6 +19,7 @@
         <result column="PTeam" property="pteam" jdbcType="VARCHAR"/>
         <result column="PState" property="pstate" jdbcType="INTEGER"/>
         <result column="PPlan" property="pplan" jdbcType="VARCHAR"/>
+        <association property="projectTypeByPCategoryId" select="selectProjectType" column="PCategoryId"/>
         <collection property="projectImgList" ofType="ProjectImg" select="selectimg" column="Pid"/>
         <collection property="projectCommentsByPId" ofType="ProjectComment" select="selectComment" column="Pid"/>
         <collection property="ordersByPId" ofType="Orders" select="selectOrders" column="Pid"/>
@@ -332,6 +333,10 @@
 
     <select id="findProjectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select * from Project where pId = #{pid}
+    </select>
+
+    <select id="selectProjectType" resultType="com.niit.entity.ProjectType" parameterType="java.lang.Integer">
+    select * from ProjectType where ProjectTypeId = #{PCategoryId}
     </select>
 
 

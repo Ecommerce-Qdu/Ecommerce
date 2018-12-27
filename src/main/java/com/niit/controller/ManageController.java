@@ -80,6 +80,11 @@ public class ManageController {
     @RequestMapping(value = "Changeinfo.mvc")
     public String Changeinfo(ModelMap map, HttpSession session, String uname,
                              String uZipCode, String uEmail, String uPhone) {
+        if(uZipCode.length()>6){
+            map.addAttribute("msg", "邮编错误，应为6位数字");
+            return "msg.jsp";
+        }
+
         System.out.println("new uname is :"+uname);
         Users user = (Users) session.getAttribute("user");
         String oldphone = user.getUphone();
@@ -92,7 +97,7 @@ public class ManageController {
             UsersInfo usersInfo = user.getUsersInfoByUPhone();
             usersInfo.setUemail(uEmail);
             usersInfo.setUzipcode(uZipCode);
-            isok = userBiz.updateinfo(usersInfo);
+            isok = userBiz.updateinfo(oldphone,usersInfo);
         }
 
         map.addAttribute("url", "manage_person.jsp");

@@ -28,7 +28,7 @@ public interface IUserBiz {
     boolean update(Users user,String uphone);
 
     //修改融资者信息
-    boolean updateinfo(UsersInfo usersInfo);
+    boolean updateinfo(String uphone,UsersInfo usersInfo);
 
     //当前用户的所有订单
     List<Orders> findAllOrder(String s);
