@@ -316,7 +316,14 @@
     select * from Project where PCategoryId = 3
     </select>
 
-    <insert id="save" parameterType="com.niit.entity.Project">
+    <insert id="save"  parameterType="com.niit.entity.Project" useGeneratedKeys="true" keyColumn="pid" keyProperty="pid">
+
+
+        <!--<selectKey order="AFTER" keyColumn="pid">-->
+            <!--SELECT LAST_INSERT_ID()-->
+        <!--</selectKey>-->
+
+
     insert into project (PId, UPhone, PName,
       PDesc, PSD, PED,
       PTarget, PNM, PNP,
@@ -329,7 +336,8 @@
       #{pmilestone,jdbcType=VARCHAR}, #{pcategoryid,jdbcType=INTEGER}, #{premark,jdbcType=VARCHAR},
       #{pmf,jdbcType=INTEGER}, #{plimit,jdbcType=INTEGER}, #{pteam,jdbcType=VARCHAR},
       #{pstate,jdbcType=INTEGER}, #{pplan,jdbcType=VARCHAR})
-  </insert>
+
+    </insert>
 
     <select id="findProjectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select * from Project where pId = #{pid}

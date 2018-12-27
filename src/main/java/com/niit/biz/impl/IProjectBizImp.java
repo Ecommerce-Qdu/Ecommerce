@@ -100,7 +100,8 @@ public class IProjectBizImp implements IProjectBiz {
     @Override
     public int save(Project project) {
         System.out.println(project.toString());
-        return projectDao.save(project);
+        projectDao.save(project);
+        return project.getPid();
     }
 
     @Override

@@ -85,6 +85,7 @@ public class ProjectController {
 
         
         int isok = projectBiz.save(project);
+        System.out.println("isok = "+isok);
         if (isok >= 0) {
             session.setAttribute("addprojectid", isok);
             map.addAttribute("msg", "添加项目成功,请上传图片");
