@@ -80,12 +80,9 @@ select * from ProjectImg a where a.imgPath = (select min(imgPath) from ProjectIm
     <insert id="saveimg">
         insert into projectimg (Pid, ImgPath)
         values
-        <foreach collection="list" item="item" index="index" separator=",">
-            (Pid,#{item,jdbcType=VARCHAR})
+        <foreach collection="arg1" item="item" index="index" separator=",">
+            (#{arg0},#{item,jdbcType=VARCHAR})
         </foreach>
-        (#{0}, #{1}
-        )
     </insert>
-
 
 </mapper>

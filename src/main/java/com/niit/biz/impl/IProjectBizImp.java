@@ -11,16 +11,15 @@ import com.niit.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class IProjectBizImp implements IProjectBiz {
-
+    
     @Autowired
     private ProjectMapper projectDao;
     @Autowired
-    private ProjectImgMapper projectImgMapper;
+    private ProjectImgMapper projectImgDao;
 
     @Autowired
     private OrdersMapper iOrderDao;
@@ -73,12 +72,12 @@ public class IProjectBizImp implements IProjectBiz {
 
     @Override
     public List<ProjectImg> findimg(int pid) {
-        return projectImgMapper.findimg(pid);
+        return projectImgDao.findimg(pid);
     }
 
     @Override
     public List<ProjectImg> findhotimg() {
-        return projectImgMapper.findhotimg();
+        return projectImgDao.findhotimg();
     }
 
     @Override
@@ -100,6 +99,7 @@ public class IProjectBizImp implements IProjectBiz {
 
     @Override
     public int save(Project project) {
+        System.out.println(project.toString());
         return projectDao.save(project);
     }
 
@@ -109,8 +109,8 @@ public class IProjectBizImp implements IProjectBiz {
     }
 
     @Override
-    public boolean saveimg(int pid, List<String> listImagePath) {
-        return projectDao.saveimg(pid, listImagePath);
+    public int saveimg(int pid, List<String> listImagePath) {
+        return projectImgDao.saveimg(pid, listImagePath);
     }
 
     @Override

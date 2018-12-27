@@ -31,7 +31,7 @@ public interface IProjectBiz {
     Project findProjectById(int pid);
 
     //保存图片
-    boolean saveimg(int pid, List<String> listImagePath);
+    int saveimg(int pid, List<String> listImagePath);
 
     //添加评论
     boolean savecom(Project p, Users u, String newcom);
