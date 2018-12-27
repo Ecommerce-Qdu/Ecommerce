@@ -47,7 +47,26 @@ public class Project {
     private List<Orders> ordersByPId;
 
     private ProjectType projectTypeByPCategoryId;
-
+    
+    public Project(String pname, String pdesc, Date psd, Date ped, BigDecimal ptarget, BigDecimal pnm, Integer pnp, String pmilestone, String premark, Integer pmf, Integer plimit, String pteam, Integer pstate, String pplan,Users u,ProjectType projectType) {
+        this.pname = pname;
+        this.pdesc = pdesc;
+        this.psd = psd;
+        this.ped = ped;
+        this.ptarget = ptarget;
+        this.pnm = pnm;
+        this.pnp = pnp;
+        this.pmilestone = pmilestone;
+        this.premark = premark;
+        this.pmf = pmf;
+        this.plimit = plimit;
+        this.pteam = pteam;
+        this.pstate = pstate;
+        this.pplan = pplan;
+        this.uphone = u.getUphone();
+        this.pcategoryid = projectType.getProjecttypeid();
+    }
+    
     public ProjectType getProjectTypeByPCategoryId() {
         return projectTypeByPCategoryId;
     }
@@ -96,7 +115,34 @@ public class Project {
     public void setUphone(String uphone) {
         this.uphone = uphone == null ? null : uphone.trim();
     }
-
+    
+    @Override
+    public String toString() {
+        return "Project{" +
+                "pid=" + pid +
+                ", uphone='" + uphone + '\'' +
+                ", pname='" + pname + '\'' +
+                ", pdesc='" + pdesc + '\'' +
+                ", psd=" + psd +
+                ", ped=" + ped +
+                ", ptarget=" + ptarget +
+                ", pnm=" + pnm +
+                ", pnp=" + pnp +
+                ", pmilestone='" + pmilestone + '\'' +
+                ", pcategoryid=" + pcategoryid +
+                ", premark='" + premark + '\'' +
+                ", pmf=" + pmf +
+                ", plimit=" + plimit +
+                ", pteam='" + pteam + '\'' +
+                ", pstate=" + pstate +
+                ", pplan='" + pplan + '\'' +
+                ", projectCommentsByPId=" + projectCommentsByPId +
+                ", projectImgList=" + projectImgList +
+                ", ordersByPId=" + ordersByPId +
+                ", projectTypeByPCategoryId=" + projectTypeByPCategoryId +
+                '}';
+    }
+    
     public String getPname() {
         return pname;
     }

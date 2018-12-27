@@ -9,14 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.text.ParseException;
+import java.util.*;
 import java.sql.Timestamp;
 
 @Controller
@@ -28,247 +28,258 @@ public class ProjectController {
     @Autowired
     private Exchange exchange;
 
-//    @RequestMapping(value = "AddProject.mvc", method = RequestMethod.POST)
-//    public String AddProject(ModelMap map, HttpSession session, String PName, String PDesc, String PSD, String PED, String PTarget, String
-//            PMilestone, String PCategoryId, String PRemark, String PMF, String PLimit, String PTeam, String PPlan) throws ParseException {
-//        Project project = new Project();
-//        try {
-//            PSD = PSD.replace("T", " ") + ":00.000";
-//            PED = PED.replace("T", " ") + ":00.000";
-//            System.out.println("PSD = " + PSD);
-//            System.out.println("PED = " + PED);
-//
-//            Timestamp tss = Timestamp.valueOf(PSD);
-//            Timestamp tnow = new Timestamp(new Date().getTime());
-//            Timestamp tse = Timestamp.valueOf(PED);
-//            System.out.println("tnow = " + tnow);
-//            int plimit = Integer.parseInt(PLimit);
-//            int ppid = Integer.parseInt(PCategoryId);
-//            int pmf = Integer.parseInt(PMF);
-//            BigDecimal pt = BigDecimal.valueOf(Long.parseLong(PTarget));
-//            BigDecimal pnm = BigDecimal.valueOf(0);
-//            ProjectType projectType = new ProjectType();
-//            projectType.setProjectTypeId(ppid);
-//            Users u = (Users) session.getAttribute("user");
-//            String phone = u.getUphone();
-//            System.out.println("checkForm");
-//
-//            project = new Project(PName, PDesc, tss, tse, pt,
-//                    pnm, 0, PMilestone, PRemark, pmf, plimit, PTeam, 0, PPlan, u, projectType);
-//            project.setPsd(tss);
-//            if (tss.after(tnow)) {
-//                project.setpState(0);
-//            } else {
-//                project.setpState(1);
-//            }
-//            if (tnow.after(tse)) {
-//                if (pnm == pt)
-//                    project.setpState(2);
-//                else
-//                    project.setpState(3);
-//            }
-//
-//
-//        } catch (Exception e) {
-//            map.addAttribute("existaddprojectmsg", "true");
-//            map.addAttribute("addprojectmsg", "输入内容有误");
-//            return "addproject.jsp";
-//        }
-//
-//
-//        int isok = projectBiz.save(project);
-//        if (isok >= 0) {
-//            session.setAttribute("addprojectid", isok);
-//            map.addAttribute("msg", "添加项目成功,请上传图片");
-//            map.addAttribute("url", "upload.jsp");
-//            map.addAttribute("existaddprojectmsg", "false");
-//        } else {
-//            map.addAttribute("msg", "添加项目失败");
-//            map.addAttribute("url", "addproject.jsp");
-//        }
-//
-//        return "msg.jsp";
-//    }
-//
-//
-//    @RequestMapping(value = "Upload.mvc", method = RequestMethod.POST)
-//    private String fildUpload(@RequestParam(value = "itemImagers", required = false) MultipartFile[] file,
-//                              HttpSession session, ModelMap map) throws Exception {
-//
-//        //新增项目1,更新项目2,更新图片3
-//        int flag = 1;
-//
-//        int pid = 0;
-//        try {
-//            pid = (int) session.getAttribute("addprojectid");
-//        } catch (Exception e) {
-//            Project up = (Project) session.getAttribute("updateproject");
-//            pid = up.getpId();
-//            if (file.length == 0)
-//                flag = 2;
-//            else
-//                flag = 3;
-//        }
-//        String pathRoot = session.getServletContext().getRealPath("");
-//        String path = "";
-//        String imgpath = "";
-//
-//        String savePath = pathRoot + "/images/" + pid + "/";
-//
-//        //若果不存在文件夹则创建
-//        File dirFile;
-//        File tempFile;
-//        boolean bFile;
-//        String sFileName;
-//        bFile = false;
-//        try {
-//            dirFile = new File(savePath);
-//            bFile = dirFile.exists();
-//            if (bFile == true) {
-//            } else {
-//                bFile = dirFile.mkdir();
-//            }
-//        } catch (Exception e) {
-//            System.out.println("创建文件夹失败!");
-//        }
-//
-//        if (flag != 3) {
-//            //保存图片
-//            List<String> listImagePath = new ArrayList<String>();
-//            boolean upload = true;
-//            System.out.println("file = " + file.length);
-//            System.out.println("flag = " + flag);
-//            //判断用户是否上传了图片
-//            if (file[0].isEmpty() && flag == 1) {
-//                map.addAttribute("msg", "请上传图片");
-//                map.addAttribute("url", "upload.jsp");
-//            } else {
-//                for (MultipartFile mf : file) {
-//                    if (!mf.isEmpty()) {
-//
-//                        //得到文件名
-//                        File countfile = new File(savePath);
-//                        String[] files = countfile.list();
-//                        int i = files.length;
-//
-//                        //获得文件类型
-//                        String contentType = mf.getContentType();
-//                        System.out.println("contentType = " + contentType);
-//                        if (contentType.equals("image/jpeg")) {
-//                            path = "/images/" + pid + "/" + i + ".jpg";
-//                            imgpath = "images/" + pid + "/" + i + ".jpg";
-//                            mf.transferTo(new File(pathRoot + path));
-//                            listImagePath.add(imgpath);
-//                            System.out.println(imgpath);
-//                        } else {
-//                            map.addAttribute("msg", "图片类型不正确");
-//                            map.addAttribute("url", "upload.jsp");
-//                            //失败清空list
-//                            upload = false;
-//                            listImagePath = new ArrayList<String>();
-//                        }
-//                    }
-//                }
-//                boolean isok = projectBiz.saveimg(pid, listImagePath);
-//                if (upload && isok) {
-//                    map.addAttribute("msg", "添加图片成功");
-//                    map.addAttribute("url", "ShowProject.mvc?pid=" + pid);
-//                    session.setAttribute("addprojectid", null);
-//                }
-//            }
-//            return "msg.jsp";
-//        } else {
-//            return "manage_myproject.jsp";
-//        }
-//
-//
-//    }
-//
-//    @RequestMapping(value = "PreUpdateProject.mvc")
-//    public String PreUpdateProject(String pid, ModelMap map, HttpSession session) {
-//
-//        Project project = projectBiz.findProjectById(Integer.parseInt(pid));
-//
-//        session.setAttribute("updateproject", project);
-//
-//        return "updateproject.jsp";
-//    }
-//
-//    @RequestMapping(value = "UpdateProject.mvc")
-//    public String UpdateProject(ModelMap map, HttpSession session, String PName, String PDesc, String PSD, String PED, String PTarget, String
-//            PMilestone, String PCategoryId, String PRemark, String PMF, String PLimit, String PTeam, String PPlan) throws ParseException {
-//
-//        Project project = null;
-//        try {
-//            PSD = PSD.replace("T", " ");
-//            PED = PED.replace("T", " ");
-//            System.out.println("updateProject===============================");
-//            Timestamp tss = Timestamp.valueOf(PSD);
-//            Timestamp tse = Timestamp.valueOf(PED);
-//            int plimit = Integer.parseInt(PLimit);
-//            int ppid = Integer.parseInt(PCategoryId);
-//            int pmf = Integer.parseInt(PMF);
-//            System.out.println("PTarget = " + PTarget);
-//            BigDecimal pt = new BigDecimal(PTarget);
-//
-//            System.out.println("pt = " + pt);
-//            ProjectType projectType = new ProjectType();
-//            projectType.setProjectTypeId(ppid);
-//            Users u = (Users) session.getAttribute("user");
-//            String phone = u.getUphone();
-//            System.out.println("phone = " + phone);
-//            project = (Project) session.getAttribute("updateproject");
-//            System.out.println("project = " + project);
-//            project.setpName(PName);
-//            project.setpDesc(PDesc);
-//            project.setPsd(tss);
-//            project.setPed(tse);
-//            project.setpTarget(pt);
-//            project.setpMilestone(PMilestone);
-//            project.setProjectTypeByPCategoryId(projectType);
-//            project.setpRemark(PRemark);
-//            project.setPmf(pmf);
-//            project.setpLimit(plimit);
-//            project.setpTeam(PTeam);
-//            project.setpPlan(PPlan);
-//
-//            Timestamp tnow = new Timestamp(new Date().getTime());
-//            System.out.println("tnow = " + tnow);
-//            if (tss.after(tnow)) {
-//                project.setpState(0);
-//            } else {
-//                project.setpState(1);
-//            }
-//            if (tnow.after(tse)) {
-//                if (project.getPnm() == pt)
-//                    project.setpState(2);
-//                else
-//                    project.setpState(3);
-//            }
-//            System.out.println("projectState = " + project.getpState());
-//        } catch (NumberFormatException e) {
-//            System.out.println("输入内容有误");
-//            map.addAttribute("existaddprojectmsg", "true");
-//            map.addAttribute("addprojectmsg", "输入内容有误");
-//            return "updateproject.jsp";
-//        }
-//
-//
-//        boolean isok = projectBiz.update(project);
-//        if (isok) {
-//            map.addAttribute("msg", "修改项目成功,请上传图片");
-//            map.addAttribute("url", "upload.jsp");
-//            map.addAttribute("existaddprojectmsg", "false");
-//        } else {
-//            map.addAttribute("msg", "修改项目失败");
-//            map.addAttribute("url", "updateproject.jsp");
-//        }
-//
-//        return "msg.jsp";
-//    }
-//
-//
-//    //project.jsp
+    @RequestMapping(value = "AddProject.mvc", method = RequestMethod.POST)
+    public String AddProject(ModelMap map, HttpSession session, String PName, String PDesc, String PSD, String PED, String PTarget, String
+            PMilestone, String PCategoryId, String PRemark, String PMF, String PLimit, String PTeam, String PPlan) throws ParseException {
+        Project project = new Project();
+        try {
+            PSD = PSD.replace("T", " ") + ":00.000";
+            PED = PED.replace("T", " ") + ":00.000";
+            System.out.println("PSD = " + PSD);
+            System.out.println("PED = " + PED);
+
+            Timestamp tss = Timestamp.valueOf(PSD);
+            Timestamp tnow = new Timestamp(new Date().getTime());
+            Timestamp tse = Timestamp.valueOf(PED);
+            System.out.println("tnow = " + tnow);
+            int plimit = Integer.parseInt(PLimit);
+            int ppid = Integer.parseInt(PCategoryId);
+            int pmf = Integer.parseInt(PMF);
+            BigDecimal pt = BigDecimal.valueOf(Long.parseLong(PTarget));
+            BigDecimal pnm = BigDecimal.valueOf(0);
+            ProjectType projectType = new ProjectType();
+            projectType.setProjecttypeid(ppid);
+            Users u = (Users) session.getAttribute("user");
+            String phone = u.getUphone();
+            System.out.println("checkForm");
+    
+            System.out.println("**************");
+            System.out.println(PName);
+            System.out.println(PDesc);
+            System.out.println(tss);
+            System.out.println(tse);
+            
+            project = new Project(PName, PDesc, tss, tse, pt,
+                    pnm, 0, PMilestone, PRemark, pmf, plimit, PTeam, 0, PPlan, u, projectType);
+            System.out.println("**************");
+            System.out.println(project.toString());
+            project.setPsd(tss);
+            if (tss.after(tnow)) {
+                project.setPstate(0);
+            } else {
+                project.setPstate(1);
+            }
+            if (tnow.after(tse)) {
+                if (pnm == pt)
+                    project.setPstate(2);
+                else
+                    project.setPstate(3);
+            }
+
+
+        } catch (Exception e) {
+            map.addAttribute("existaddprojectmsg", "true");
+            map.addAttribute("addprojectmsg", "输入内容有误");
+            return "addproject.jsp";
+        }
+
+        
+        int isok = projectBiz.save(project);
+        if (isok >= 0) {
+            session.setAttribute("addprojectid", isok);
+            map.addAttribute("msg", "添加项目成功,请上传图片");
+            map.addAttribute("url", "upload.jsp");
+            map.addAttribute("existaddprojectmsg", "false");
+        } else {
+            map.addAttribute("msg", "添加项目失败");
+            map.addAttribute("url", "addproject.jsp");
+        }
+
+        return "msg.jsp";
+    }
+
+
+    @RequestMapping(value = "Upload.mvc", method = RequestMethod.POST)
+    private String fildUpload(@RequestParam(value = "itemImagers", required = false) MultipartFile[] file,
+                              HttpSession session, ModelMap map) throws Exception {
+
+        //新增项目1,更新项目2,更新图片3
+        int flag = 1;
+
+        int pid = 0;
+        try {
+            pid = (int) session.getAttribute("addprojectid");
+        } catch (Exception e) {
+            Project up = (Project) session.getAttribute("updateproject");
+            pid = up.getPid();
+            if (file.length == 0)
+                flag = 2;
+            else
+                flag = 3;
+        }
+        String pathRoot = session.getServletContext().getRealPath("");
+        String path = "";
+        String imgpath = "";
+
+        String savePath = pathRoot + "/images/" + pid + "/";
+
+        //若果不存在文件夹则创建
+        File dirFile;
+        File tempFile;
+        boolean bFile;
+        String sFileName;
+        bFile = false;
+        try {
+            dirFile = new File(savePath);
+            bFile = dirFile.exists();
+            if (bFile == true) {
+            } else {
+                bFile = dirFile.mkdir();
+            }
+        } catch (Exception e) {
+            System.out.println("创建文件夹失败!");
+        }
+
+        if (flag != 3) {
+            //保存图片
+            List<String> listImagePath = new ArrayList<String>();
+            boolean upload = true;
+            System.out.println("file = " + file.length);
+            System.out.println("flag = " + flag);
+            //判断用户是否上传了图片
+            if (file[0].isEmpty() && flag == 1) {
+                map.addAttribute("msg", "请上传图片");
+                map.addAttribute("url", "upload.jsp");
+            } else {
+                for (MultipartFile mf : file) {
+                    if (!mf.isEmpty()) {
+
+                        //得到文件名
+                        File countfile = new File(savePath);
+                        String[] files = countfile.list();
+                        int i = files.length;
+
+                        //获得文件类型
+                        String contentType = mf.getContentType();
+                        System.out.println("contentType = " + contentType);
+                        if (contentType.equals("image/jpeg")) {
+                            path = "/images/" + pid + "/" + i + ".jpg";
+                            imgpath = "images/" + pid + "/" + i + ".jpg";
+                            mf.transferTo(new File(pathRoot + path));
+                            listImagePath.add(imgpath);
+                            System.out.println(imgpath);
+                        } else {
+                            map.addAttribute("msg", "图片类型不正确");
+                            map.addAttribute("url", "upload.jsp");
+                            //失败清空list
+                            upload = false;
+                            listImagePath = new ArrayList<String>();
+                        }
+                    }
+                }
+                boolean isok=false;
+                if(projectBiz.saveimg(pid, listImagePath)>0)
+                    isok=true;
+                else isok=false;
+                if (upload && isok) {
+                    map.addAttribute("msg", "添加图片成功");
+                    map.addAttribute("url", "ShowProject.mvc?pid=" + pid);
+                    session.setAttribute("addprojectid", null);
+                }
+            }
+            return "msg.jsp";
+        } else {
+            return "manage_myproject.jsp";
+        }
+
+
+    }
+
+    @RequestMapping(value = "PreUpdateProject.mvc")
+    public String PreUpdateProject(String pid, ModelMap map, HttpSession session) {
+
+        Project project = projectBiz.findProjectById(Integer.parseInt(pid));
+
+        session.setAttribute("updateproject", project);
+
+        return "updateproject.jsp";
+    }
+
+    @RequestMapping(value = "UpdateProject.mvc")
+    public String UpdateProject(ModelMap map, HttpSession session, String PName, String PDesc, String PSD, String PED, String PTarget, String
+            PMilestone, String PCategoryId, String PRemark, String PMF, String PLimit, String PTeam, String PPlan) throws ParseException {
+
+        Project project = null;
+        try {
+            PSD = PSD.replace("T", " ");
+            PED = PED.replace("T", " ");
+            System.out.println("updateProject===============================");
+            Timestamp tss = Timestamp.valueOf(PSD);
+            Timestamp tse = Timestamp.valueOf(PED);
+            int plimit = Integer.parseInt(PLimit);
+            int ppid = Integer.parseInt(PCategoryId);
+            int pmf = Integer.parseInt(PMF);
+            System.out.println("PTarget = " + PTarget);
+            BigDecimal pt = new BigDecimal(PTarget);
+
+            System.out.println("pt = " + pt);
+            ProjectType projectType = new ProjectType();
+            projectType.setProjecttypeid(ppid);
+            Users u = (Users) session.getAttribute("user");
+            String phone = u.getUphone();
+            System.out.println("phone = " + phone);
+            project = (Project) session.getAttribute("updateproject");
+            System.out.println("project = " + project);
+            project.setPname(PName);
+            project.setPdesc(PDesc);
+            project.setPsd(tss);
+            project.setPed(tse);
+            project.setPtarget(pt);
+            project.setPmilestone(PMilestone);
+            project.setProjectTypeByPCategoryId(projectType);
+            project.setPremark(PRemark);
+            project.setPmf(pmf);
+            project.setPlimit(plimit);
+            project.setPteam(PTeam);
+            project.setPplan(PPlan);
+
+            Timestamp tnow = new Timestamp(new Date().getTime());
+            System.out.println("tnow = " + tnow);
+            if (tss.after(tnow)) {
+                project.setPstate(0);
+            } else {
+                project.setPstate(1);
+            }
+            if (tnow.after(tse)) {
+                if (project.getPnm() == pt)
+                    project.setPstate(2);
+                else
+                    project.setPstate(3);
+            }
+            System.out.println("projectState = " + project.getPstate());
+        } catch (NumberFormatException e) {
+            System.out.println("输入内容有误");
+            map.addAttribute("existaddprojectmsg", "true");
+            map.addAttribute("addprojectmsg", "输入内容有误");
+            return "updateproject.jsp";
+        }
+
+
+        boolean isok = projectBiz.update(project);
+        if (isok) {
+            map.addAttribute("msg", "修改项目成功,请上传图片");
+            map.addAttribute("url", "upload.jsp");
+            map.addAttribute("existaddprojectmsg", "false");
+        } else {
+            map.addAttribute("msg", "修改项目失败");
+            map.addAttribute("url", "updateproject.jsp");
+        }
+
+        return "msg.jsp";
+    }
+
+
+    //project.jsp
     @RequestMapping(value = "ShowProject.mvc")
     public String project(HttpSession session, ModelMap map, String pid) {
 

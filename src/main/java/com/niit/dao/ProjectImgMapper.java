@@ -22,4 +22,6 @@ public interface ProjectImgMapper {
     List<ProjectImg> findhotimg();
 
     List<ProjectImg> findimg(int pid);
+    
+    int saveimg(int pid,List<String> path);
 }
