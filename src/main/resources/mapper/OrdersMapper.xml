@@ -165,4 +165,8 @@
     select * from usersaddress where aid = #{aid}
     </select>
 
+    <select id="findOrderByPid" resultType="Orders" parameterType="java.lang.Integer">
+    select * from Orders where aid = #{pid}
+    </select>
+
 </mapper>

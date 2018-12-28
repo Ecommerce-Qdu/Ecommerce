@@ -18,11 +18,11 @@
         <caption style="color: white">项目信息</caption>
         <tr>
             <td class="word">项目名称</td>
-            <td><input id="PName" name="PName" type="text" value="${updateproject.pName}" required maxlength="30"/></td>
+            <td><input id="PName" name="PName" type="text" value="${updateproject.pname}" required maxlength="30"/></td>
         </tr>
         <tr>
             <td class="word">项目描述</td>
-            <td><input id="PDesc" name="PDesc" type="text" value="${updateproject.pDesc}" required maxlength="200"/>
+            <td><input id="PDesc" name="PDesc" type="text" value="${updateproject.pdesc}" required maxlength="200"/>
             </td>
 
         </tr>
@@ -37,14 +37,14 @@
 
         <tr>
             <td class="word">目标金额</td>
-            <td><input id="PTarget" name="PTarget" type="text" value="${updateproject.pTarget}" required maxlength="9"/>
+            <td><input id="PTarget" name="PTarget" type="text" value="${updateproject.ptarget}" required maxlength="9"/>
             </td>
 
         </tr>
 
         <tr>
             <td class="word">投资前景</td>
-            <td><input id="PMilestone" name="PMilestone" type="text" value="${updateproject.pMilestone}" required
+            <td><input id="PMilestone" name="PMilestone" type="text" value="${updateproject.pmilestone}" required
                        maxlength="200"/></td>
 
         </tr>
@@ -60,7 +60,7 @@
         </tr>
         <tr>
             <td class="word">备注</td>
-            <td><input id="PRemark" name="PRemark" type="text" value="${updateproject.pRemark}" required
+            <td><input id="PRemark" name="PRemark" type="text" value="${updateproject.premark}" required
                        maxlength="200"/></td>
 
         </tr>
@@ -89,13 +89,13 @@
 
         <tr>
             <td class="word">项目团队介绍</td>
-            <td><input id="PTeam" name="PTeam" type="text" value="${updateproject.pTeam}" required maxlength="200"/>
+            <td><input id="PTeam" name="PTeam" type="text" value="${updateproject.pteam}" required maxlength="200"/>
             </td>
         </tr>
 
         <tr>
             <td class="word">项目开发计划</td>
-            <td><input id="PPlan" name="PPlan" type="text" value="${updateproject.pPlan}" required maxlength="100"/>
+            <td><input id="PPlan" name="PPlan" type="text" value="${updateproject.pplan}" required maxlength="100"/>
             </td>
         </tr>
 

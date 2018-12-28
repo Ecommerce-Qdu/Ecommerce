@@ -37,15 +37,15 @@
     <table align="left" style="width: 30%;border: 1px solid #151515">
         <tr>
             <td>项目编号</td>
-            <td>${ProjectDetails.pId}</td>
+            <td>${ProjectDetails.pid}</td>
         </tr>
         <tr>
             <td>项目名</td>
-            <td>${ProjectDetails.pName}</td>
+            <td>${ProjectDetails.pname}</td>
         </tr>
         <tr>
             <td>项目描述</td>
-            <td>${ProjectDetails.pDesc}</td>
+            <td>${ProjectDetails.pdesc}</td>
         </tr>
         <tr>
             <td>项目开始时间</td>
@@ -57,7 +57,7 @@
         </tr>
         <tr>
             <td>目标金额</td>
-            <td>${ProjectDetails.pTarget}</td>
+            <td>${ProjectDetails.ptarget}</td>
         </tr>
         <tr>
             <td>当前金额</td>
@@ -69,11 +69,11 @@
         </tr>
         <tr>
             <td>投资前景</td>
-            <td>${ProjectDetails.pMilestone}</td>
+            <td>${ProjectDetails.pmilestone}</td>
         </tr>
         <tr>
             <td>项目类型</td>
-            <td>${ProjectDetails.projectTypeByPCategoryId.projectTypeName}</td>
+            <td>${ProjectDetails.projectTypeByPCategoryId.projecttypename}</td>
         </tr>
         <tr>
             <td>币种</td>
@@ -82,10 +82,10 @@
         <tr>
             <td>限制最大金额</td>
             <td>
-                <c:if test="${ProjectDetails.pLimit==0}">
+                <c:if test="${ProjectDetails.plimit==0}">
                     否
                 </c:if>
-                <c:if test="${ProjectDetails.pLimit==1}">
+                <c:if test="${ProjectDetails.plimit==1}">
                     是
                 </c:if>
             </td>
@@ -93,23 +93,23 @@
         <tr>
             <td>项目状态</td>
             <td>
-                <c:if test="${ProjectDetails.pState == 0}">未开始</c:if>
-                <c:if test="${ProjectDetails.pState == 1}">进行中</c:if>
-                <c:if test="${ProjectDetails.pState == 2}">已完成</c:if>
-                <c:if test="${ProjectDetails.pState == 3}">未成功</c:if>
+                <c:if test="${ProjectDetails.pstate == 0}">未开始</c:if>
+                <c:if test="${ProjectDetails.pstate == 1}">进行中</c:if>
+                <c:if test="${ProjectDetails.pstate == 2}">已完成</c:if>
+                <c:if test="${ProjectDetails.pstate == 3}">未成功</c:if>
             </td>
         </tr>
         <tr>
             <td>项目团队介绍</td>
-            <td>${ProjectDetails.pTeam}</td>
+            <td>${ProjectDetails.pteam}</td>
         </tr>
         <tr>
             <td>开发计划</td>
-            <td>${ProjectDetails.pPlan}</td>
+            <td>${ProjectDetails.pplan}</td>
         </tr>
         <tr>
             <td>备注</td>
-            <td>${ProjectDetails.pRemark}</td>
+            <td>${ProjectDetails.premark}</td>
         </tr>
 
     </table>
@@ -130,9 +130,9 @@
         <c:forEach items="${ProjectDetailsOrders}" var="pro">
             <tr>
                 <td>${pro.usersByUPhone.uname}</td>
-                <td>${pro.usersByUPhone.uPhone} </td>
+                <td>${pro.usersByUPhone.uphone} </td>
                 <td>${pro.money}</td>
-                <td>${pro.orderDate}</td>
+                <td>${pro.orderdate}</td>
                 <td>
                     <c:if test="${pro.expect==0}">
                         不需要回报
@@ -142,18 +142,18 @@
                     </c:if>
                 </td>
                 <td>
-                    <c:if test="${pro.expectType==-1}">
+                    <c:if test="${pro.expecttype==-1}">
                     </c:if>
-                    <c:if test="${pro.expectType==1}">
+                    <c:if test="${pro.expecttype==1}">
                         投资产品享受折扣
                     </c:if>
-                    <c:if test="${pro.expectType==2}">
+                    <c:if test="${pro.expecttype==2}">
                         购买产品享有更高折扣或附加服务
                     </c:if>
-                    <c:if test="${pro.expectType==3}">
+                    <c:if test="${pro.expecttype==3}">
                         免费获得投资产品
                     </c:if>
-                    <c:if test="${pro.expectType==4}">
+                    <c:if test="${pro.expecttype==4}">
                         其他
                     </c:if>
                 </td>
@@ -164,7 +164,7 @@
                 </td>
                 <td>
                     <c:if test="${pro.expectType==4}">
-                        ${pro.usersAddressByAId.exceptOther}
+                        ${pro.usersAddressByAId.exceptother}
                     </c:if>
                 </td>
             </tr>
