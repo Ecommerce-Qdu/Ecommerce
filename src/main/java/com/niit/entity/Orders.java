@@ -25,6 +25,8 @@ public class Orders {
 
     private UsersAddress usersAddressByAId;
     
+    private Project projectByPId;
+    
     public Orders(Integer orderid, String uphone, Integer pid, Integer aid, BigDecimal money, Integer expect, Integer expecttype, String exceptother, Date orderdate, UsersAddress usersAddressByAId, Project projectByPId) {
         this.orderid = orderid;
         this.uphone = uphone;
@@ -85,7 +87,6 @@ public class Orders {
         this.projectByPId = projectByPId;
     }
     
-    private Project projectByPId;
 
     public Integer getOrderid() {
         return orderid;
