@@ -286,8 +286,8 @@
                                     </p>
                                     <p class="ptype" style="width: 40px">
                                         <a class="ptypea"
-                                           href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">
-                                                ${pro.projectTypeByPCategoryId.projectTypeName}
+                                           href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projecttypeid+2}">
+                                                ${pro.projectTypeByPCategoryId.projecttypename}
                                         </a>
                                     </p>
                                 </div>
