@@ -263,7 +263,7 @@
     </select>
 
     <select id="findProjectBySearch" resultMap="BaseResultMap" parameterType="java.lang.String">
-    select from Project where pName like "%"#{searchstr}"%"
+    select * from Project where pName like "%"#{searchstr}"%"
     </select>
 
     <select id="findAllUserProject" resultMap="BaseResultMap" parameterType="java.lang.String">

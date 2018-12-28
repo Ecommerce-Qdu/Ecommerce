@@ -213,11 +213,11 @@ public class ProjectController {
 
         Project project = null;
         try {
-            PSD = PSD.replace("T", " ");
-            PED = PED.replace("T", " ");
-            System.out.println("updateProject===============================");
+            PSD = PSD.replace("T", " ")+":00";
+            PED = PED.replace("T", " ")+":00";
             Timestamp tss = Timestamp.valueOf(PSD);
             Timestamp tse = Timestamp.valueOf(PED);
+
             int plimit = Integer.parseInt(PLimit);
             int ppid = Integer.parseInt(PCategoryId);
             int pmf = Integer.parseInt(PMF);
@@ -269,6 +269,7 @@ public class ProjectController {
 
         boolean isok = projectBiz.update(project);
         if (isok) {
+            session.setAttribute("addprojectid", project.getPid());
             map.addAttribute("msg", "修改项目成功,请上传图片");
             map.addAttribute("url", "upload.jsp");
             map.addAttribute("existaddprojectmsg", "false");

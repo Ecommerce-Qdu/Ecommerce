@@ -163,8 +163,8 @@
                     </c:if>
                 </td>
                 <td>
-                    <c:if test="${pro.expectType==4}">
-                        ${pro.usersAddressByAId.exceptother}
+                    <c:if test="${pro.expecttype==4}">
+                        ${pro.exceptother}
                     </c:if>
                 </td>
             </tr>

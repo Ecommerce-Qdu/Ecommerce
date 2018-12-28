@@ -44,7 +44,8 @@
 
     function msgtype() {
         var jumpurl = "${url}";
-        if (jumpurl == "Checkout.mvc")
+        var msg= "${msg}";
+        if (jumpurl == "Checkout.mvc"||msg=="添加图片成功")
             top.location.href = "" + jumpurl + "";
         else
             window.location.href = "" + jumpurl + "";

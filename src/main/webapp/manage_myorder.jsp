@@ -112,7 +112,7 @@
             </td>
             <td>
                 <c:if test="${pro.expecttype==4}">
-                    ${pro.usersAddressByAId.exceptOther}
+                    ${pro.exceptother}
                 </c:if>
             </td>
 

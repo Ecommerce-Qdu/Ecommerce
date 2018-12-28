@@ -22,6 +22,15 @@ public class Orders {
 
     private Date orderdate;
 
+private  Users usersByUPhone;
+
+    public Users getUsersByUPhone() {
+        return usersByUPhone;
+    }
+
+    public void setUsersByUPhone(Users usersByUPhone) {
+        this.usersByUPhone = usersByUPhone;
+    }
 
     private UsersAddress usersAddressByAId;
     
