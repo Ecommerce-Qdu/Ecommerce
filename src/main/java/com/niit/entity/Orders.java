@@ -21,6 +21,53 @@ public class Orders {
     private String exceptother;
 
     private Date orderdate;
+    
+    private UsersAddress usersAddressByAId;
+    
+    public Orders(Integer orderid, String uphone, Integer pid, Integer aid, BigDecimal money, Integer expect, Integer expecttype, String exceptother, Date orderdate, UsersAddress usersAddressByAId, Project projectByPId) {
+        this.orderid = orderid;
+        this.uphone = uphone;
+        this.pid = pid;
+        this.aid = aid;
+        this.money = money;
+        this.expect = expect;
+        this.expecttype = expecttype;
+        this.exceptother = exceptother;
+        this.orderdate = orderdate;
+        this.usersAddressByAId = usersAddressByAId;
+        this.projectByPId = projectByPId;
+    }
+    
+    public UsersAddress getUsersAddressByAId() {
+        return usersAddressByAId;
+    }
+    
+    public void setUsersAddressByAId(UsersAddress usersAddressByAId) {
+        this.usersAddressByAId = usersAddressByAId;
+    }
+    
+    public Orders() {
+        this.orderid = orderid;
+        this.uphone = uphone;
+        this.pid = pid;
+        this.aid = aid;
+        this.money = money;
+        this.expect = expect;
+        this.expecttype = expecttype;
+        this.exceptother = exceptother;
+        this.orderdate = orderdate;
+        this.projectByPId = projectByPId;
+    }
+    
+    public Project getProjectByPId() {
+        return projectByPId;
+    }
+    
+    public void setProjectByPId(Project projectByPId) {
+        this.projectByPId = projectByPId;
+    }
+    
+    private Project projectByPId;
 
     public Integer getOrderid() {
         return orderid;

@@ -2,6 +2,7 @@ package com.niit.biz.impl;
 
 import com.niit.biz.IProjectBiz;
 import com.niit.dao.OrdersMapper;
+import com.niit.dao.ProjectCommentMapper;
 import com.niit.dao.ProjectImgMapper;
 import com.niit.dao.ProjectMapper;
 import com.niit.entity.Orders;
@@ -23,6 +24,9 @@ public class IProjectBizImp implements IProjectBiz {
 
     @Autowired
     private OrdersMapper iOrderDao;
+    
+    @Autowired
+    private ProjectCommentMapper projectCommentDao;
 
 
     @Override
@@ -116,7 +120,7 @@ public class IProjectBizImp implements IProjectBiz {
 
     @Override
     public boolean savecom(Project p, Users u, String newcom) {
-        return projectDao.savecom(p, u, newcom);
+        return projectCommentDao.savecom(p, u, newcom);
     }
 
 

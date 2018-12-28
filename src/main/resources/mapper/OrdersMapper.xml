@@ -11,6 +11,8 @@
         <result column="ExpectType" property="expecttype" jdbcType="INTEGER"/>
         <result column="ExceptOther" property="exceptother" jdbcType="VARCHAR"/>
         <result column="OrderDate" property="orderdate" jdbcType="TIMESTAMP"/>
+        <association property="projectByCPid" select="selectprojectbypid" column="pid"/>
+        <association property="usersAddressByAId" select="selectaddress" column="aid"/>
     </resultMap>
     <sql id="Base_Column_List">
     OrderId, UPhone, PId, AId, Money, Expect, ExpectType, ExceptOther, OrderDate
@@ -154,5 +156,13 @@
 
     update project set pnm = pnm+#{money,jdbcType=DECIMAL} where pid = #{pid,jdbcType=INTEGER};
   </insert>
+
+    <select id="selectprojectbypid" resultType="Project" parameterType="java.lang.Integer">
+    select * from Project where pid = #{pid}
+    </select>
+
+    <select id="selectaddress" resultType="UsersAddress" parameterType="java.lang.Integer">
+    select * from usersaddress where aid = #{aid}
+    </select>
 
 </mapper>

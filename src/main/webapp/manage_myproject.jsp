@@ -62,39 +62,39 @@
     <c:forEach items="${mynewprojects}" var="pro">
         <tr>
 
-            <td>${pro.pId}</td>
-            <td>${pro.pName}</td>
-            <td>${pro.pDesc}</td>
+            <td>${pro.pid}</td>
+            <td>${pro.pname}</td>
+            <td>${pro.pdesc}</td>
                 <%--<td>${pro.psd}</td>--%>
                 <%--<td>${pro.ped}</td>--%>
-            <td>${pro.pTarget}</td>
+            <td>${pro.ptarget}</td>
             <td>${pro.pnm}</td>
             <td>${pro.pnp}</td>
                 <%--<td>${pro.pMilestone}</td>--%>
-            <td>${pro.projectTypeByPCategoryId.projectTypeName}</td>
+            <td>${pro.projectTypeByPCategoryId.projecttypename}</td>
             <td>${pro.pmf}</td>
             <td>
-                <c:if test="${pro.pLimit==0}">
+                <c:if test="${pro.plimit==0}">
                     否
                 </c:if>
-                <c:if test="${pro.pLimit==1}">
+                <c:if test="${pro.plimit==1}">
                     是
                 </c:if>
             </td>
             <td>
-                <c:if test="${pro.pState == 0}">未开始</c:if>
-                <c:if test="${pro.pState == 1}">进行中</c:if>
-                <c:if test="${pro.pState == 2}">已完成</c:if>
-                <c:if test="${pro.pState == 3}">未成功</c:if>
+                <c:if test="${pro.pstate == 0}">未开始</c:if>
+                <c:if test="${pro.pstate == 1}">进行中</c:if>
+                <c:if test="${pro.pstate == 2}">已完成</c:if>
+                <c:if test="${pro.pstate == 3}">未成功</c:if>
             </td>
                 <%--<td>${pro.pTeam}</td>--%>
                 <%--<td>${pro.pPlan}</td>--%>
                 <%--<td>${pro.pRemark}</td>--%>
             <td>
-                <a href="ProjectDetails.mvc?pid=${pro.pId}">详情</a>
+                <a href="ProjectDetails.mvc?pid=${pro.pid}">详情</a>
             </td>
             <td>
-                <a href="PreUpdateProject.mvc?pid=${pro.pId}">更新</a>
+                <a href="PreUpdateProject.mvc?pid=${pro.pid}">更新</a>
             </td>
         </tr>
     </c:forEach>

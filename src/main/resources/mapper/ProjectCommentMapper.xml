@@ -7,6 +7,7 @@
         <result column="PCTime" property="pctime" jdbcType="TIMESTAMP"/>
         <result column="PComment" property="pcomment" jdbcType="VARCHAR"/>
         <result column="UPhone" property="uphone" jdbcType="VARCHAR"/>
+        <association property="projectByCPid" select="selectprojectbypid" column="cpid"/>
     </resultMap>
     <sql id="Base_Column_List">
     PCId, CPid, PCTime, PComment, UPhone
@@ -98,8 +99,12 @@
     <insert id="savecom">
     insert into projectcomment (CPid, UPhone,PComment,PCTime
       )
-    values (#{0}, #{1},#{2},select GETDATE()
+    values (#{arg0.pid}, #{arg1.uphone},#{arg2},now()
       )
   </insert>
+
+    <select id="selectprojectbypid" resultType="Project" parameterType="java.lang.Integer">
+    select * from Project where pid = #{cpid}
+    </select>
 
 </mapper>

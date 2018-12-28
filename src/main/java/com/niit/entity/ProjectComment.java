@@ -1,6 +1,7 @@
 package com.niit.entity;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class ProjectComment {
     private Integer pcid;
@@ -14,8 +15,27 @@ public class ProjectComment {
     private String uphone;
 
     private Users usersByUPhone;
-
-
+    
+    private Project projectByCPid;
+    
+    public ProjectComment(Integer pcid, Integer cpid, Date pctime, String pcomment, String uphone, Users usersByUPhone, Project projectByCPid) {
+        this.pcid = pcid;
+        this.cpid = cpid;
+        this.pctime = pctime;
+        this.pcomment = pcomment;
+        this.uphone = uphone;
+        this.usersByUPhone = usersByUPhone;
+        this.projectByCPid = projectByCPid;
+    }
+    
+    public Project getProjectByCPid() {
+        return projectByCPid;
+    }
+    
+    public void setProjectByCPid(Project projectByCPid) {
+        this.projectByCPid = projectByCPid;
+    }
+    
     public Integer getPcid() {
         return pcid;
     }

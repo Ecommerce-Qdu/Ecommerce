@@ -57,6 +57,5 @@ public interface ProjectMapper {
     Project findProjectById(int pid);
 
     boolean saveimg(int pid, List<String> listImagePath);
-
-    boolean savecom(Project p, Users u, String newcom);
+    
 }

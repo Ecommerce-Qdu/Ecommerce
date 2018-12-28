@@ -210,10 +210,10 @@
 
                                     <tr>
                                         <td>
-                                            用户名： ${fb.usersByUPhone.uName}
+                                            用户名： ${fb.usersByUPhone.uname}
                                         </td>
                                         <td id="commentsinfo">
-                                            评论时间： ${fb.pcTime}
+                                            评论时间： ${fb.pctime}
                                         </td>
                                     </tr>
 
@@ -222,7 +222,7 @@
                             </div>
                             <br/>
                             <div>
-                                <p id="comment">${fb.pComment}</p>
+                                <p id="comment">${fb.pcomment}</p>
                             </div>
                         </div>
 

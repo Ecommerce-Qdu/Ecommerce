@@ -46,9 +46,9 @@
     </tr>
     <c:forEach items="${mycomments}" var="mc">
         <tr>
-            <td>${mc.projectByCPid.pName}</td>
-            <td>${mc.pComment}</td>
-            <td>${mc.pcTime}</td>
+            <td>${mc.projectByCPid.pname}</td>
+            <td>${mc.pcomment}</td>
+            <td>${mc.pctime}</td>
         </tr>
     </c:forEach>
 </table>
