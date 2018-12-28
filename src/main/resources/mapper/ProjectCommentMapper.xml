@@ -92,7 +92,7 @@
     where PCId = #{pcid,jdbcType=INTEGER}
   </update>
 
-    <select id="findAllUserProjectComment" resultType="ProjectComment" parameterType="java.lang.String">
+    <select id="findAllUserProjectComment" resultMap="BaseResultMap" parameterType="java.lang.String">
     select * from ProjectComment where UPhone = #{s}
     </select>
 

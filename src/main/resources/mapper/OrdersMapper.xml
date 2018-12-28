@@ -11,8 +11,8 @@
         <result column="ExpectType" property="expecttype" jdbcType="INTEGER"/>
         <result column="ExceptOther" property="exceptother" jdbcType="VARCHAR"/>
         <result column="OrderDate" property="orderdate" jdbcType="TIMESTAMP"/>
-        <association property="projectByCPid" select="selectprojectbypid" column="pid"/>
-        <association property="usersAddressByAId" select="selectaddress" column="aid"/>
+        <association property="projectByPId" select="selectprojectbypid" column="PId" javaType="com.niit.entity.Project"/>
+        <association property="usersAddressByAId" select="selectaddress" column="AId" javaType="com.niit.entity.UsersAddress"/>
     </resultMap>
     <sql id="Base_Column_List">
     OrderId, UPhone, PId, AId, Money, Expect, ExpectType, ExceptOther, OrderDate
@@ -141,7 +141,7 @@
     where OrderId = #{orderid,jdbcType=INTEGER}
   </update>
 
-    <select id="findAllOrder" resultType="Orders" parameterType="java.lang.String">
+    <select id="findAllOrder" resultMap="BaseResultMap" parameterType="java.lang.String">
     select * from orders where uPhone = #{s}
     </select>
     <insert id="saveorder" parameterType="com.niit.entity.Orders">
@@ -157,12 +157,12 @@
     update project set pnm = pnm+#{money,jdbcType=DECIMAL} where pid = #{pid,jdbcType=INTEGER};
   </insert>
 
-    <select id="selectprojectbypid" resultType="Project" parameterType="java.lang.Integer">
-    select * from Project where pid = #{pid}
+    <select id="selectprojectbypid" resultType="Project">
+    select * from Project where pid = #{Pid}
     </select>
 
-    <select id="selectaddress" resultType="UsersAddress" parameterType="java.lang.Integer">
-    select * from usersaddress where aid = #{aid}
+    <select id="selectaddress" resultType="UsersAddress">
+    select * from usersaddress where aid = #{AId}
     </select>
 
 </mapper>

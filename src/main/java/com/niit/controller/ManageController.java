@@ -38,6 +38,12 @@ public class ManageController {
 
         List<Orders> myorders = userBiz.findAllOrder(user.getUphone());
         System.out.println("myorders = " + myorders.size());
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        for (int i = 0; i < myorders.size(); i++) {
+            Orders orders = myorders.get(i);
+            System.out.println(orders.toString());
+        }
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         List<Project> mynewprojects = userBiz.findAllUserProject(user.getUphone());
         System.out.println("myorders = " + myorders.size());
         List<ProjectComment> mycomments = userBiz.findAllUserProjectComment(user.getUphone());

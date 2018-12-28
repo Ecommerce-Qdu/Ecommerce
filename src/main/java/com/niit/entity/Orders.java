@@ -21,7 +21,8 @@ public class Orders {
     private String exceptother;
 
     private Date orderdate;
-    
+
+
     private UsersAddress usersAddressByAId;
     
     public Orders(Integer orderid, String uphone, Integer pid, Integer aid, BigDecimal money, Integer expect, Integer expecttype, String exceptother, Date orderdate, UsersAddress usersAddressByAId, Project projectByPId) {
@@ -45,7 +46,24 @@ public class Orders {
     public void setUsersAddressByAId(UsersAddress usersAddressByAId) {
         this.usersAddressByAId = usersAddressByAId;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "orderid=" + orderid +
+                ", uphone='" + uphone + '\'' +
+                ", pid=" + pid +
+                ", aid=" + aid +
+                ", money=" + money +
+                ", expect=" + expect +
+                ", expecttype=" + expecttype +
+                ", exceptother='" + exceptother + '\'' +
+                ", orderdate=" + orderdate +
+                ", usersAddressByAId=" + usersAddressByAId +
+                ", projectByPId=" + projectByPId +
+                '}';
+    }
+
     public Orders() {
         this.orderid = orderid;
         this.uphone = uphone;
