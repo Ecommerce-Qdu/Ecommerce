@@ -185,7 +185,7 @@
     <!--模块2-->
     <div id="left2">
         <div id="menu_main" style="margin-top: 30px;">
-            <ul id="menu">
+            <ul id="menu" >
                 <li><p onclick="showintroducation()">产品介绍</p></li>
                 <li><p>&nbsp;&nbsp;|&nbsp;&nbsp;</p></li>
                 <li><p onclick="showcomments()">留言</p></li>
