@@ -21,7 +21,9 @@
 
 <!--引入头部-->
 <div id="head_div">
-    <jsp:include page="h.jsp"></jsp:include>
+    <nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+        <jsp:include page="h.jsp"/>
+    </nav>
 </div>
 <!--总体div-->
 <div id="all">

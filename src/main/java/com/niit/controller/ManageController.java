@@ -29,38 +29,23 @@ public class ManageController {
 
     @RequestMapping(value = "Manage.mvc")
     public String manage(ModelMap map, HttpSession session) {
-        System.out.println("Manage.mvc");
         Users user = (Users) session.getAttribute("user");
-
         String uphone = user.getUphone();
-        System.out.println("uphone = " + uphone);
-
 
         List<Orders> myorders = userBiz.findAllOrder(user.getUphone());
-        System.out.println("myorders = " + myorders.size());
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        for (int i = 0; i < myorders.size(); i++) {
-            Orders orders = myorders.get(i);
-            System.out.println(orders.toString());
-        }
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         List<Project> mynewprojects = userBiz.findAllUserProject(user.getUphone());
-        System.out.println("myorders = " + myorders.size());
         List<ProjectComment> mycomments = userBiz.findAllUserProjectComment(user.getUphone());
-        System.out.println("myorders = " + myorders.size());
-
 
         session.setAttribute("myorders", myorders);
         session.setAttribute("mynewprojects", mynewprojects);
         session.setAttribute("mycomments", mycomments);
-
 
         return "manage.jsp";
     }
 
     @RequestMapping(value = "Changepwd.mvc")
     public String manage(ModelMap map, HttpSession session, String nowpwd, String newpwd, String newpwd2) {
-        if (nowpwd == null || nowpwd == "" || newpwd == null || newpwd == "" || newpwd2 == null || newpwd2 == "") {
+        if (nowpwd == null || nowpwd.equals("") || newpwd == null || newpwd.equals("") || newpwd2 == null || newpwd2.equals("")) {
             map.addAttribute("msg", "请输入密码");
             map.addAttribute("url", "manage_person.jsp");
             return "msg.jsp";
@@ -91,13 +76,11 @@ public class ManageController {
             return "msg.jsp";
         }
 
-        System.out.println("new uname is :"+uname);
         Users user = (Users) session.getAttribute("user");
         String oldphone = user.getUphone();
         int type = user.getUtype();
         user.setUname(uname);
         user.setUphone(uPhone);
-        System.out.println("user new is : "+user.toString());
         boolean isok = userBiz.update(user,oldphone);
         if (isok && (type == 2)) {
             UsersInfo usersInfo = user.getUsersInfoByUPhone();
@@ -138,11 +121,9 @@ public class ManageController {
 
         String uuid = saveToWord.createWord(myorders);
 
-//        uuid = "redirect:file/" + uuid;
         uuid = "redirect:file/" + uuid;
         System.out.println("uuid = " + uuid);
         //不能直接return uuid,第一次跳转会失败
         return new ModelAndView(uuid);
-
     }
 }
