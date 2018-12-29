@@ -14,6 +14,8 @@
             font-size: 200%;
             font-family: 幼圆;
             background: #f9f9f9;
+            overflow-y: hidden;
+            overflow-x: hidden;
         }
     </style>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -64,7 +66,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-3 col-md-6">
             <div class="panel panel-green">
                 <div class="panel-heading">
                     <div class="row">

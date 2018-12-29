@@ -21,9 +21,9 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/metisMenu/metisMenu.min.js"></script>
-    <script src="vendor/raphael/raphael.min.js"></script>
-    <script src="vendor/morrisjs/morris.min.js"></script>
-    <script src="data/morris-data.js"></script>
+    <%--<script src="vendor/raphael/raphael.min.js"></script>--%>
+    <%--<script src="vendor/morrisjs/morris.min.js"></script>--%>
+    <%--<script src="data/morris-data.js"></script>--%>
     <script src="dist/js/sb-admin-2.js"></script>
 
     <c:if test="${empty user}">
@@ -36,16 +36,16 @@
 
 <body style="font-family: '微软雅黑 Light'">
 
+<!--引入头部-->
+<div id="head_div">
+    <jsp:include page="h.jsp"/>
+</div>
+<!--总体div-->
+
 
 <div id="wrapper">
 
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-
-        <!--引入头部-->
-        <div id="head_div" class="navbar-header">
-            <jsp:include page="h.jsp"/>
-        </div>
-        <!--总体div-->
+    <nav class="" role="navigation" style="margin-bottom: 0">
 
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
