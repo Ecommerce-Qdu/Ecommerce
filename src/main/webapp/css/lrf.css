@@ -18,13 +18,13 @@ img {
 
 #logo {
     /*position: absolute;*/
-    height: 75px;
-    margin: 20px 200px;
+    /*height: 75px;*/
+    margin: 10px 180px;
     z-index: 2;
 }
 
 #bg {
-    /*margin-top: 30px;*/
+    margin-top: 0;
     position: absolute;
     height: 780px;
     background-image: url(../images/LRFbg.jpg);
