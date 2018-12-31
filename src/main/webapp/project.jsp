@@ -225,11 +225,18 @@
             <div id="inputComment">
                 <form action="AddComment.mvc?pid=%{showproject.pid}" method="post">
                     <br/>
-                    <p>请说出您对该商品的看法：</p>
+                    <%--<p>请说出您对该商品的看法：</p>--%>
+                    <%--<br/>--%>
+                    <%--<input type="text" id="newcom" name="newcom" required>--%>
+
+                    <div class="layui-form-item layui-form-text">
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入内容" class="layui-textarea" id="newcom" name="newcom" required></textarea>
+                        </div>
+                    </div>
+
                     <br/>
-                    <input type="text" id="newcom" name="newcom" required>
-                    <br/>
-                    <input id="subbtn" value="提交" type="submit"/>
+                    <input id="subbtn" value="提交" type="submit" style="margin-left: 40%"/>
                 </form>
             </div>
             </form>

@@ -113,7 +113,7 @@
     </select>
 
     <select id="findcom" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select * from projectcomment where PCId = #{pid,jdbcType=INTEGER}
+        select * from projectcomment where Cpid = #{pid,jdbcType=INTEGER}
     </select>
 
 </mapper>
