@@ -40,7 +40,7 @@ public class ProjectController {
             System.out.println("PED = " + PED);
 
             Timestamp tss = Timestamp.valueOf(PSD);
-            Timestamp tnow = new Timestamp(new Date().getTime());
+            Timestamp tnow = new Timestamp(System.currentTimeMillis());
             Timestamp tse = Timestamp.valueOf(PED);
             System.out.println("tnow = " + tnow);
             int plimit = Integer.parseInt(PLimit);
@@ -71,10 +71,11 @@ public class ProjectController {
                 project.setPstate(1);
             }
             if (tnow.after(tse)) {
-                if (pnm == pt)
+                if (pnm.equals(pt)) {
                     project.setPstate(2);
-                else
+                } else {
                     project.setPstate(3);
+                }
             }
 
 
@@ -114,10 +115,11 @@ public class ProjectController {
         } catch (Exception e) {
             Project up = (Project) session.getAttribute("updateproject");
             pid = up.getPid();
-            if (file.length == 0)
+            if (file.length == 0) {
                 flag = 2;
-            else
+            } else {
                 flag = 3;
+            }
         }
         String pathRoot = session.getServletContext().getRealPath("");
         String path = "";
@@ -164,7 +166,7 @@ public class ProjectController {
                         //获得文件类型
                         String contentType = mf.getContentType();
                         System.out.println("contentType = " + contentType);
-                        if (contentType.equals("image/jpeg")) {
+                        if ("image/jpeg".equals(contentType)) {
                             path = "/images/" + pid + "/" + i + ".jpg";
                             imgpath = "images/" + pid + "/" + i + ".jpg";
                             mf.transferTo(new File(pathRoot + path));
@@ -180,9 +182,11 @@ public class ProjectController {
                     }
                 }
                 boolean isok=false;
-                if(projectBiz.saveimg(pid, listImagePath)>0)
+                if(projectBiz.saveimg(pid, listImagePath)>0) {
                     isok=true;
-                else isok=false;
+                } else {
+                    isok=false;
+                }
                 if (upload && isok) {
                     map.addAttribute("msg", "添加图片成功");
                     map.addAttribute("url", "ShowProject.mvc?pid=" + pid);
@@ -245,7 +249,7 @@ public class ProjectController {
             project.setPteam(PTeam);
             project.setPplan(PPlan);
 
-            Timestamp tnow = new Timestamp(new Date().getTime());
+            Timestamp tnow = new Timestamp(System.currentTimeMillis());
             System.out.println("tnow = " + tnow);
             if (tss.after(tnow)) {
                 project.setPstate(0);
@@ -253,10 +257,11 @@ public class ProjectController {
                 project.setPstate(1);
             }
             if (tnow.after(tse)) {
-                if (project.getPnm() == pt)
+                if (project.getPnm().equals(pt)) {
                     project.setPstate(2);
-                else
+                } else {
                     project.setPstate(3);
+                }
             }
             System.out.println("projectState = " + project.getPstate());
         } catch (NumberFormatException e) {
@@ -290,12 +295,14 @@ public class ProjectController {
         try {
             Users user = (Users) session.getAttribute("user");
             List<UsersAddress> addrlist = userBiz.findAllAddress(user.getUphone());
-            if (addrlist == null || addrlist.size() == 0 || addrlist.get(0).getAddress() == null || addrlist.get(0).getAddress() == "") {
+            if (addrlist == null || addrlist.size() == 0 || addrlist.get(0).getAddress() == null || addrlist.get(0).getAddress().equals("")) {
+                session.setAttribute("mangetype","manageaddr()");
                 return "redirect:manage.jsp?mangetype=manageaddr";
             } else {
                 session.setAttribute("addr", addrlist);
             }
         } catch (Exception e) {
+            session.setAttribute("mangetype","manageaddr()");
             return "redirect:manage.jsp?mangetype=manageaddr";
         }
 
@@ -365,22 +372,11 @@ public class ProjectController {
         //将所有图片转为list
         List<ProjectImg> imglist = projectBiz.findimg(project.getPid());
         map.addAttribute("imglist", imglist);
-        System.out.println("imglist = " + imglist.size());
 
-        //所有评论转list
-        List comlist = new ArrayList();
-        Collection<ProjectComment> com = project.getProjectCommentsByPId();
-        for (Iterator<ProjectComment> iterator = com.iterator(); iterator.hasNext(); ) {
-            ProjectComment next = iterator.next();
-            comlist.add(next);
-        }
-        map.addAttribute("comlist", comlist);
-        System.out.println("comlist = " + comlist.size());
-
-        for (int i = 0; i < comlist.size(); i++) {
-            ProjectComment projectComment = (ProjectComment) comlist.get(i);
-            System.out.println("projectComment = " + projectComment.toString());
-        }
+        //评论
+        List<ProjectComment> com = projectBiz.findcom(project.getPid());
+        map.addAttribute("comlist", com);
+        System.out.println("comlist = " + com.toString());
 
         String pathRoot = session.getServletContext().getRealPath("");
         String savePath = pathRoot + "/images/" + pid + "/";

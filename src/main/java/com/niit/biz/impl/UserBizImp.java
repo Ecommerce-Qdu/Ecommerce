@@ -34,8 +34,9 @@ public class UserBizImp implements IUserBiz {
         //判断用户是否存在
         boolean PhoneExistFlag = true;
         try {
-            if (null == user)
+            if (null == user) {
                 PhoneExistFlag = false;
+            }
             if (user.getUphone().equals(u.getUphone())) {
                 PhoneExistFlag = true;
             } else {

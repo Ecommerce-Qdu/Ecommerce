@@ -5,13 +5,11 @@ import com.niit.dao.OrdersMapper;
 import com.niit.dao.ProjectCommentMapper;
 import com.niit.dao.ProjectImgMapper;
 import com.niit.dao.ProjectMapper;
-import com.niit.entity.Orders;
-import com.niit.entity.Project;
-import com.niit.entity.ProjectImg;
-import com.niit.entity.Users;
+import com.niit.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -82,6 +80,11 @@ public class IProjectBizImp implements IProjectBiz {
     @Override
     public List<ProjectImg> findhotimg() {
         return projectImgDao.findhotimg();
+    }
+
+    @Override
+    public List<ProjectComment> findcom(Integer pid) {
+        return projectCommentDao.findcom(pid);
     }
 
     @Override

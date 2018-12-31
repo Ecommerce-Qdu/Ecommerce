@@ -80,5 +80,9 @@
       )
   </insert>
 
+    <delete id="delete">
+    delete from usersaddress
+    where AId = #{aid}
+  </delete>
 
 </mapper>

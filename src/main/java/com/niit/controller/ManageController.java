@@ -50,7 +50,7 @@ public class ManageController {
 
     @RequestMapping(value = "Changepwd.mvc")
     public String manage(ModelMap map, HttpSession session, String nowpwd, String newpwd, String newpwd2) {
-        if (nowpwd == null || nowpwd.equals("") || newpwd == null || newpwd.equals("") || newpwd2 == null || newpwd2.equals("")) {
+        if (nowpwd == null || "".equals(nowpwd) || newpwd == null || "".equals(newpwd) || newpwd2 == null || "".equals(newpwd2)) {
             map.addAttribute("msg", "请输入密码");
             map.addAttribute("url", "manage_person.jsp");
             return "msg.jsp";
@@ -76,9 +76,13 @@ public class ManageController {
     @RequestMapping(value = "Changeinfo.mvc")
     public String Changeinfo(ModelMap map, HttpSession session, String uname,
                              String uZipCode, String uEmail, String uPhone) {
-        if(uZipCode.length()>6){
-            map.addAttribute("msg", "邮编错误，应为6位数字");
-            return "msg.jsp";
+        try{
+            if(uZipCode.length()>6){
+                map.addAttribute("msg", "邮编错误，应为6位数字");
+                return "msg.jsp";
+            }
+        }catch (Exception e){
+            uZipCode="";
         }
 
         Users user = (Users) session.getAttribute("user");

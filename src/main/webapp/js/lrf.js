@@ -200,6 +200,7 @@ function getSms() {
                 url: "SendSms.mvc",
                 contentType: "application/x-www-form-urlencoded",
                 data: {
+                    "Type":"1",
                     "Phonenum": phonenum,
                     "UName": UName,
                 },
@@ -241,6 +242,7 @@ function getSms2() {
                 url: "SendSms.mvc",
                 contentType: "application/x-www-form-urlencoded",
                 data: {
+                    "Type":"2",
                     "Phonenum": phonenum,
                     "UName": phonenum,
                 },

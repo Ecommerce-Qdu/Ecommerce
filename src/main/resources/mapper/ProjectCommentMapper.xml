@@ -8,6 +8,7 @@
         <result column="PComment" property="pcomment" jdbcType="VARCHAR"/>
         <result column="UPhone" property="uphone" jdbcType="VARCHAR"/>
         <association property="projectByCPid" select="selectprojectbypid" column="cpid"/>
+        <association property="usersByUPhone" select="selectusersByUPhone" column="UPhone"/>
     </resultMap>
     <sql id="Base_Column_List">
     PCId, CPid, PCTime, PComment, UPhone
@@ -105,6 +106,14 @@
 
     <select id="selectprojectbypid" resultType="Project" parameterType="java.lang.Integer">
     select * from Project where pid = #{cpid}
+    </select>
+
+    <select id="selectusersByUPhone" resultType="Users" parameterType="java.lang.String">
+    select * from users where UPhone = #{UPhone}
+    </select>
+
+    <select id="findcom" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select * from projectcomment where PCId = #{pid,jdbcType=INTEGER}
     </select>
 
 </mapper>

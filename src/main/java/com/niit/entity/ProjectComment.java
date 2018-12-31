@@ -17,7 +17,21 @@ public class ProjectComment {
     private Users usersByUPhone;
     
     private Project projectByCPid;
-    
+
+    @Override
+    public String toString() {
+        return "ProjectComment{" +
+                "pcid=" + pcid +
+                ", cpid=" + cpid +
+                ", pctime=" + pctime +
+                ", pcomment='" + pcomment + '\'' +
+                ", uphone='" + uphone + '\'' +
+                ", usersByUPhone=" + usersByUPhone +
+                ", projectByCPid=" + projectByCPid +
+                '}';
+    }
+
+
     public ProjectComment(Integer pcid, Integer cpid, Date pctime, String pcomment, String uphone, Users usersByUPhone, Project projectByCPid) {
         this.pcid = pcid;
         this.cpid = cpid;

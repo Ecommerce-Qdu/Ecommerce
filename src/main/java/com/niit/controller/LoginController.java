@@ -70,8 +70,9 @@ public class LoginController {
 
             List<UsersAddress> list = userBiz.findAllAddress(user.getUphone());
             session.setAttribute("addr", list);
-            if (list.size() == 0)
+            if (list.size() == 0) {
                 return "redirect:manage.jsp?mangetype=manageaddr";
+            }
             if (user.getUtype() == 1) {
                 return "Index.mvc";
             } else {

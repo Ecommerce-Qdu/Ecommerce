@@ -1,10 +1,8 @@
 package com.niit.biz;
 
-import com.niit.entity.Orders;
-import com.niit.entity.Project;
-import com.niit.entity.ProjectImg;
-import com.niit.entity.Users;
+import com.niit.entity.*;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface IProjectBiz {
@@ -60,4 +58,6 @@ public interface IProjectBiz {
     List<ProjectImg> findimg(int pid);
 
     List<ProjectImg> findhotimg();
+
+    List<ProjectComment> findcom(Integer pid);
 }

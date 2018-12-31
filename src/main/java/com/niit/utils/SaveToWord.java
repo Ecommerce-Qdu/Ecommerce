@@ -87,8 +87,9 @@ public class SaveToWord {
             map.put("ptime", ptimestr);
 
             String exp = "是";
-            if (order.getExpect() == 0)
+            if (order.getExpect() == 0) {
                 exp = "否";
+            }
             map.put("pr", exp);
 
             String exptype = "";
@@ -121,10 +122,12 @@ public class SaveToWord {
                 address = "-";
                 remark = "-";
             }
-            if (address == null)
+            if (address == null) {
                 address = "-";
-            if (remark == null)
+            }
+            if (remark == null) {
                 remark = "-";
+            }
 
 
             map.put("pa", address);

@@ -25,7 +25,7 @@ public class Exchange {
 
 
         try {
-            JSONObject jsonObject = juhe.getRequest1();
+            JSONObject jsonObject = JuheDemo.getRequest1();
             JSONArray data = jsonObject.getJSONArray("result");
             JSONObject job = data.getJSONObject(0);
 
@@ -79,13 +79,15 @@ public class Exchange {
         }
 
 
-        if (type == 2)
+        if (type == 2) {
             return coin;
-        else if (type == 1)
+        } else if (type == 1)
             //保留小数精度2位,四舍五入
+        {
             return coin.divide(coinDvalue, 2, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(100));
-        else
+        } else {
             return coin.multiply(coinvalue).divide(coinDvalue, 2, RoundingMode.HALF_UP);
+        }
     }
 
 }

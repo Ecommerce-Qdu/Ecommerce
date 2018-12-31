@@ -5,6 +5,7 @@ import com.niit.entity.ProjectComment;
 import com.niit.entity.Users;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.List;
 
 @Repository
@@ -24,4 +25,6 @@ public interface ProjectCommentMapper {
     List<ProjectComment> findAllUserProjectComment(String s);
     
     boolean savecom(Project p, Users u, String newcom);
+
+    List<ProjectComment> findcom(Integer pid);
 }
