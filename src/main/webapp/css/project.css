@@ -39,7 +39,7 @@
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(216, 216, 216, .8);
     background-color: white;
-    height: 650px;
+    height: 720px;
 }
 
 #title {
@@ -52,7 +52,9 @@
     line-height: 0.5em;
     font-weight: bold;
     font-size: 2em;
+    margin: 16px;
 }
+
 
 #now {
     font-weight: bold;
@@ -112,7 +114,7 @@
     background: white;
     border-radius: 10px;
     height: 30px;
-    width: 180px;
+    width: 270px;
     text-align: center;
 }
 

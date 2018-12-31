@@ -70,6 +70,7 @@ public class SaveToWord {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String timestr = dateFormat.format(date);
 
+
         dataMap.put("timestr", timestr);
 
         List<Map<String, Object>> newList = new ArrayList<Map<String, Object>>();
@@ -82,7 +83,8 @@ public class SaveToWord {
             map.put("pname", order.getProjectByPId().getPname());
             map.put("pstate", order.getProjectByPId().getPstate());
             map.put("pmoney", order.getMoney());
-            map.put("ptime", order.getOrderdate());
+            String ptimestr = dateFormat.format(order.getOrderdate());
+            map.put("ptime", ptimestr);
 
             String exp = "是";
             if (order.getExpect() == 0)
