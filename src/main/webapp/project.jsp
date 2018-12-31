@@ -2,15 +2,26 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page isELIgnored="false" %>
 
+<%--<%--%>
+<%--String pid = request.getParameter("pid");--%>
+<%--session.setAttribute("projectpagepid", pid);--%>
+<%--%>--%>
+
+<%--<c:if test="${empty imglist}">--%>
+<%--<!-- JSP提供的 转发标签 -->--%>
+<%--<jsp:forward page="ShowProject.mvc?pid=${projectpagepid}"/>--%>
+<%--</c:if>--%>
+
 <html>
 <head>
     <title>ecommerce</title>
     <script src="js/jquery.js" type="text/javascript"></script>
+    <%--<script src="js/footer.js" type="text/javascript"></script>--%>
     <script src="js/index.js" type="text/javascript"></script>
     <script src="js/product.js" type="text/javascript"></script>
-    <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/jquery-ui.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
+    <%--<link rel="stylesheet" type="text/css" href="css/footer.css"/>--%>
     <link rel="stylesheet" type="text/css" href="css/header.css"/>
     <link rel="stylesheet" type="text/css" href="css/project.css"/>
 
@@ -21,7 +32,7 @@
 
 <!--引入头部-->
 <div id="head_div">
-    <jsp:include page="h.jsp"/>
+    <jsp:include page="h.jsp"></jsp:include>
 </div>
 <!--总体div-->
 <div id="all">
@@ -48,10 +59,17 @@
                 </p>
                 <div>
                     <div>
-                            <div class="layui-progress layui-progress-big">
-                                <div class="layui-progress-bar" lay-percent="${percentage}%"></div>
-                            </div>
 
+                        <div id="progressbar"></div>
+
+                        <script>
+                            $("#progressbar").progressbar({
+                                value: ${percentage}
+                            });
+                            progressbar = $("#progressbar");
+                            progressbarValue = progressbar.find(".ui-progressbar-value");
+                            progressbarValue.css("background", "green");
+                        </script>
                     </div>
                     <div>
                         <p id="now">当前进度${percentage}%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${showproject.pnp}名支持者</p>
@@ -62,7 +80,7 @@
                         <input id="pedt" name="pedC" value="${showproject.ped}" disabled>
                     </span>
                     &nbsp;
-                    前得到<br>
+                    前得到
                     &nbsp;
                     <span class="time">
                         ${showproject.ptarget}
@@ -148,11 +166,7 @@
                             地址:
                         </td>
                         <td>
-                            <c:forEach items="${addr}" var="uad" varStatus="vs" begin="0" end="0">
-                                <input name="oaid" type="radio" value="${uad.aid}" checked>
-                                ${uad.address}
-                            </c:forEach>
-                            <c:forEach items="${addr}" var="uad" varStatus="vs" begin="1">
+                            <c:forEach items="${addr}" var="uad">
                                 <input name="oaid" type="radio" value="${uad.aid}">
                                 ${uad.address}
                             </c:forEach>

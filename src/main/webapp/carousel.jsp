@@ -23,20 +23,22 @@
         <c:if test="${hot==null}">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         </c:if>
-        <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="0" end="0">
+        <c:forEach items="${hot}" var="ad" varStatus="vs" begin="0" end="0">
             <li data-target="#myCarousel" data-slide-to="${vs.count}" class="active"></li>
         </c:forEach>
-        <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="1">
-            <li data-target="#myCarousel" data-slide-to="${vs.index}"></li>
+        <c:forEach items="${hot}" var="ad" varStatus="vs" begin="1">
+            <li data-target="#myCarousel" data-slide-to="${vs.count}"></li>
         </c:forEach>
     </ol>
     <!-- 轮播（Carousel）项目 -->
     <div class="carousel-inner">
 
-        <div class="item active">
-            <img class="cimg" src="images/LRFbg.jpg">
-        </div>
-        <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="0">
+             <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="0" end="0">
+            <div class="item active">
+                <img class="cimg" src="${ad.imgpath}" alt="${vs.count}" onclick="topro(${ad.pid})">
+            </div>
+        </c:forEach>
+        <c:forEach items="${hotimglist}" var="ad" varStatus="vs" begin="1">
             <div class="item">
                 <img class="cimg" src="${ad.imgpath}" alt="${vs.count}" onclick="topro(${ad.pid}">
             </div>
