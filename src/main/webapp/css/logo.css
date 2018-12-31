@@ -1,7 +1,9 @@
 #logo {
     /*设置Logo的宽度*/
-    height: 100px;
-    width: 380px;
+
+    height: 50px;
+    width: 150px;
+    margin-top: 22px;
 }
 
 #LRF {
