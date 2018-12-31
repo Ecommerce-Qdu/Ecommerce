@@ -16,7 +16,7 @@
 </head>
 
 <body class="lay-blog">
-<div class="header">
+<div class="header"  style="position: fixed;top: 0;width: 100%;z-index: 9">
     <div class="header-wrap">
         <h1 class="logo pull-left">
             <a href="Index.mvc">
