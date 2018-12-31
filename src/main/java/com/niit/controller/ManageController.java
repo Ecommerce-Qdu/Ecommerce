@@ -30,7 +30,12 @@ public class ManageController {
     @RequestMapping(value = "Manage.mvc")
     public String manage(ModelMap map, HttpSession session) {
         Users user = (Users) session.getAttribute("user");
-        String uphone = user.getUphone();
+        try{
+            String uphone = user.getUphone();
+        }catch (Exception e){
+            return "lrf.jsp";
+        }
+
 
         List<Orders> myorders = userBiz.findAllOrder(user.getUphone());
         List<Project> mynewprojects = userBiz.findAllUserProject(user.getUphone());
