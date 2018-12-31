@@ -1,6 +1,8 @@
 package com.niit.entity;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Orders {
@@ -22,7 +24,7 @@ public class Orders {
 
     private Date orderdate;
 
-private  Users usersByUPhone;
+    private Users usersByUPhone;
 
     public Users getUsersByUPhone() {
         return usersByUPhone;
@@ -33,9 +35,19 @@ private  Users usersByUPhone;
     }
 
     private UsersAddress usersAddressByAId;
-    
+
     private Project projectByPId;
-    
+
+    private String timestr;
+
+    public String getTimestr() {
+        return timestr;
+    }
+
+    public void setTimestr(String timestr) {
+        this.timestr = timestr;
+    }
+
     public Orders(Integer orderid, String uphone, Integer pid, Integer aid, BigDecimal money, Integer expect, Integer expecttype, String exceptother, Date orderdate, UsersAddress usersAddressByAId, Project projectByPId) {
         this.orderid = orderid;
         this.uphone = uphone;
@@ -49,11 +61,11 @@ private  Users usersByUPhone;
         this.usersAddressByAId = usersAddressByAId;
         this.projectByPId = projectByPId;
     }
-    
+
     public UsersAddress getUsersAddressByAId() {
         return usersAddressByAId;
     }
-    
+
     public void setUsersAddressByAId(UsersAddress usersAddressByAId) {
         this.usersAddressByAId = usersAddressByAId;
     }
@@ -87,15 +99,15 @@ private  Users usersByUPhone;
         this.orderdate = orderdate;
         this.projectByPId = projectByPId;
     }
-    
+
     public Project getProjectByPId() {
         return projectByPId;
     }
-    
+
     public void setProjectByPId(Project projectByPId) {
         this.projectByPId = projectByPId;
     }
-    
+
 
     public Integer getOrderid() {
         return orderid;
@@ -166,6 +178,10 @@ private  Users usersByUPhone;
     }
 
     public void setOrderdate(Date orderdate) {
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        timestr = dateFormat.format(orderdate);
+
         this.orderdate = orderdate;
     }
 }
