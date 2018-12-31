@@ -78,7 +78,7 @@
             </td>
 
             <td>${pro.money}</td>
-            <td>${pro.timestr}</td>
+            <td>${pro.orderdate}</td>
             <td>
                 <c:if test="${pro.expect==0}">
                     不需要回报

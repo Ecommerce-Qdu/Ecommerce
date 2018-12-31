@@ -2,8 +2,6 @@ package com.niit.entity;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -49,19 +47,8 @@ public class Project {
     private List<Orders> ordersByPId;
 
     private ProjectType projectTypeByPCategoryId;
-
-    private String timestr;
-
-
-    public String getTimestr() {
-        return timestr;
-    }
-
-    public void setTimestr(String timestr) {
-        this.timestr = timestr;
-    }
-
-    public Project(String pname, String pdesc, Date psd, Date ped, BigDecimal ptarget, BigDecimal pnm, Integer pnp, String pmilestone, String premark, Integer pmf, Integer plimit, String pteam, Integer pstate, String pplan, Users u, ProjectType projectType) {
+    
+    public Project(String pname, String pdesc, Date psd, Date ped, BigDecimal ptarget, BigDecimal pnm, Integer pnp, String pmilestone, String premark, Integer pmf, Integer plimit, String pteam, Integer pstate, String pplan,Users u,ProjectType projectType) {
         this.pname = pname;
         this.pdesc = pdesc;
         this.psd = psd;
@@ -190,10 +177,6 @@ public class Project {
     }
 
     public void setPed(Date ped) {
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        timestr = dateFormat.format(ped);
-
         this.ped = ped;
     }
 
