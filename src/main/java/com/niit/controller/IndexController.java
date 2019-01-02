@@ -76,14 +76,14 @@ public class IndexController {
         map.addAttribute("ip2", p2);
         map.addAttribute("ip3", p3);
 
-        List<ProjectImg> hotimglist = new ArrayList<>();
-        hotimglist = projectBiz.findhotimg();
-        List<ProjectImg> hotimglisttemp = null;
-        for (int i = 0; i < hot.size(); i++) {
-            Project project = hot.get(i);
-            hotimglist.add(project.getProjectImgList().get(0));
-
-        }
+        List<ProjectImg> hotimglist = projectBiz.findhotimg();
+        System.out.println("hotimglist = " + hotimglist.size() + "\n" + hotimglist.toString());
+//        List<ProjectImg> hotimglisttemp = null;
+//        for (int i = 0; i < hot.size(); i++) {
+//            Project project = hot.get(i);
+//            hotimglist.add(project.getProjectImgList().get(0));
+//
+//        }
         session.setAttribute("hotimglist", hotimglist);
         session.setAttribute("hot", hot);
 
