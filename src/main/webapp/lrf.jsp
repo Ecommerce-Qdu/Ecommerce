@@ -53,7 +53,7 @@
         </tr>
         <tr>
             <td class="word">密码</td>
-            <td><input id="password" name="password" type="password" value="234"/></td>
+            <td><input id="password" name="password" type="password" value="12345678"/></td>
         </tr>
 
         <tr>

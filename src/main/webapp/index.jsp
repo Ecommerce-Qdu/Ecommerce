@@ -87,10 +87,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                    <%--<a class="ptypea"--%>
-                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                    <%--</a>--%>
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projecttypeid+2}">
+                                        ${pro.projectTypeByPCategoryId.projecttypename}
+                                </a>
                             </p>
                         </div>
 
@@ -158,10 +158,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                    <%--<a class="ptypea"--%>
-                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                    <%--</a>--%>
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projecttypeid+2}">
+                                        ${pro.projectTypeByPCategoryId.projecttypename}
+                                </a>
                             </p>
                         </div>
 
@@ -230,10 +230,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                    <%--<a class="ptypea"--%>
-                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                    <%--</a>--%>
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projecttypeid+2}">
+                                        ${pro.projectTypeByPCategoryId.projecttypename}
+                                </a>
                             </p>
                         </div>
 
@@ -300,10 +300,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                    <%--<a class="ptypea"--%>
-                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                    <%--</a>--%>
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projecttypeid+2}">
+                                        ${pro.projectTypeByPCategoryId.projecttypename}
+                                </a>
                             </p>
                         </div>
 
@@ -370,10 +370,10 @@
                                 </a>
                             </p>
                             <p class="ptype" style="width: 40px">
-                                    <%--<a class="ptypea"--%>
-                                    <%--href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projectTypeId+2}">--%>
-                                    <%--${pro.projectTypeByPCategoryId.projectTypeName}--%>
-                                    <%--</a>--%>
+                                <a class="ptypea"
+                                   href="Projectlist.mvc?type=${pro.projectTypeByPCategoryId.projecttypeid+2}">
+                                        ${pro.projectTypeByPCategoryId.projecttypename}
+                                </a>
                             </p>
                         </div>
 
@@ -423,7 +423,7 @@
 
 
 <!--撑出页脚-->
-<div id="blank" style="height:2150px"></div>
+<div id="blank" style="height:2250px"></div>
 
 <script type="text/javascript">
     window.onload = cheangetime();
