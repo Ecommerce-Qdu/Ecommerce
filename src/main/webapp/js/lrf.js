@@ -41,6 +41,7 @@ function userRegister() {
     var inpassword = document.getElementById("newpassword").value;
     var inpassword2 = document.getElementById("newpassword2").value;
     var phone = document.getElementById("REphone").value;
+    var sms = document.getElementById("sms").value;
 
     //去除空格
     inusername = inusername.replace(/\s+/g, "");
@@ -84,6 +85,11 @@ function userRegister() {
 
     } else {
         alert("未同意相关服务条款！");
+        return false;
+    }
+
+    if (sms == "") {
+        alert("请输入验证码!");
         return false;
     }
 
