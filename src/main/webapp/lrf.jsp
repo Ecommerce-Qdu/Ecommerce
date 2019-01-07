@@ -34,7 +34,7 @@
 </head>
 
 <body>
-<img id="logo" src="images/logo.png"/>
+<img id="logo" style="width: 10%;" src="images/logo.png"/>
 
 <div id="bg"></div>
 
