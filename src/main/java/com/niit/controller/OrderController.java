@@ -86,6 +86,6 @@ public class OrderController {
         } else {
             map.addAttribute("msg", "支持失败");
         }
-        return "msg.jsp";
+        return "pay.jsp";
     }
 }
