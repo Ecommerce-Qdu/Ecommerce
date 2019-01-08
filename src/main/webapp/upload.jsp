@@ -52,7 +52,7 @@
 </body>
 <script>
     // var path = 'Upload.mvc';
-    $(document).ready(function () {
+    $(document).ready(function () { //网页加载完调用
         $("#itemImagers").fileinput({
             language: 'zh', //设置语言
             'theme': 'explorer-fa',  //横排

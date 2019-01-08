@@ -121,11 +121,11 @@ public class ProjectController {
                 flag = 3;
             }
         }
-        String pathRoot = session.getServletContext().getRealPath("");
+        String pathRoot = session.getServletContext().getRealPath("");//获取当前项目绝对路径
         String path = "";
         String imgpath = "";
 
-        String savePath = pathRoot + "/images/" + pid + "/";
+        String savePath = pathRoot + "/images/" + pid + "/";//当前运行环境的图片文件夹下的对应pid的文件夹
 
         //若果不存在文件夹则创建
         File dirFile;
@@ -134,7 +134,7 @@ public class ProjectController {
         String sFileName;
         bFile = false;
         try {
-            dirFile = new File(savePath);
+            dirFile = new File(savePath); //检查文件目录是否存在，不存在则创建
             bFile = dirFile.exists();
             if (bFile == true) {
             } else {
@@ -169,7 +169,7 @@ public class ProjectController {
                         if ("image/jpeg".equals(contentType)) {
                             path = "/images/" + pid + "/" + i + ".jpg";
                             imgpath = "images/" + pid + "/" + i + ".jpg";
-                            mf.transferTo(new File(pathRoot + path));
+                            mf.transferTo(new File(pathRoot + path)); //把文件数组里的文件放到指定路径
                             listImagePath.add(imgpath);
                             System.out.println(imgpath);
                         } else {
