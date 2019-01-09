@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 
 
-/**
- * Created by XRog
- * On 2/1/2017.12:36 AM
- */
 @Controller
 public class RegisterController {
 

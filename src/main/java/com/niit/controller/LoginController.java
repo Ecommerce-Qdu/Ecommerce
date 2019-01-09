@@ -17,10 +17,6 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
-/**
- * Created by XRog
- * On 2/1/2017.12:36 AM
- */
 @Controller
 public class LoginController {
     @Autowired

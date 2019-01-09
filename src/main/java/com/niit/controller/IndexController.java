@@ -19,10 +19,6 @@ import java.util.Iterator;
 import java.util.List;
 
 
-/**
- * Created by XRog
- * On 2/1/2017.12:36 AM
- */
 @Controller
 public class IndexController {
 
