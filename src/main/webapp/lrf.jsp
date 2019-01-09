@@ -49,11 +49,11 @@
         <caption>会员登录</caption>
         <tr>
             <td class="word">手机号</td>
-            <td><input id="phone" name="phone" type="text" size="20" value="15610053553"/></td>
+            <td><input id="phone" name="phone" type="text" size="20" value=""/></td>
         </tr>
         <tr>
             <td class="word">密码</td>
-            <td><input id="password" name="password" type="password" value="12345678"/></td>
+            <td><input id="password" name="password" type="password" value=""/></td>
         </tr>
 
         <tr>
@@ -164,23 +164,23 @@
         <caption>新用户注册</caption>
         <tr>
             <td class="word">昵称</td>
-            <td><input id="UName" name="UName" type="text" value="123456" onchange="checkUName()"/></td>
+            <td><input id="UName" name="UName" type="text" value="" onchange="checkUName()"/></td>
             <%--<td id="warn1">昵称长度应在8-20之间</td>--%>
         </tr>
         <tr>
             <td class="word">密码</td>
-            <td><input id="newpassword" name="newpassword" type="password" value="12345678" onchange="checkPwd()"/></td>
+            <td><input id="newpassword" name="newpassword" type="password" value="" onchange="checkPwd()"/></td>
 
         </tr>
         <tr>
             <td class="word">确认密码</td>
-            <td><input id="newpassword2" name="password" type="password" value="12345678" onchange="checkPwd2()"/></td>
+            <td><input id="newpassword2" name="password" type="password" value="" onchange="checkPwd2()"/></td>
 
         </tr>
 
         <tr>
             <td class="word">手机号</td>
-            <td><input id="REphone" name="phone" type="tel" value="15610053553" onblur="checkPhone()"/></td>
+            <td><input id="REphone" name="phone" type="tel" value="" onblur="checkPhone()"/></td>
 
         </tr>
         <tr>
